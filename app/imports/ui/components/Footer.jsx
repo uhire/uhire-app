@@ -1,16 +1,14 @@
 import React from 'react';
+import { Menu } from 'semantic-ui-react';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
   render() {
-    const divStyle = { paddingTop: '15px' };
     return (
-        <footer>
-          <div style={divStyle} className="ui center aligned container">
-            <hr />
-            <span>When you are done with the NavBar and Landing Page, let me know what should be down here.</span>
-          </div>
-        </footer>
+        <Menu borderless fixed='bottom'>
+          <Menu.Item>About</Menu.Item>
+          <Menu.Item>Let me know what else...</Menu.Item>
+        </Menu>
     );
   }
 }
