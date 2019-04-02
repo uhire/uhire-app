@@ -3,7 +3,7 @@ import React from 'react';
 
 
 /** A simple static component to render some text for the landing page. */
-class CompanyProfile extends React.Component {
+class CompanyHomePage extends React.Component {
   render() {
     return (
 
@@ -11,4 +11,4 @@ class CompanyProfile extends React.Component {
   }
 }
 
-export default CompanyProfile;
+export default CompanyHomePage;
