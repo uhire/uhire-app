@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Container, Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 
@@ -7,10 +7,15 @@ import { NavLink } from 'react-router-dom';
 class Footer extends React.Component {
   render() {
     return (
-        <Menu borderless fixed='bottom'>
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/about" key='about'>About</Menu.Item>
-          <Menu.Item>Let me know what else... or how else...</Menu.Item>
-        </Menu>
+        <Container>
+          <Menu inverted borderless fixed='bottom'>
+            <Menu.Item as={NavLink} exact to="/about" key='about'>About</Menu.Item>
+            <Menu.Item>Let me know what else... or how else...</Menu.Item>
+            <Menu.Item position="right" href='https://github.com/uhire/uhire.github.io' target='_blank' >
+              UHire
+            </Menu.Item>
+          </Menu>
+        </Container>
     );
   }
 }
