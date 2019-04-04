@@ -1,4 +1,16 @@
 .uhire-landing-background {
-  background: url('images/Background.jpg') no-repeat center center fixed;
+  background: url('images/Background4C.jpg') no-repeat center center fixed;
   background-size: cover;
+  height: 1500px;
+  color: white;
+  vertical-align: middle;
+  padding-top: 300px;
+}
+.landing-font{
+  font-family: 'Helvetica', serif;
+  font-weight: bold;
+  font-size: x-large;
+  color: lightgrey;
+  vertical-align: middle;
+  padding-top: 30px;
 }

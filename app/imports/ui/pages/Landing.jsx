@@ -1,39 +1,51 @@
 import React from 'react';
-import { Grid, Icon, Header } from 'semantic-ui-react';
+import { Grid, Container, Image } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
     return (
         <div className="uhire-landing-background">
-          <Grid container centered stackable columns={3}>
-
-            <Grid.Column textAlign='center'>
-              <Icon name="users" size='huge'/>
-              <Header as='h1'>Multiple Users</Header>
-              <Header as='h3'>This address book enables any number of users to register and save
-                their business contacts.  You can only see the contact you have created.</Header>
+          <Grid>
+            <Grid.Column width={9}>
+                  <Container>
+                    <Image centered src='images/Business2.jpg' size='big' fluid />
+                  </Container>
             </Grid.Column>
 
-            <Grid.Column textAlign='center'>
-              <Icon name="file alternate outline" size='huge'/>
-              <Header as='h1'>Contact Details</Header>
-              <Header as='h3'>For each contact, you can save their name, address, and phone number.</Header>
+            <Grid.Column width={5}>
+                  <Container textAlign='center'>
+                    <div className="landing-font">Businesses now have a
+                      centralized location to advertise positions to potential employees.<br/>
+                      UHire is a new way for local and non-local companies
+                      to recruit students from UH to make their (potential)
+                      opportunities known to students.</div><br/>
+                  </Container>
             </Grid.Column>
-
-            <Grid.Column textAlign='center'>
-              <Icon name="calendar check outline" size='huge'/>
-              <Header as='h1'>Timestamped Notes</Header>
-              <Header as='h3'>Each time you make contact with a contact, you can write a note that summarizes
-                the conversation.  This note is saved along with a timestamp with the contact.</Header>
-            </Grid.Column>
-
           </Grid>
+
+          <Grid>
+            <Grid.Column width={2}>
+            </Grid.Column>
+          <Grid.Column width={5}>
+            <Container textAlign='center'>
+              <div className="landing-font">Students that want to learn about internship
+                and job opportunities no longer have to wait until a company decides to
+                visit the campus or send out some sort of announcement.<br/>
+                UHire allows students to create profiles with their interests which can
+                be matched to employers.</div><br/>
+            </Container>
+          </Grid.Column>
+
+          <Grid.Column width={9}>
+            <Container>
+              <Image centered src='images/Students.jpg' size='big' fluid />
+            </Container>
+          </Grid.Column>
+        </Grid>
         </div>
     );
   }
 }
 
 export default Landing;
-
-
