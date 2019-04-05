@@ -92,7 +92,7 @@ class CompanyHome extends React.Component {
 
           </Grid>
 
-          <Table sortable celled padded>
+          <Table sortable celled fixed>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine sorted={column === 'position' ? direction : null}
@@ -101,16 +101,24 @@ class CompanyHome extends React.Component {
                 </Table.HeaderCell>
                 <Table.HeaderCell sorted={column === 'number' ? direction : null}
                                   onClick={this.handleSort('number')}>
-                  Number of Openings</Table.HeaderCell>
+                  Number of Openings
+                </Table.HeaderCell>
                 <Table.HeaderCell sorted={column === 'interested' ? direction : null}
                                   onClick={this.handleSort('interested')}>
-                  Interested</Table.HeaderCell>
+                  Interested
+                </Table.HeaderCell>
+                <Table.HeaderCell sorted={column === 'views' ? direction : null}
+                                  onClick={this.handleSort('views')}>
+                  Interested
+                </Table.HeaderCell>
                 <Table.HeaderCell singleLine sorted={column === 'date' ? direction : null}
                                   onClick={this.handleSort('date')}>
-                  Date Open</Table.HeaderCell>
+                  Date Open
+                </Table.HeaderCell>
                 <Table.HeaderCell sorted={column === 'description' ? direction : null}
                                   onClick={this.handleSort('description')}>
-                  Description</Table.HeaderCell>
+                  Description
+                </Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 
