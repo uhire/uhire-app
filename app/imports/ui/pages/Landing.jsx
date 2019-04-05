@@ -10,7 +10,7 @@ class Landing extends React.Component {
           <Grid>
             <Grid.Column width={9}>
                   <Container>
-                    <Image centered src='images/Business2.jpg' size='big' fluid />
+                    <Image centered src='images/Business2.jpg' size='big' />
                   </Container>
             </Grid.Column>
 
@@ -40,7 +40,7 @@ class Landing extends React.Component {
 
           <Grid.Column width={9}>
             <Container>
-              <Image centered src='images/Students.jpg' size='big' fluid />
+              <Image centered src='images/Students.jpg' size='big' />
             </Container>
           </Grid.Column>
         </Grid>
