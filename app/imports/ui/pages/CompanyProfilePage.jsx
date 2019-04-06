@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader, Grid } from 'semantic-ui-react';
+import { Loader, Grid, Container, Image } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import Company from '/imports/ui/components/Company';
 import CompanyLogo from '/imports/ui/components/CompanyLogo';
@@ -18,14 +18,18 @@ class CompanyProfilePage extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Grid container columns={2} divided>
-          <Grid.Column width={12}>
-            {this.props.companies.map((company, index) => <Company key={index} company={company} />)}
-          </Grid.Column>
-          <Grid.Column width={3}>
-            {this.props.companies.map((company, index) => <CompanyLogo key={index} company={company} />)}
-          </Grid.Column>
-        </Grid>
+        <Container>
+          <Image src='images/Background4CD.jpg' className='company-profile-page-banner' centered />
+          <br/>
+          <Grid columns={2} divided>
+            <Grid.Column width={12}>
+              {this.props.companies.map((company, index) => <Company key={index} company={company}/>)}
+            </Grid.Column>
+            <Grid.Column width={3}>
+              {this.props.companies.map((company, index) => <CompanyLogo key={index} company={company}/>)}
+            </Grid.Column>
+          </Grid>
+        </Container>
     );
   }
 }
