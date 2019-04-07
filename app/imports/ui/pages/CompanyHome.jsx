@@ -1,11 +1,10 @@
 import _ from 'lodash';
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
+// import { Meteor } from 'meteor/meteor';
 import { Button, Card, Container, Grid, Image, List, Table } from 'semantic-ui-react';
-import { withTracker } from 'meteor/react-meteor-data';
+// import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Companies } from '../../api/company/company.js';
-
+// import { Companies } from '../../api/company/company.js';
 
 
 const jobData = [
@@ -166,11 +165,14 @@ CompanyHome.propTypes = {
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(() => {
+export default
+/*
+withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Companies');
   return {
     companies: Companies.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(CompanyHome);
+})
+*/(CompanyHome);
