@@ -7,8 +7,8 @@ import { NavLink } from 'react-router-dom';
 class Footer extends React.Component {
   render() {
     return (
-        <Container>
-          <Menu inverted borderless fixed='bottom' color='grey'>
+
+          <Menu inverted borderless attached='bottom' color='grey'>
             <Menu.Item as={NavLink} exact to="/about" key='about'>About</Menu.Item>
 
 
@@ -16,7 +16,7 @@ class Footer extends React.Component {
               Source
             </Menu.Item>
           </Menu>
-        </Container>
+        
     );
   }
 }
