@@ -20,7 +20,7 @@ class Landing extends React.Component {
                       centralized location to advertise positions to potential employees.<br/>
                       UHire is a new way for local and non-local companies
                       to recruit students from the University of Hawaii, to make their (potential)
-                      opportunities known to students.</div><br/>
+                      opportunities known.</div><br/>
                   </Container>
             </Grid.Column>
           </Grid>
