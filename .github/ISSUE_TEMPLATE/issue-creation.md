@@ -1,10 +1,10 @@
 ---
 name: Issue Creation
 about: For creating issues
-title: XX-issue-name
+title: ''
 labels: ''
 assignees: ''
 
 ---
 
-Do all work for this task in a branch called issue-XX
+Do all work for this task in a branch called issue-#
