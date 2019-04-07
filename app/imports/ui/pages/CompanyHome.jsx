@@ -1,6 +1,12 @@
 import _ from 'lodash';
 import React from 'react';
-import { Card, Container, Grid, Image, List, Table } from 'semantic-ui-react';
+import { Meteor } from 'meteor/meteor';
+import { Button, Card, Container, Grid, Image, List, Table } from 'semantic-ui-react';
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
+import { Companies } from '../../api/company/company.js';
+
+
 
 const jobData = [
   { position: 'Position Title', number: 1, interested: 0, views: 1, date: '2018/10/31', description: 'description' },
@@ -48,7 +54,7 @@ class CompanyHome extends React.Component {
     return (
         <Container>
           <br/><br/>
-          <Grid columns={6} centered verticalAlign='middle' textAlign='center'>
+          <Grid columns={5} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
               <Image
@@ -77,22 +83,13 @@ class CompanyHome extends React.Component {
               </List>
             </Grid.Column>
 
-            <Grid.Column>
-
-            </Grid.Column>
-            <Grid.Column>
-
-            </Grid.Column>
-            <Grid.Column>
-
-            </Grid.Column>
-            <Grid.Column>
-
+            <Grid.Column floated='right'>
+              <Button content='Add New Position' icon='add' labelPosition='left' />
             </Grid.Column>
 
           </Grid>
 
-          <Table sortable celled fixed>
+          <Table sortable celled unstackable fixed>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine sorted={column === 'position' ? direction : null}
@@ -161,4 +158,19 @@ class CompanyHome extends React.Component {
     );
   }
 }
-export default CompanyHome;
+
+/** Require an array of Stuff documents in the props. */
+CompanyHome.propTypes = {
+  companies: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe('Companies');
+  return {
+    companies: Companies.find({}).fetch(),
+    ready: subscription.ready(),
+  };
+})(CompanyHome);
