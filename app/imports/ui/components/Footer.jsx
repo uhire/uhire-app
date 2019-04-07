@@ -8,11 +8,12 @@ class Footer extends React.Component {
   render() {
     return (
         <Container>
-          <Menu inverted borderless fixed='bottom'>
+          <Menu inverted borderless fixed='bottom' color='grey'>
             <Menu.Item as={NavLink} exact to="/about" key='about'>About</Menu.Item>
-            <Menu.Item>Let me know what else... or how else...</Menu.Item>
+
+
             <Menu.Item position="right" href='https://github.com/uhire/uhire.github.io' target='_blank' >
-              UHire
+              Source
             </Menu.Item>
           </Menu>
         </Container>
