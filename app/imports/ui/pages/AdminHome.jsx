@@ -3,8 +3,8 @@ import React from 'react';
 // import { Meteor } from 'meteor/meteor';
 import { Container, Grid, Header, Table } from 'semantic-ui-react';
 // import { withTracker } from 'meteor/react-meteor-data';
-import PropTypes from 'prop-types';
-// import { Companies } from '../../api/company/company.js';
+/** import PropTypes from 'prop-types';
+// import { Companies } from '../../api/company/company.js'; */
 
 
 const jobData = [
@@ -18,7 +18,7 @@ const stuData = [
 ];
 
 const companyData = [
-  { name: 'CompanyOne', location: 'Hawaii', email: 'email.com', image: '/images/meteor-logo.png', date: '2019/3/25'}
+  { name: 'CompanyOne', location: 'Hawaii', email: 'email.com', image: '/images/meteor-logo.png', date: '2019/3/25' },
 ];
 
 /** A simple static component to render some text for the landing page. */
@@ -51,7 +51,7 @@ class AdminHome extends React.Component {
 
   render() {
 
-    const { column, data, direction } = this.state;
+    const { column, direction } = this.state;
 
     return (
         <Container>
@@ -139,10 +139,10 @@ class AdminHome extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-AdminHome.propTypes = {
+/** AdminHome.propTypes = {
   companies: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
-};
+}; */
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default
