@@ -81,7 +81,7 @@ class StudentHome extends React.Component {
                   ))}
                 </Card.Group>
           </Container>
-          
+
         </Container>
     );
   }
