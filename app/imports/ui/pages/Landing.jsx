@@ -69,9 +69,7 @@ class Landing extends React.Component {
           </Grid>
 
           <Container textAlign='center'>
-            <div>
-              <Button color='green' as={NavLink} exact to="/signup"><i>SIGN</i><br/>ME UP!</Button>
-              </div>
+            <a className="ui massive inverted button" role="button" href="#/signup">Sign me up!</a>
           </Container>
 
         </div>
