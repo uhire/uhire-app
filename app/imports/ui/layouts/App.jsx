@@ -8,13 +8,14 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
+import AdminHome from '../pages/AdminHome';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import StudentHome from '../pages/StudentHome';
 import About from '../pages/About';
 import CompanyHome from '../pages/CompanyHome';
 
@@ -34,8 +35,9 @@ class App extends React.Component {
               <Route path="/cohome" component={CompanyHome}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
+              <ProtectedRoute path="/studentHome" component={StudentHome}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/admin" component={AdminHome}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
