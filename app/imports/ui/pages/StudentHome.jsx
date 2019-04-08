@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 // import { Meteor } from 'meteor/meteor';
-import { Container, Header, Card } from 'semantic-ui-react';
+import { Container, Header, Card, Image } from 'semantic-ui-react';
 // import { withTracker } from 'meteor/react-meteor-data';
 /** import PropTypes from 'prop-types';
 //import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
@@ -15,7 +15,7 @@ const jobData = [
 ];
 
 const companyData = [
-  { name: 'CompanyOne', location: 'Hawaii', email: 'email.com', image: '/public/images/Logo.jpg', date: '2019/3/25' },
+  { name: 'CompanyOne', location: 'Hawaii', email: 'email.com', image: '/images/Logo.jpg', date: '2019/3/25' },
   { name: 'CompanyTwo', location: 'Hawaii', email: 'email.com', image: '/images/Logo.jpg', date: '2019/3/26' },
   { name: 'CompanyThree', location: 'Hawaii', email: 'email.com', image: '/images/Logo.jpg', date: '2019/3/27' },
   { name: 'CompanyFour', location: 'Hawaii', email: 'email.com', image: '/images/Logo.jpg', date: '2019/3/28' },
@@ -61,7 +61,7 @@ class StudentHome extends React.Component {
                   {_.map(companyData, ({ name, location, email, image, date }) => (
                       <Card key={name}>
                         <Card.Content>
-                          {image}
+                          <Image src={image}/>
                           <Card.Header>
                             {name}
                           </Card.Header>
