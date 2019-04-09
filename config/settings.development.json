@@ -27,14 +27,6 @@
       "image": "http://i.imgur.com/AItCxSs.jpg",
       "contact": "Default",
       "owner": "admin@foo.com"
-    },
-    {
-      "companyName": "Default2",
-      "location": "Default",
-      "description": "Default",
-      "image": "http://i.imgur.com/AItCxSs.jpg",
-      "contact": "Default",
-      "owner": "john@foo.com"
     }
   ]
 }
