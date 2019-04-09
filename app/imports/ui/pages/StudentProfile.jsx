@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader, CardGroup} from 'semantic-ui-react';
-import { Stuffs } from '/imports/api/stuff/stuff';
+import { Container, Header, Loader, CardGroup } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Students } from '/imports/api/stuff/student';
@@ -20,7 +19,7 @@ class StudentProfile extends React.Component {
     return (
 
         <Container>
-          <Header as="h2" textAlign="center">Student Profiles </Header>
+          <Header as="h2" textAlign="center" inverted>Student Profiles </Header>
           <CardGroup centered>
             {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff} />)}
           </CardGroup>

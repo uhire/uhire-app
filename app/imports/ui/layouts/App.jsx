@@ -16,7 +16,7 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import About from '../pages/About';
-import StudentProfile from '../pages/StudentProfile'
+import StudentProfile from '../pages/StudentProfile';
 import CompanyHome from '../pages/CompanyHome';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */

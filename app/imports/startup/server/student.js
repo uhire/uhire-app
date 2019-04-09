@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import { Students } from '../../api/stuff/student.js';
 
 /** Initialize the database with a default data document. */
@@ -22,4 +21,3 @@ Meteor.publish('Student', function publish() {
   }
   return this.ready();
 });
-
