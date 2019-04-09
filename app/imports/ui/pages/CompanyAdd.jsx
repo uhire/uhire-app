@@ -43,7 +43,7 @@ class CompanyAdd extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Company</Header>
+            <Header as="h2" textAlign="center" inverted>Add Company</Header>
             <AutoForm ref={(ref) => { this.formRef = ref; }} schema={CompanySchema} onSubmit={this.submit}>
               <Segment>
                 <TextField name='companyName'/>
