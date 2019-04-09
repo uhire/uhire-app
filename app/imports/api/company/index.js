@@ -1,2 +1,1 @@
-/** import */
 import './company.js';
