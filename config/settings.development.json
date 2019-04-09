@@ -9,5 +9,12 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultStudentData": [
+    { "firstName": "John", "lastName": "Yap", "description": "Student at UH Manoa", "city": "Honolulu, HI",
+      "locationZip": 96822, "profile": "https://www.google.com", "interests": "Programming, AI, Web Development","owner": "john@foo.com",         "grade": "Junior" },
+    { "firstName": "John", "lastName": "Yap", "description": "Student at UH Manoa", "city": "Honolulu, HI",
+      "locationZip": 96822, "profile": "https://www.google.com", "interests": "Programming, AI, Web Development","owner": "john@foo.com",         "grade": "Junior" }
   ]
 }

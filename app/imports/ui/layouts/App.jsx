@@ -16,6 +16,7 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import About from '../pages/About';
+import StudentProfile from '../pages/StudentProfile'
 import CompanyHome from '../pages/CompanyHome';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -32,6 +33,7 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               { /* cannot remain unprotected */ }
               <Route path="/cohome" component={CompanyHome}/>
+              <Route path="/sprofile" component={StudentProfile}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
