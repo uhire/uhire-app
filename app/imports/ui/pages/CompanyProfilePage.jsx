@@ -46,7 +46,7 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe('Companies');
   return {
     // companies: Companies.find({}, { sort: { _id: 1 }, limit: 1 }).fetch(),
-    companies: Companies.find({}, { sort: { _id: -1 }, limit: 1 }).fetch(),
+    companies: Companies.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(CompanyProfilePage);
