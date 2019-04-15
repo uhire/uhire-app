@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, Radio } from 'semantic-ui-react';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
  * Authentication errors modify the component’s state to be displayed
  */
 export default class Signin extends React.Component {
+  state={}
 
   /** Initialize component state with properties for login and redirection. */
   constructor(props) {
@@ -26,9 +27,7 @@ export default class Signin extends React.Component {
     this.setState({ [name]: value });
   }
   /** Update radio buttons when clicked **/
-  handleOptionChange(e){
-    this.setState({selectedOption: e.currentTarget.value});
-  }
+  handleOptionChange= (e, { value }) => this.setState({ value });
 
   /** Handle Signin submission using Meteor's account mechanism. */
   handleSubmit() {
@@ -61,6 +60,9 @@ export default class Signin extends React.Component {
                 Login to your account
               </Header>
               <Form onSubmit={this.handleSubmit}>
+                <Form.Field>
+                  Selected value: <b>{this.state.value}</b>
+                </Form.Field>
                 <Segment stacked>
                   <Form.Input
                       label="Email"
@@ -80,8 +82,24 @@ export default class Signin extends React.Component {
                       type="password"
                       onChange={this.handleChange}
                   />
-                  <Form.Input label="Student" type="radio" value="Student" checked={this.state.selectedOption === 'Student'} position="left" onChange={this.handleOptionChange}/>
-                  <Form.Input label="Company" type="radio" value="Company" checked={this.state.selectedOption === 'Company'} position="left" onChange={this.handleOptionChange} />
+                  <Form.Input>
+                    <Radio
+                      label = 'Student'
+                      name='radioGroup'
+                      value='Student'
+                      checked={this.state.value === 'Student'}
+                      onChange={this.handleOptionChange}
+                      />
+                  </Form.Input>
+                  <Form.Input>
+                    <Radio
+                        label = 'Company'
+                        name='radioGroup'
+                        value='Company'
+                        checked={this.state.value === 'Company'}
+                        onChange={this.handleOptionChange}
+                    />
+                  </Form.Input>
                   <Form.Button content="Submit"/>
                 </Segment>
               </Form>
