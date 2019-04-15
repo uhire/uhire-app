@@ -77,5 +77,11 @@
       "owner": "john@foo.com",
       "grade": "Junior"
     }
-  ]
+  ],
+
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb+srv://rcard:changeme@uhire-fm2vm.mongodb.net/test"
+    }
+  }
 }

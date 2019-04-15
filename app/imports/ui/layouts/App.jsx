@@ -7,6 +7,8 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
+import CompanyAdd from '../pages/CompanyAdd';
+import CompanyProfilePage from '../pages/CompanyProfilePage';
 import ListStuff from '../pages/ListStuff';
 import AdminHome from '../pages/AdminHome';
 import AddStuff from '../pages/AddStuff';
@@ -16,8 +18,9 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import StudentHome from '../pages/StudentHome';
-import About from '../pages/About';
+import StudentProfile from '../pages/StudentProfile';
 import CompanyHome from '../pages/CompanyHome';
+import CompanyRegistration from '../pages/CompanyRegistration';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -28,11 +31,14 @@ class App extends React.Component {
             <NavBar/>
             <Switch>
               <Route exact path="/" component={Landing}/>
-              <Route path="/about" component={About}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
+              <Route path="/coregis" component={CompanyRegistration}/>
+              <ProtectedRoute path="/list" component={CompanyProfilePage}/>
+              <ProtectedRoute path="/add" component={CompanyAdd}/>
               { /* cannot remain unprotected */ }
               <Route path="/cohome" component={CompanyHome}/>
+              <Route path="/sprofile" component={StudentProfile}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/studentHome" component={StudentHome}/>

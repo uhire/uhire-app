@@ -3,8 +3,8 @@ import React from 'react';
 // import { Meteor } from 'meteor/meteor';
 import { Button, Card, Container, Grid, Image, List, Table } from 'semantic-ui-react';
 // import { withTracker } from 'meteor/react-meteor-data';
-import PropTypes from 'prop-types';
-// import { Companies } from '../../api/company/company.js';
+/** import PropTypes from 'prop-types';
+// import { Companies } from '../../api/company/company.js'; */
 
 
 const jobData = [
@@ -13,8 +13,8 @@ const jobData = [
 
 ];
 const stuData = [
-  { name: 'John', location: 'Hawaii', email: 'john@foo.com', image: '/images/meteor-logo.png' },
-  { name: 'Jay', location: 'Hawaii', email: 'john@foo.com', image: '/images/meteor-logo.png' },
+  { name: 'John', location: 'Hawaii', email: 'john@foo.com', image: '/images/Logo.jpg' },
+  { name: 'Jay', location: 'Hawaii', email: 'john@foo.com', image: '/images/Logo.jpg' },
 ];
 
 
@@ -57,7 +57,7 @@ class CompanyHome extends React.Component {
 
             <Grid.Column>
               <Image
-                  src='/images/meteor-logo.png'
+                  src='/images/Logo.jpg'
                   as='a'
                   size='small'
                   href='http://localhost:3000/#/'
@@ -159,10 +159,10 @@ class CompanyHome extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-CompanyHome.propTypes = {
+/** CompanyHome.propTypes = {
   companies: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
-};
+}; */
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default

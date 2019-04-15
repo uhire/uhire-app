@@ -13,6 +13,8 @@ function createUser(email, password, role) {
   });
   if (role === 'admin') {
     Roles.addUsersToRoles(userID, 'admin');
+  } else if (role === 'comp') {
+    Roles.addUsersToRoles(userID, 'comp');
   }
 }
 

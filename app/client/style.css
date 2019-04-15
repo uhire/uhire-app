@@ -1,3 +1,7 @@
+.company-profile-page-banner {
+  height: 200px;
+  width: 800px;
+}
 .uhire-landing-background {
   background: url('images/Background4CD.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -5,13 +9,21 @@
   color: white;
   vertical-align: middle;
   padding-top: 300px;
+  padding-bottom: 2.5rem;
+  position: relative;
 }
-.landing-font{
+.landing-font {
   font-family: 'Roboto', serif;
   font-weight: bold;
   font-size: x-large;
   color: lightgrey;
   vertical-align: middle;
   padding-top: 30px;
+}
+#footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
 }
 

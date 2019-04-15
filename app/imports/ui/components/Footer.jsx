@@ -7,16 +7,14 @@ import { NavLink } from 'react-router-dom';
 class Footer extends React.Component {
   render() {
     return (
-
+    <footer id="footer">
           <Menu inverted borderless attached='bottom' color='grey'>
             <Menu.Item as={NavLink} exact to="/about" key='about'>About</Menu.Item>
-
-
             <Menu.Item position="right" href='https://github.com/uhire/uhire.github.io' target='_blank' >
               Source
             </Menu.Item>
           </Menu>
-        
+    </footer>
     );
   }
 }
