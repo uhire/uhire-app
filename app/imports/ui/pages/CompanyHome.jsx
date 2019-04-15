@@ -1,33 +1,26 @@
-import _ from 'lodash';
+// import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Button, Card, Container, Grid, Image, List, Loader, Table } from 'semantic-ui-react';
+import { Button, Card, CardGroup, Container, Grid, Image, List, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Positions } from '../../api/position/position.js';
 import PositionItem from '/imports/ui/components/PositionItem';
+/*
 import { Companies } from '/imports/api/company/company.js';
 import Company from '/imports/ui/components/Company';
-
-
-const jobData = [
-  { position: 'Position Title', number: 1, interested: 0, views: 1, date: '2018/10/31', description: 'description' },
-  { position: 'Test Title', number: 2, interested: 1, views: 12, date: '2019/12/25', description: 'long description' },
-
-];
-const stuData = [
-  { name: 'John', location: 'Hawaii', email: 'john@foo.com', image: '/images/Logo.jpg' },
-  { name: 'Jay', location: 'Hawaii', email: 'john@foo.com', image: '/images/Logo.jpg' },
-];
-
+*/
+import { Students } from '/imports/api/stuff/student';
+import StudentItem from '/imports/ui/components/StudentItem';
 
 /** A simple static component to render some text for the landing page. */
 class CompanyHome extends React.Component {
 
+/*
   state = {
     column: null,
-    data: jobData,
+    data: null,
     direction: null,
   }
 
@@ -49,15 +42,25 @@ class CompanyHome extends React.Component {
       direction: direction === 'ascending' ? 'descending' : 'ascending',
     });
   }
+*/
+
+/*
+  render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+*/
 
   render() {
 
-    const { column, data, direction } = this.state;
+    // const { column, data, direction } = this.state;
 
     return (
 
         <Container>
-          <br/><br/>
+
+          <br/>
+          <br/>
+
           <Grid columns={5} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
@@ -69,7 +72,6 @@ class CompanyHome extends React.Component {
                   target='_blank'
               />
             </Grid.Column>
-
             <Grid.Column>
               <List>
                 <List.Item>
@@ -88,8 +90,10 @@ class CompanyHome extends React.Component {
             </Grid.Column>
 
             <Grid.Column floated='right'>
-              <Button color='red' as={NavLink} exact to="/addposition"
+
+             <Button color='red' as={NavLink} exact to="/addposition"
                       key='add' content='Add Position' icon='add' />
+
             </Grid.Column>
 
           </Grid>
@@ -97,27 +101,27 @@ class CompanyHome extends React.Component {
           <br/>
           <br/>
 
-          <Table sortable celled unstackable fixed>
+          <Table sortable celled fixed>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell singleLine sorted={column === 'title' ? direction : null}
-                                  onClick={this.handleSort('title')}>
+                <Table.HeaderCell /* sorted={column === 'title' ? direction : null}
+                                  onClick={this.handleSort('title')} */>
                   Title
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'location' ? direction : null}
-                                  onClick={this.handleSort('location')}>
+                <Table.HeaderCell /* sorted={column === 'location' ? direction : null}
+                                  onClick={this.handleSort('location')} */>
                   Location
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'openings' ? direction : null}
-                                  onClick={this.handleSort('openings')}>
+                <Table.HeaderCell /* sorted={column === 'openings' ? direction : null}
+                                  onClick={this.handleSort('openings')} */>
                   Openings
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'date' ? direction : null}
-                                  onClick={this.handleSort('date')}>
+                <Table.HeaderCell /* sorted={column === 'date' ? direction : null}
+                                  onClick={this.handleSort('date')} */>
                   Date
                 </Table.HeaderCell>
-                <Table.HeaderCell singleLine sorted={column === 'description' ? direction : null}
-                                  onClick={this.handleSort('description')}>
+                <Table.HeaderCell /* sorted={column === 'description' ? direction : null}
+                                  onClick={this.handleSort('description')} */>
                   Description
                 </Table.HeaderCell>
                 <Table.HeaderCell> Edit </Table.HeaderCell>
@@ -126,7 +130,8 @@ class CompanyHome extends React.Component {
             </Table.Header>
 
             <Table.Body>
-              {this.props.positions.map((position, index) => <PositionItem key={index} position={position} />)}
+
+              {this.props.positions.map((position) => <PositionItem key={position._id} position={position} />)}
 
             </Table.Body>
           </Table>
@@ -134,24 +139,10 @@ class CompanyHome extends React.Component {
           <br/>
           <br/>
 
-          <Card.Group centered>
-            {_.map(stuData, ({ name, location, email, image }) => (
-                <Card key={name}>
-                  <Image src={image}/>
-                  <Card.Content>
-                    <Card.Header>
-                      {name}
-                    </Card.Header>
-                    <Card.Meta>
-                      {location}
-                    </Card.Meta>
-                    <Card.Description>
-                      {email}
-                    </Card.Description>
-                  </Card.Content>
-                </Card>
-            ))}
-          </Card.Group>
+          <CardGroup centered>
+            {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff} />)}
+          </CardGroup>
+
         </Container>
     );
   }
@@ -160,7 +151,8 @@ class CompanyHome extends React.Component {
 /** Require an array of Stuff documents in the props. */
 CompanyHome.propTypes = {
   positions: PropTypes.array.isRequired,
-  companies: PropTypes.array.isRequired,
+  // companies: PropTypes.array.isRequired,
+  students: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -169,9 +161,12 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subPositions = Meteor.subscribe('Positions');
   const subCompanies = Meteor.subscribe('Companies');
+  const subStudents = Meteor.subscribe('Students');
+
   return {
     positions: Positions.find({}).fetch(),
-    companies: Companies.find({}).fetch(),
-    ready: subPositions.ready() && subCompanies.ready(),
+    // companies: Companies.find({}).fetch(),
+    students: Students.find({}).fetch(),
+    ready: subPositions.ready() && subCompanies.ready() && subStudents.ready(),
   };
 })(CompanyHome);
