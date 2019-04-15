@@ -1,10 +1,11 @@
 import _ from 'lodash';
 import React from 'react';
-// import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor';
 import { Button, Card, Container, Grid, Image, List, Table } from 'semantic-ui-react';
-// import { withTracker } from 'meteor/react-meteor-data';
-/** import PropTypes from 'prop-types';
-// import { Companies } from '../../api/company/company.js'; */
+import { withTracker } from 'meteor/react-meteor-data';
+import { withRouter, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Positions } from '../../api/position/position.js';
 
 
 const jobData = [
@@ -19,7 +20,7 @@ const stuData = [
 
 
 /** A simple static component to render some text for the landing page. */
-class CompanyHome extends React.Component {
+class PositionHome extends React.Component {
 
   state = {
     column: null,
@@ -69,7 +70,7 @@ class CompanyHome extends React.Component {
               <List>
                 <List.Item>
                   <List.Icon name='building'/>
-                  <List.Content>Company Co.</List.Content>
+                  <List.Content>Position Co.</List.Content>
                 </List.Item>
                 <List.Item>
                   <List.Icon name='marker'/>
@@ -83,7 +84,7 @@ class CompanyHome extends React.Component {
             </Grid.Column>
 
             <Grid.Column floated='right'>
-              <Button content='Add New Position' icon='add' labelPosition='left' />
+              <Button as={NavLink} activeClassName="active" exact to="/addposition" key='add' content='Add New Position' icon='add' labelPosition='left' />
             </Grid.Column>
 
           </Grid>
@@ -159,20 +160,19 @@ class CompanyHome extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-/** CompanyHome.propTypes = {
-  companies: PropTypes.array.isRequired,
+/** PositionHome.propTypes = {
+  positions: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 }; */
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default
-/*
+
 withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Companies');
+  const subscription = Meteor.subscribe('Positions');
   return {
-    companies: Companies.find({}).fetch(),
+    positions: Positions.find({}).fetch(),
     ready: subscription.ready(),
   };
-})
-*/(CompanyHome);
+})(PositionHome);
