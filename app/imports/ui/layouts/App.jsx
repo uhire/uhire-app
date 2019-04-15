@@ -20,6 +20,7 @@ import Signout from '../pages/Signout';
 import StudentHome from '../pages/StudentHome';
 import StudentProfile from '../pages/StudentProfile';
 import CompanyHome from '../pages/CompanyHome';
+import EditPosition from '../pages/EditPosition';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -41,6 +42,8 @@ class App extends React.Component {
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/studentHome" component={StudentHome}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/editposition/:_id" component={EditPosition}/>
+
               <AdminProtectedRoute path="/admin" component={AdminHome}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
