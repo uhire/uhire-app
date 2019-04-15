@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link, Button } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Positions } from '/imports/api/position/position';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -10,7 +10,6 @@ class PositionItem extends React.Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
-    this.deleteCallback = this.deleteCallback.bind(this);
   }
 
   onClick() {
@@ -30,7 +29,7 @@ class PositionItem extends React.Component {
             <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
           </Table.Cell>
           <Table.Cell>
-            <Button basic onClick={this.onClick}>Delete</Button>
+            <Link basic onClick={this.onClick}>Delete</Link>
           </Table.Cell>
           <Table.Cell>{this.props.position.owner}</Table.Cell>
         </Table.Row>
