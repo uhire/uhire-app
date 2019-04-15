@@ -9,6 +9,7 @@ import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
+import { Redirect } from 'react-router-dom';
 
 /** Renders the Page for adding a document. */
 class CompanyAdd extends React.Component {
@@ -19,6 +20,7 @@ class CompanyAdd extends React.Component {
     this.submit = this.submit.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
+    this.state = { redirectToReferer: false };
   }
 
   /** Notify the user of the results of the submit. If successful, clear the form. */
@@ -28,6 +30,8 @@ class CompanyAdd extends React.Component {
     } else {
       Bert.alert({ type: 'success', message: 'Add succeeded' });
       this.formRef.reset();
+      // redirect to company profile if succeed
+      this.setState({ redirectToReferer: true });
     }
   }
 
@@ -40,6 +44,10 @@ class CompanyAdd extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
+    // redirect to company profile
+    if (this.state.redirectToReferer) {
+      return <Redirect to={'/list/'}/>;
+    }
     return (
         <Grid container centered>
           <Grid.Column>
