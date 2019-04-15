@@ -9,7 +9,7 @@ import { Container, Form, Grid, Header, Message, Segment, Radio } from 'semantic
  * Authentication errors modify the component’s state to be displayed
  */
 export default class Signin extends React.Component {
-  state={}
+  state={};
 
   /** Initialize component state with properties for login and redirection. */
   constructor(props) {
@@ -124,6 +124,8 @@ export default class Signin extends React.Component {
     );
   }
 }
+
+console.log(Meteor.userId);
 
 /** Ensure that the React Router location object is available in case we need to redirect. */
 Signin.propTypes = {
