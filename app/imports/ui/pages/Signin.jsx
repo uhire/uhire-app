@@ -18,11 +18,16 @@ export default class Signin extends React.Component {
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
   }
 
   /** Update the form controls each time the user interacts with them. */
   handleChange(e, { name, value }) {
     this.setState({ [name]: value });
+  }
+  /** Update radio buttons when clicked **/
+  handleOptionChange(e){
+    this.setState({selectedOption: e.currentTarget.value});
   }
 
   /** Handle Signin submission using Meteor's account mechanism. */
@@ -40,6 +45,9 @@ export default class Signin extends React.Component {
   /** Render the signin form. */
   render() {
     const { from } = this.props.location.state || { from: { pathname: '/' } };
+    /** Set the state of the radio buttons **/
+    this.state.selectedOption = 'Student';
+
     // if correct authentication, redirect to page instead of login screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
@@ -72,11 +80,13 @@ export default class Signin extends React.Component {
                       type="password"
                       onChange={this.handleChange}
                   />
+                  <Form.Input label="Student" type="radio" value="Student" checked={this.state.selectedOption === 'Student'} position="left" onChange={this.handleOptionChange}/>
+                  <Form.Input label="Company" type="radio" value="Company" checked={this.state.selectedOption === 'Company'} position="left" onChange={this.handleOptionChange} />
                   <Form.Button content="Submit"/>
                 </Segment>
               </Form>
               <Message>
-                <Link to="/signup">Click here to Register</Link>
+                <p>Don't have an account? Sign up <Link to="/signup">Here</Link></p>
                 <br/>
                 { /* Testing company registration */ }
                 <Link to="/coregis">Click here to Register Company</Link>
