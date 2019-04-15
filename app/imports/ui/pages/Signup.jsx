@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+/** import { Roles } from 'meteor/alanning:roles';
+import { Meteor } from 'meteor/meteor'; */
 
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
@@ -10,7 +12,7 @@ export default class Signup extends React.Component {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', error: '' };
+    this.state = { email: '', password: '', role: '', error: '' };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,14 +26,28 @@ export default class Signup extends React.Component {
 
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
-    const { email, password } = this.state;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { email, password, role } = this.state;
+    Accounts.createUser({ email, username: email, password, role }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
         // browserHistory.push('/login');
       }
     });
+
+    /** assigningRoles(email, password, role)
+    {
+      console.log(`  Creating user ${email}.`);
+      const userID = Accounts.createUser({
+        username: email,
+        email: email,
+        password: password,
+      });
+      console.log(Meteor.userId());
+      if (role === 'admin') {
+        Roles.addUsersToRoles(userID, 'admin');
+      }
+    } */
   }
 
   /** Display the signup form. */
@@ -61,6 +77,15 @@ export default class Signup extends React.Component {
                       name="password"
                       placeholder="Password"
                       type="password"
+                      onChange={this.handleChange}
+                  />
+                  <Form.Input
+                      label="Role"
+                      icon="user"
+                      iconPosition="left"
+                      name="role"
+                      type="role"
+                      placeholder="Role"
                       onChange={this.handleChange}
                   />
                   <Form.Button content="Submit"/>
