@@ -1,8 +1,9 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, Link, Button } from 'react-router-dom';
 import { Positions } from '/imports/api/position/position';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class PositionItem extends React.Component {
@@ -10,6 +11,16 @@ class PositionItem extends React.Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+  }
+
+  deleteCallback(error) {
+
+    if (error) {
+      Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
+    } else {
+      Bert.alert({ type: 'success', message: 'Delete succeeded' });
+      this.formRef.reset();
+    }
   }
 
   onClick() {
@@ -29,7 +40,7 @@ class PositionItem extends React.Component {
             <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
           </Table.Cell>
           <Table.Cell>
-            <Link basic onClick={this.onClick}>Delete</Link>
+            <Button basic onClick={this.onClick}>Delete</Button>
           </Table.Cell>
           <Table.Cell>{this.props.position.owner}</Table.Cell>
         </Table.Row>
