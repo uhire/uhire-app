@@ -6,6 +6,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Positions } from '../../api/position/position.js';
+import PositionItem from '/imports/ui/components/PositionItem';
 
 
 const jobData = [
@@ -24,7 +25,7 @@ class PositionHome extends React.Component {
 
   state = {
     column: null,
-    data: jobData,
+    data: Positions,
     direction: null,
   }
 
@@ -92,49 +93,38 @@ class PositionHome extends React.Component {
           <Table sortable celled unstackable fixed>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell singleLine sorted={column === 'position' ? direction : null}
-                                  onClick={this.handleSort('position')}>
+                <Table.HeaderCell singleLine sorted={column === 'title' ? direction : null}
+                                  onClick={this.handleSort('title')}>
                   Positions Listed
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'number' ? direction : null}
-                                  onClick={this.handleSort('number')}>
+                <Table.HeaderCell sorted={column === 'location' ? direction : null}
+                                  onClick={this.handleSort('location')}>
                   Number of Openings
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'interested' ? direction : null}
-                                  onClick={this.handleSort('interested')}>
+                <Table.HeaderCell sorted={column === 'openings' ? direction : null}
+                                  onClick={this.handleSort('openings')}>
                   Interested
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'views' ? direction : null}
-                                  onClick={this.handleSort('views')}>
-                  Interested
-                </Table.HeaderCell>
-                <Table.HeaderCell singleLine sorted={column === 'date' ? direction : null}
+                <Table.HeaderCell sorted={column === 'date' ? direction : null}
                                   onClick={this.handleSort('date')}>
+                  Interested
+                </Table.HeaderCell>
+                <Table.HeaderCell singleLine sorted={column === 'description' ? direction : null}
+                                  onClick={this.handleSort('description')}>
                   Date Open
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'description' ? direction : null}
-                                  onClick={this.handleSort('description')}>
-                  Description
-                </Table.HeaderCell>
+                <Table.HeaderCell> Edit </Table.HeaderCell>
+                <Table.HeaderCell> Delete </Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
-              {_.map(data, ({ position, number, interested, views, date, description }) => (
-                  <Table.Row key={position}>
-                    <Table.Cell>{position}</Table.Cell>
-                    <Table.Cell>{number}</Table.Cell>
-                    <Table.Cell>{interested}</Table.Cell>
-                    <Table.Cell>{views}</Table.Cell>
-                    <Table.Cell>{date}</Table.Cell>
-                    <Table.Cell>{description}</Table.Cell>
-                  </Table.Row>
-              ))}
+              {this.props.positions.map((position) => <PositionItem key={position._id} position={position} />)}
+
             </Table.Body>
           </Table>
 
           <br/><br/>
-          <Container>
             <Card.Group centered>
               {_.map(stuData, ({ name, location, email, image }) => (
                   <Card key={name}>
@@ -153,17 +143,16 @@ class PositionHome extends React.Component {
                   </Card>
               ))}
             </Card.Group>
-          </Container>
         </Container>
     );
   }
 }
 
 /** Require an array of Stuff documents in the props. */
-/** PositionHome.propTypes = {
+PositionHome.propTypes = {
   positions: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
-}; */
+};
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default
