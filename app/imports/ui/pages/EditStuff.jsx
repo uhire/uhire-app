@@ -22,6 +22,9 @@ class EditStuff extends React.Component {
     Stuffs.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
+    if (!error) {
+        FlowRouter.go('path/to/some-where');
+      }
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */

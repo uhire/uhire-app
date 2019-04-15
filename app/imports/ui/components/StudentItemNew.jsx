@@ -3,8 +3,6 @@ import { Table, Container, Image, Card, Icon, Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
-import InterestItem from '/imports/ui/components/InterestItem';
-
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudentItem extends React.Component {
   render() {
@@ -21,11 +19,10 @@ class StudentItem extends React.Component {
           </Card.Content>
           <Card.Content>
             <Card.Header>Interests</Card.Header>
-            <Card.Description>
-              {this.props.student.interests.map((stuff) => <InterestItem key={stuff._id} interest={stuff} />)}
-            </Card.Description>
+            <Card.Description>{this.props.students.interests.map((stuff) => <Label as='a' tag>
+              {stuff.name}</Label>)}</Card.Description>
           </Card.Content>
-          <Link to={`/edit/${this.props.student._id}`}>Edit</Link>
+          <Link to={`/edit/${this.props.stuff._id}`}>Edit</Link>
           <Card.Content extra>
             <Icon name='home' />
             {this.props.student.city} {this.props.student.locationZip}

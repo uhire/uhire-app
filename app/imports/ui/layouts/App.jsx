@@ -12,7 +12,7 @@ import CompanyProfilePage from '../pages/CompanyProfilePage';
 import ListStuff from '../pages/ListStuff';
 import AdminHome from '../pages/AdminHome';
 import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
+import EditStudent from '../pages/EditStudent';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -42,7 +42,7 @@ class App extends React.Component {
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/studentHome" component={StudentHome}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/edit/:_id" component={EditStudent}/>
               <AdminProtectedRoute path="/admin" component={AdminHome}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
