@@ -23,6 +23,7 @@ import CompanyHome from '../pages/CompanyHome';
 import CompanyRegistration from '../pages/CompanyRegistration';
 import EditPosition from '../pages/EditPosition';
 import AddPosition from '../pages/AddPosition';
+import EditStudent from '../pages/EditStudent';
 
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -48,7 +49,7 @@ class App extends React.Component {
               <ProtectedRoute path="/studentHome" component={StudentHome}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <ProtectedRoute path="/editposition/:_id" component={EditPosition}/>
-
+              <ProtectedRoute path="/editstu/:_id" component={EditStudent}/>
               <AdminProtectedRoute path="/admin" component={AdminHome}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

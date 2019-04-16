@@ -62,7 +62,7 @@
       "city": "Honolulu, HI",
       "locationZip": 96822,
       "profile": "https://www.google.com",
-      "interests": "Programming, AI, Web Development",
+      "interests": [],
       "owner": "john@foo.com",
       "grade": "Junior"
     },
@@ -73,7 +73,7 @@
       "city": "Honolulu, HI",
       "locationZip": 96822,
       "profile": "https://www.google.com",
-      "interests": "Programming, AI, Web Development",
+      "interests": [],
       "owner": "john@foo.com",
       "grade": "Junior"
     }
@@ -94,6 +94,24 @@
       "date": "default1",
       "description": "default1",
       "owner": "default1"
+    }
+    ],
+  "defaultInterests": [
+    {
+      "name": "JavaScript",
+      "description": "test"
+    },
+    {
+      "name": "AI",
+      "description": "test"
+    },
+    {
+      "name": "Web Development",
+      "description": "test"
+    },
+    {
+      "name": "Project Management",
+      "description": "test"
     }
   ]
 }

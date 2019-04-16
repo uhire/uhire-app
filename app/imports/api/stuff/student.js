@@ -1,6 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
+import {Interests, InterestSchema} from './interests';
 
 /** Create a Meteor collection. */
 const Students = new Mongo.Collection('Students');
@@ -13,7 +14,12 @@ const StudentSchema = new SimpleSchema({
   city: String,
   locationZip: Number,
   profile: String,
-  interests: String,
+  interests: {
+    type: Array
+  },
+  'interests.$': {
+    type: InterestSchema,
+  },
   owner: String,
   grade: {
     type: String,
@@ -21,6 +27,9 @@ const StudentSchema = new SimpleSchema({
     defaultValue: 'Junior',
   },
 }, { tracker: Tracker });
+
+
+
 
 /** Attach this schema to the collection. */
 Students.attachSchema(StudentSchema);
