@@ -1,6 +1,8 @@
 import React from 'react';
 import { Positions, PositionSchema } from '/imports/api/position/position';
 import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Redirect } from 'react-router-dom';
+
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import NumField from 'uniforms-semantic/NumField';
@@ -20,7 +22,17 @@ class AddPosition extends React.Component {
     this.submit = this.submit.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
+    this.state = { redirectToReferer: false };
+    // Ensure that 'this' is bound to this component in these two functions.
+    // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  /** Update the form controls each time the user interacts with them. */
+  handleChange(e, { name, value }) {
+    this.setState({ [name]: value });
+  }
+
 
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
@@ -29,6 +41,7 @@ class AddPosition extends React.Component {
     } else {
       Bert.alert({ type: 'success', message: 'Add succeeded' });
       this.formRef.reset();
+      this.setState({ redirectToReferer: true });
     }
   }
 
@@ -41,6 +54,13 @@ class AddPosition extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
+
+
+    if (this.state.redirectToReferer) {
+      return <Redirect to={'/cohome'} />;
+    }
+
+
     return (
         <Grid container centered>
           <Grid.Column>
