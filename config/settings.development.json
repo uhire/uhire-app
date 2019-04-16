@@ -77,5 +77,23 @@
       "owner": "john@foo.com",
       "grade": "Junior"
     }
+  ],
+  "defaultPositions": [
+    {
+      "title": "default0",
+      "location": "default0",
+      "openings": 0,
+      "date": "default0",
+      "description": "default0",
+      "owner": "default0"
+    },
+    {
+      "title": "default1",
+      "location": "default1",
+      "openings": 1,
+      "date": "default1",
+      "description": "default1",
+      "owner": "default1"
+    }
   ]
 }
