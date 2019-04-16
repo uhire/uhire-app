@@ -8,10 +8,10 @@ import { Button, Card, Container, Grid, Image, List, Table } from 'semantic-ui-r
 
 
 const jobData = [
-  { position: 'Position Title', number: 1, interested: 0, views: 1, date: '2018/10/31', description: 'description' },
-  { position: 'Test Title', number: 2, interested: 1, views: 12, date: '2019/12/25', description: 'long description' },
-
+  { title: 'title', location: "place", openings: 0, date: '2018/10/31', description: 'description' },
+  { title: 'title', location: "place", openings: 0, date: '2018/10/31', description: 'description' },
 ];
+
 const stuData = [
   { name: 'John', location: 'Hawaii', email: 'john@foo.com', image: '/images/Logo.jpg' },
   { name: 'Jay', location: 'Hawaii', email: 'john@foo.com', image: '/images/Logo.jpg' },
@@ -91,21 +91,17 @@ class CompanyHome extends React.Component {
           <Table sortable celled unstackable fixed>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell singleLine sorted={column === 'position' ? direction : null}
-                                  onClick={this.handleSort('position')}>
-                  Positions Listed
+                <Table.HeaderCell singleLine sorted={column === 'title' ? direction : null}
+                                  onClick={this.handleSort('title')}>
+                  Position Title
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'number' ? direction : null}
-                                  onClick={this.handleSort('number')}>
-                  Number of Openings
+                <Table.HeaderCell sorted={column === 'location' ? direction : null}
+                                  onClick={this.handleSort('location')}>
+                  Location
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'interested' ? direction : null}
-                                  onClick={this.handleSort('interested')}>
-                  Interested
-                </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'views' ? direction : null}
-                                  onClick={this.handleSort('views')}>
-                  Interested
+                <Table.HeaderCell sorted={column === 'openings' ? direction : null}
+                                  onClick={this.handleSort('openings')}>
+                  Openings
                 </Table.HeaderCell>
                 <Table.HeaderCell singleLine sorted={column === 'date' ? direction : null}
                                   onClick={this.handleSort('date')}>
@@ -119,12 +115,11 @@ class CompanyHome extends React.Component {
             </Table.Header>
 
             <Table.Body>
-              {_.map(data, ({ position, number, interested, views, date, description }) => (
-                  <Table.Row key={position}>
-                    <Table.Cell>{position}</Table.Cell>
-                    <Table.Cell>{number}</Table.Cell>
-                    <Table.Cell>{interested}</Table.Cell>
-                    <Table.Cell>{views}</Table.Cell>
+              {_.map(data, ({ title, location, openings, date, description }) => (
+                  <Table.Row key={title}>
+                    <Table.Cell>{title}</Table.Cell>
+                    <Table.Cell>{location}</Table.Cell>
+                    <Table.Cell>{openings}</Table.Cell>
                     <Table.Cell>{date}</Table.Cell>
                     <Table.Cell>{description}</Table.Cell>
                   </Table.Row>

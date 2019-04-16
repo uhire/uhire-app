@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class PositionItem extends React.Component {
@@ -13,7 +13,6 @@ class PositionItem extends React.Component {
           <Table.Cell>{this.props.position.openings}</Table.Cell>
           <Table.Cell>{this.props.position.date}</Table.Cell>
           <Table.Cell>{this.props.position.description}</Table.Cell>
-          <Table.Cell>{this.props.position.owner}</Table.Cell>
         </Table.Row>
     );
   }
