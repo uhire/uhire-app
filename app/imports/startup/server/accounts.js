@@ -20,6 +20,12 @@ Meteor.methods({
     if (role === 'admin') {
       Roles.addUsersToRoles(userID, 'admin');
     }
+    if (role === 'company') {
+      Roles.addUsersToRoles(userID, 'company');
+    }
+    if (role === 'student') {
+      Roles.addUsersToRoles(userID, 'student');
+    }
   },
 });
 
