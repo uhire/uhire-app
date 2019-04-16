@@ -5,7 +5,7 @@ import { Button, Card, CardGroup, Container, Grid, Image, List, Loader, Table } 
 import { withTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Positions } from '../../api/position/position.js';
+import { Positions } from '/imports/api/position/position.js';
 import PositionItem from '/imports/ui/components/PositionItem';
 /*
 import { Companies } from '/imports/api/company/company.js';
@@ -52,6 +52,7 @@ class CompanyHome extends React.Component {
 
   render() {
 
+    console.log(this.props);
     // const { column, data, direction } = this.state;
 
     return (
@@ -151,7 +152,6 @@ class CompanyHome extends React.Component {
 /** Require an array of Stuff documents in the props. */
 CompanyHome.propTypes = {
   positions: PropTypes.array.isRequired,
-  // companies: PropTypes.array.isRequired,
   students: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -159,14 +159,12 @@ CompanyHome.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subPositions = Meteor.subscribe('Positions');
-  const subCompanies = Meteor.subscribe('Companies');
-  const subStudents = Meteor.subscribe('Students');
+  const subPositions = Meteor.subscribe('Position');
+  const subStudents = Meteor.subscribe('Student');
 
   return {
     positions: Positions.find({}).fetch(),
-    // companies: Companies.find({}).fetch(),
     students: Students.find({}).fetch(),
-    ready: subPositions.ready() && subCompanies.ready() && subStudents.ready(),
+    ready: subPositions.ready() && subStudents.ready(),
   };
 })(CompanyHome);
