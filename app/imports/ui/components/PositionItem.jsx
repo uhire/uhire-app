@@ -2,32 +2,10 @@ import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link, Button } from 'react-router-dom';
-// import { Positions } from '/imports/api/position/position';
-// import { Bert } from 'meteor/themeteorchef:bert';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class PositionItem extends React.Component {
 
-/*
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
-  }
-
-  deleteCallback(error) {
-
-    if (error) {
-      Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
-    } else {
-      Bert.alert({ type: 'success', message: 'Delete succeeded' });
-      this.formRef.reset();
-    }
-  }
-
-  onClick() {
-    Positions.remove(this.props.position._id, this.deleteCallback);
-  }
-*/
   render() {
 
     return (
@@ -37,12 +15,10 @@ class PositionItem extends React.Component {
           <Table.Cell>{this.props.position.openings}</Table.Cell>
           <Table.Cell>{this.props.position.date}</Table.Cell>
           <Table.Cell>{this.props.position.description}</Table.Cell>
-          <Table.Cell>
+         <Table.Cell>
             <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
           </Table.Cell>
-          <Table.Cell>
-            <Button basic onClick={this.onClick}>Delete</Button>
-          </Table.Cell>
+          <Table.Cell>Delete</Table.Cell>
         </Table.Row>
     );
   }

@@ -17,7 +17,7 @@ import StudentItem from '/imports/ui/components/StudentItem';
 /** A simple static component to render some text for the landing page. */
 class CompanyHome extends React.Component {
 
-/*
+
   state = {
     column: null,
     data: null,
@@ -42,18 +42,16 @@ class CompanyHome extends React.Component {
       direction: direction === 'ascending' ? 'descending' : 'ascending',
     });
   }
-*/
 
-/*
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
-*/
 
-  render() {
+
+  renderPage() {
 
     console.log(this.props);
-    // const { column, data, direction } = this.state;
+    const { column, data, direction } = this.state;
 
     return (
 
@@ -105,24 +103,24 @@ class CompanyHome extends React.Component {
           <Table sortable celled fixed>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell /* sorted={column === 'title' ? direction : null}
-                                  onClick={this.handleSort('title')} */>
+                <Table.HeaderCell sorted={column === 'title' ? direction : null}
+                                  onClick={this.handleSort('title')} >
                   Title
                 </Table.HeaderCell>
-                <Table.HeaderCell /* sorted={column === 'location' ? direction : null}
-                                  onClick={this.handleSort('location')} */>
+                <Table.HeaderCell sorted={column === 'location' ? direction : null}
+                                  onClick={this.handleSort('location')} >
                   Location
                 </Table.HeaderCell>
-                <Table.HeaderCell /* sorted={column === 'openings' ? direction : null}
-                                  onClick={this.handleSort('openings')} */>
+                <Table.HeaderCell sorted={column === 'openings' ? direction : null}
+                                  onClick={this.handleSort('openings')} >
                   Openings
                 </Table.HeaderCell>
-                <Table.HeaderCell /* sorted={column === 'date' ? direction : null}
-                                  onClick={this.handleSort('date')} */>
+                <Table.HeaderCell sorted={column === 'date' ? direction : null}
+                                  onClick={this.handleSort('date')} >
                   Date
                 </Table.HeaderCell>
-                <Table.HeaderCell /* sorted={column === 'description' ? direction : null}
-                                  onClick={this.handleSort('description')} */>
+                <Table.HeaderCell sorted={column === 'description' ? direction : null}
+                                  onClick={this.handleSort('description')} >
                   Description
                 </Table.HeaderCell>
                 <Table.HeaderCell> Edit </Table.HeaderCell>
