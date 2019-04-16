@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-// import { Roles } from 'meteor/alanning:roles';
+import { Roles } from 'meteor/alanning:roles';
 import { Positions } from '../../api/position/position.js';
 
 
@@ -26,11 +26,11 @@ Meteor.publish('Position', function publish() {
 });
 
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
-/*
+
 Meteor.publish('PositionAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Positions.find();
   }
   return this.ready();
 });
-*/
+
