@@ -82,7 +82,7 @@
     {
       "title": "default0",
       "location": "default0",
-      "openings": 0,
+      "openings": "default0",
       "date": "default0",
       "description": "default0",
       "owner": "default0"
@@ -90,7 +90,7 @@
     {
       "title": "default1",
       "location": "default1",
-      "openings": 1,
+      "openings": "default",
       "date": "default1",
       "description": "default1",
       "owner": "default1"
