@@ -48,10 +48,10 @@ class CompanyHome extends React.Component {
   }
 
   render() {
-    console.log(Meteor.userId());
+    /** console.log(Meteor.userId());
     const userID = Meteor.userId();
     console.log(userID);
-    Roles.addUsersToRoles(userID, 'admin');
+    Roles.addUsersToRoles(userID, 'admin'); */
     const { column, data, direction } = this.state;
 
     return (
