@@ -25,7 +25,7 @@ class StudentItem extends React.Component {
               {this.props.student.interests.map((stuff) => <InterestItem key={stuff._id} interest={stuff} />)}
             </Card.Description>
           </Card.Content>
-          <Link to={`/edit/${this.props.student._id}`}>Edit</Link>
+          <Link to={`/editstu/${this.props.student._id}`}>Edit</Link>
           <Card.Content extra>
             <Icon name='home' />
             {this.props.student.city} {this.props.student.locationZip}

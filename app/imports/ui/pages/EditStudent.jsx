@@ -11,12 +11,11 @@ import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import ListAddField from 'uniforms-semantic/ListAddField';
-import AutoField from 'uniforms-semantic/AutoField'
+import AutoField from 'uniforms-semantic/AutoField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-
 
 
 /** Renders the Page for editing a single document. */
@@ -44,21 +43,20 @@ class EditStudent extends React.Component {
         locationZip,
         profile,
         interests,
-        grade
-      }
+        grade,
+      },
     }, (error) => {
       if (error) {
-        return Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` })
-      } else {
+        return Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` });
+      }
         // browserHistory.push('/login');
         // Added a redirectToReferer
         this.setState({ redirectToReferer: true });
         return Bert.alert({ type: 'success', message: 'Update succeeded' });
-      }
+
     });
 
   }
-
 
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -70,7 +68,7 @@ class EditStudent extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     if (this.state.redirectToReferer) {
-      return <Redirect to='/sprofile' />
+      return <Redirect to='/sprofile' />;
     }
     return (
 
@@ -111,10 +109,10 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Student');
-  const subscription2 = Meteor.subscribe('Interests')
+  const subscription2 = Meteor.subscribe('Interests');
   return {
     doc: Students.findOne(documentId),
-    ready: subscription.ready(),
+    ready: subscription.ready() && subscription2.ready(),
     options: Interests.find({}).fetch(),
 
   };
