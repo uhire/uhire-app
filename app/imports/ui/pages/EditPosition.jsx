@@ -2,6 +2,8 @@ import React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import { Positions, PositionSchema } from '/imports/api/position/position';
 import { Bert } from 'meteor/themeteorchef:bert';
+import { Redirect } from 'react-router-dom';
+
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import NumField from 'uniforms-semantic/NumField';
@@ -16,12 +18,28 @@ import PropTypes from 'prop-types';
 /** Renders the Page for editing a single document. */
 class EditPosition extends React.Component {
 
+
+  constructor(props) {
+    super(props);
+    // Added a redirectToReferer: false
+    this.state = { redirectToReferer: false, options: Positions.find() };
+    // Ensure that 'this' is bound to this component in these two functions.
+    // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
+    this.submit = this.submit.bind(this);
+
+  }
+
   /** On successful submit, insert the data. */
   submit(data) {
     const { title, location, openings, date, description, _id } = data;
-    Positions.update(_id, { $set: { title, location, openings, date, description } }, (error) => (error ?
-        Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
-        Bert.alert({ type: 'success', message: 'Update succeeded' })));
+    Positions.update(_id, { $set: { title, location, openings, date, description } }, (error) => {
+      if (error) {
+        return Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` });
+      } else {
+        this.setState({ redirectToReferer: true });
+        return Bert.alert({ type: 'success', message: 'Update succeeded' });
+      }
+    });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -31,10 +49,16 @@ class EditPosition extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
+
+    if (this.state.redirectToReferer) {
+      return <Redirect to='/cohome' />;
+    }
+
+
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Edit Position</Header>
+            <Header as="h2" textAlign="center">Edit Position</Header>
             <AutoForm schema={PositionSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
                 <TextField name='title'/>
