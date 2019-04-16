@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
-// import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor';
 import { Button, Card, Container, Grid, Image, List, Table } from 'semantic-ui-react';
+import { Roles } from 'meteor/alanning:roles';
 // import { withTracker } from 'meteor/react-meteor-data';
 /** import PropTypes from 'prop-types';
 // import { Companies } from '../../api/company/company.js'; */
@@ -47,7 +48,10 @@ class CompanyHome extends React.Component {
   }
 
   render() {
-
+    console.log(Meteor.userId());
+    const userID = Meteor.userId();
+    console.log(userID);
+    Roles.addUsersToRoles(userID, 'admin');
     const { column, data, direction } = this.state;
 
     return (

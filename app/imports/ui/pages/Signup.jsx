@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
-/** import { Roles } from 'meteor/alanning:roles';
-import { Meteor } from 'meteor/meteor'; */
+// import { Roles } from 'meteor/alanning:roles';
+import { Meteor } from 'meteor/meteor';
 
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
@@ -12,7 +12,7 @@ export default class Signup extends React.Component {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', role: '', error: '' };
+    this.state = { email: '', password: '', role: '', error: '', redirectToReferer: false };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,8 +32,13 @@ export default class Signup extends React.Component {
         this.setState({ error: err.reason });
       } else {
         // browserHistory.push('/login');
+        // Added a redirectToReferer
+        this.setState({ error: '', redirectToReferer: true });
+
       }
     });
+  }
+    // Roles.addUsersToRoles(userID, 'admin');
 
     /** assigningRoles(email, password, role)
     {
@@ -48,10 +53,13 @@ export default class Signup extends React.Component {
         Roles.addUsersToRoles(userID, 'admin');
       }
     } */
-  }
-
   /** Display the signup form. */
   render() {
+    // Added a redirectToReferer to redirect to company add
+    if (this.state.redirectToReferer) {
+      return <Redirect to={'/coHome/'}/>;
+    }
+
     return (
         <Container>
           <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
