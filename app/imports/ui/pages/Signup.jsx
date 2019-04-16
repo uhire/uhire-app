@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
-// import { Accounts } from 'meteor/accounts-base';
-// import { Roles } from 'meteor/alanning:roles';
 import { Meteor } from 'meteor/meteor';
 
 /**
@@ -28,23 +26,9 @@ export default class Signup extends React.Component {
   handleSubmit() {
     const { email, password, role } = this.state;
     Meteor.call('createNewUser', email, password, role);
-        this.setState({ error: '', redirectToReferer: true });
+    this.setState({ error: '', redirectToReferer: true });
   }
-    // Roles.addUsersToRoles(userID, 'admin');
 
-    /** assigningRoles(email, password, role)
-    {
-      console.log(`  Creating user ${email}.`);
-      const userID = Accounts.createUser({
-        username: email,
-        email: email,
-        password: password,
-      });
-      console.log(Meteor.userId());
-      if (role === 'admin') {
-        Roles.addUsersToRoles(userID, 'admin');
-      }
-    } */
   /** Display the signup form. */
   render() {
     // Added a redirectToReferer to redirect to company add
