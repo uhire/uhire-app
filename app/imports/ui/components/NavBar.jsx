@@ -16,8 +16,9 @@ class NavBar extends React.Component {
             <Header inverted as='h1'>UHire</Header>
           </Menu.Item>
 
+          {/** [Defines the contents available on an admin nav-bar.] */}
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Dropdown item text='Admin'>
+              <Dropdown item text='All Pages'>
                 <Dropdown.Menu>
                   <Dropdown.Item icon="user" text="Admin Home Page" as={NavLink} exact to="/admin"/>
                   <Dropdown.Item icon="briefcase" text="Add Company Page" as={NavLink} exact to="/add"/>
@@ -33,28 +34,30 @@ class NavBar extends React.Component {
                 </Dropdown.Menu>
               </Dropdown>) : ''}
 
+          {/** [Defines the contents available on a company nav-bar.] */}
           {Roles.userIsInRole(Meteor.userId(), 'company') ? (
-              <Dropdown item text='Categories'>
+              <Dropdown item text='Company Pages'>
                 <Dropdown.Menu>
                   <Dropdown.Item icon="briefcase" text="Add Company Page" as={NavLink} exact to="/add"/>
                   <Dropdown.Item icon="briefcase" text="Add Position Page" as={NavLink} exact to="/addposition"/>
                   <Dropdown.Item icon="briefcase" text="Edit Position Page" as={NavLink} exact to="/editposition"/>
                   <Dropdown.Item icon="briefcase" text="Company Profile Page" as={NavLink} exact to="/list"/>
                   <Dropdown.Item icon="briefcase" text="Company Home Page" as={NavLink} exact to="/cohome"/>
-                  <Dropdown.Item icon="briefcase" text="Browse Companies Page" as={NavLink} exact to="/browsecom"/>
                 </Dropdown.Menu>
               </Dropdown>) : ''}
 
+          {/** [Defines the contents available on a student nav-bar.] */}
           {Roles.userIsInRole(Meteor.userId(), 'student') ? (
-              <Dropdown item text='Categories'>
+              <Dropdown item text='Student Pages'>
                 <Dropdown.Menu>
                   <Dropdown.Item icon="student" text="Student Profile Page" as={NavLink} exact to="/sprofile"/>
                   <Dropdown.Item icon="student" text="Student Home Page" as={NavLink} exact to="/studentHome"/>
-                  <Dropdown.Item icon="student" text="Browse Student Page" as={NavLink} exact to="/browsestu"/>
+                  <Dropdown.Item icon="student" text="Browse Companies Page" as={NavLink} exact to="/browsecom"/>
                   <Dropdown.Item icon="student" text="Edit Student Page" as={NavLink} exact to="/editstu"/>
                 </Dropdown.Menu>
               </Dropdown>) : ''}
 
+          {/** [Defines the contents available to ALL users' nav-bar.] */}
           <Menu.Item position="right">
             {this.props.currentUser === '' ? (
                 <Dropdown text="Login" pointing="top right" icon={'user'}>
