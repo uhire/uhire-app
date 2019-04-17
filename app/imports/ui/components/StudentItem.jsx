@@ -11,7 +11,7 @@ class StudentItem extends React.Component {
     return (
 
         <Card>
-          <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' />
+          <Image src={this.props.student.picture} />
           <Card.Content>
             <Card.Header>{this.props.student.firstName} {this.props.student.lastName}</Card.Header>
             <Card.Meta>

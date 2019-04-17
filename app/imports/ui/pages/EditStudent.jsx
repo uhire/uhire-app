@@ -42,6 +42,7 @@ class EditStudent extends React.Component {
         city,
         locationZip,
         profile,
+        picture,
         interests,
         grade,
       },
@@ -83,6 +84,8 @@ class EditStudent extends React.Component {
                 <TextField name='city'/>
                 <NumField name='locationZip' decimal={false}/>
                 <TextField name='grade'/>
+                <TextField name='profile'/>
+                <TextField name='picture'/>
                 <AutoField name='interests'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>

@@ -14,6 +14,7 @@ const StudentSchema = new SimpleSchema({
   city: String,
   locationZip: Number,
   profile: String,
+  picture: String,
   interests: {
     type: Array
   },
