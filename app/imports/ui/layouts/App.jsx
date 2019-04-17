@@ -24,6 +24,8 @@ import CompanyRegistration from '../pages/CompanyRegistration';
 import EditPosition from '../pages/EditPosition';
 import AddPosition from '../pages/AddPosition';
 import EditStudent from '../pages/EditStudent';
+import BrowseStudents from '../pages/BrowseStudents';
+import BrowseCompanies from '../pages/BrowseCompanies';
 
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -38,6 +40,8 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/coregis" component={CompanyRegistration}/>
+              <Route path="/browsestu" component={BrowseStudents}/>
+              <Route path="/browsecom" component={BrowseCompanies}/>
               <ProtectedRoute path="/list" component={CompanyProfilePage}/>
               <ProtectedRoute path="/add" component={CompanyAdd}/>
               { /* cannot remain unprotected */ }
