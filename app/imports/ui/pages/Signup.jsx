@@ -83,15 +83,6 @@ export default class Signup extends React.Component {
                       type="password"
                       onChange={this.handleChange}
                   />
-                  <Form.Input
-                      label="Role"
-                      icon="user"
-                      iconPosition="left"
-                      name="role"
-                      type="role"
-                      placeholder="Role"
-                      onChange={this.handleChange}
-                  />
                   <Dropdown
                       placeholder='Choose a Profession'
                       fluid
