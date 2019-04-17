@@ -49,7 +49,10 @@ export default class Signup extends React.Component {
     ];
 
     // Added a redirectToReferer to redirect to home pages
-    if (this.state.redirectToReferer) {
+    if (this.state.redirectToReferer && this.state.role === 'student') {
+      return <Redirect to={'/studentHome/'}/>;
+    }
+    if (this.state.redirectToReferer && this.state.role === 'company') {
       return <Redirect to={'/coHome/'}/>;
     }
 
