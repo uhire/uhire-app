@@ -23,7 +23,7 @@ class NavBar extends React.Component {
                   <Dropdown.Item icon="briefcase" text="Add Company Page" as={NavLink} exact to="/add"/>
                   <Dropdown.Item icon="briefcase" text="Company Profile Page" as={NavLink} exact to="/list"/>
                   <Dropdown.Item icon="briefcase" text="Company Home Page" as={NavLink} exact to="/cohome"/>
-                  <Dropdown.Item icon="student" text="Student Profile Page" as={NavLink} exact to="/admin"/>
+                  <Dropdown.Item icon="student" text="Student Profile Page" as={NavLink} exact to="/sprofile"/>
                   <Dropdown.Item icon="student" text="Student Home Page" as={NavLink} exact to="/studentHome"/>
                 </Dropdown.Menu>
               </Dropdown>) : ''}
@@ -39,7 +39,7 @@ class NavBar extends React.Component {
           {Roles.userIsInRole(Meteor.userId(), 'student') ? (
               <Dropdown item text='Categories'>
                 <Dropdown.Menu>
-                  <Dropdown.Item icon="student" text="Student Profile Page" as={NavLink} exact to="/admin"/>
+                  <Dropdown.Item icon="student" text="Student Profile Page" as={NavLink} exact to="/sprofile"/>
                   <Dropdown.Item icon="student" text="Student Home Page" as={NavLink} exact to="/studentHome"/>
                 </Dropdown.Menu>
               </Dropdown>) : ''}

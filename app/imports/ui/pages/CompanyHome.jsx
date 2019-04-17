@@ -1,7 +1,7 @@
 // import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Button, Card, CardGroup, Container, Grid, Image, List, Loader, Table } from 'semantic-ui-react';
+import { Button, CardGroup, Container, Grid, Image, List, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -51,7 +51,7 @@ class CompanyHome extends React.Component {
   renderPage() {
 
     console.log(this.props);
-    const { column, data, direction } = this.state;
+    const { column, direction } = this.state;
 
     return (
 
