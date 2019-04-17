@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, Dropdown } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 
 /**
@@ -31,7 +31,24 @@ export default class Signup extends React.Component {
 
   /** Display the signup form. */
   render() {
-    // Added a redirectToReferer to redirect to company add
+
+    // Profession added as role indicator
+    const profession = [
+      {
+        key: 'Company',
+        text: 'Company',
+        value: 'company',
+        icon: 'briefcase',
+      },
+      {
+        key: 'Student',
+        text: 'Student',
+        value: 'student',
+        icon: 'student',
+      },
+    ];
+
+    // Added a redirectToReferer to redirect to home pages
     if (this.state.redirectToReferer) {
       return <Redirect to={'/coHome/'}/>;
     }
@@ -70,6 +87,14 @@ export default class Signup extends React.Component {
                       name="role"
                       type="role"
                       placeholder="Role"
+                      onChange={this.handleChange}
+                  />
+                  <Dropdown
+                      placeholder='Choose a Profession'
+                      fluid
+                      selection
+                      options={profession}
+                      name={'role'}
                       onChange={this.handleChange}
                   />
                   <Form.Button content="Submit"/>
