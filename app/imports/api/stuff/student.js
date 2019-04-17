@@ -14,11 +14,13 @@ const StudentSchema = new SimpleSchema({
   city: String,
   locationZip: Number,
   profile: String,
+  picture: String,
   interests: {
-    type: Array
+    type: Array,
   },
   'interests.$': {
-    type: InterestSchema,
+    type: String,
+    allowedValues: [ "JavaScript", "AI", "Web Development", "Project Management"]
   },
   owner: String,
   grade: {
