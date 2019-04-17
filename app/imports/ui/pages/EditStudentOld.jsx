@@ -11,13 +11,13 @@ import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import ListAddField from 'uniforms-semantic/ListAddField';
-import RadioField from 'uniforms-semantic/RadioField';
 import AutoField from 'uniforms-semantic/AutoField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import InterestForm from '/imports/ui/components/InterestForm';
+
 
 /** Renders the Page for editing a single document. */
 class EditStudent extends React.Component {
@@ -72,30 +72,10 @@ class EditStudent extends React.Component {
     if (this.state.redirectToReferer) {
       return <Redirect to='/sprofile' />;
     }
-    return (
+    return(
 
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Student</Header>
-            <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.doc}>
-              <Segment>
-                <TextField name='firstName'/>
-                <TextField name='lastName'/>
-                <TextField name='description'/>
-                <TextField name='city'/>
-                <NumField name='locationZip' decimal={false}/>
-                <TextField name='grade'/>
-                <TextField name='profile'/>
-                <TextField name='picture'/>
-                <AutoField name='interests'/>
-                <RadioField name='grade'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' />
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+        <InterestForm interests={this.props.options} />
+
     );
   }
 }

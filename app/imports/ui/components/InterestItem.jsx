@@ -8,7 +8,7 @@ class InterestItem extends React.Component {
   render() {
     return (
 
-          <Label as='a' tag>{this.props.interest.name}</Label>
+          <Label as='a' tag>{this.props.interest}</Label>
 
     );
   }
