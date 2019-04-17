@@ -59,7 +59,7 @@ export default class Signup extends React.Component {
       return <Redirect to={'/studentHome/'}/>;
     }
     if (this.state.redirectToReferer && this.state.role === 'company') {
-      return <Redirect to={'/coHome/'}/>;
+      return <Redirect to={'/add/'}/>;
     }
     if (this.state.redirectToReferer && this.state.role === 'admin') {
       return <Redirect to={'/admin/'}/>;

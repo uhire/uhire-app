@@ -9,9 +9,7 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import CompanyAdd from '../pages/CompanyAdd';
 import CompanyProfilePage from '../pages/CompanyProfilePage';
-import ListStuff from '../pages/ListStuff';
 import AdminHome from '../pages/AdminHome';
-import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -47,8 +45,6 @@ class App extends React.Component {
               { /* cannot remain unprotected */ }
               <Route path="/cohome" component={CompanyHome}/>
               <Route path="/sprofile" component={StudentProfile}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/addposition" component={AddPosition}/>
               <ProtectedRoute path="/studentHome" component={StudentHome}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
