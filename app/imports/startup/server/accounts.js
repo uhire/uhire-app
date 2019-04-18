@@ -26,7 +26,7 @@ Meteor.methods({
         }
   },
 });
-
+/** Initialization function when database is empty */
 function createUser(email, password, role) {
   console.log(`  Creating user ${email}.`);
   const userID = Accounts.createUser({
