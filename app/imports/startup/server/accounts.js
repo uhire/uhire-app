@@ -37,7 +37,13 @@ function createUser(email, password, role) {
   });
   if (role === 'admin') {
     Roles.addUsersToRoles(userID, 'admin');
-  }
+  } else
+    if (role === 'company') {
+      Roles.addUsersToRoles(userID, 'company');
+    } else
+      if (role === 'student') {
+        Roles.addUsersToRoles(userID, 'student');
+      }
 }
 
 /** When running app for first time, pass a settings file to set up a default user account. */

@@ -8,6 +8,16 @@
     {
       "email": "john@foo.com",
       "password": "changeme"
+    },
+    {
+      "email": "company@foo.com",
+      "password": "changeme",
+      "role": "company"
+    },
+    {
+      "email": "student@foo.com",
+      "password": "changeme",
+      "role": "student"
     }
   ],
   "defaultData": [
