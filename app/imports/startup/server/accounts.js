@@ -27,6 +27,18 @@ Meteor.methods({
   },
 });
 
+function createUser(email, password, role) {
+  console.log(`  Creating user ${email}.`);
+  const userID = Accounts.createUser({
+    username: email,
+    email: email,
+    password: password,
+  });
+  if (role === 'admin') {
+    Roles.addUsersToRoles(userID, 'admin');
+  }
+}
+
 /** When running app for first time, pass a settings file to set up a default user account. */
 if (Meteor.users.find().count() === 0) {
   if (Meteor.settings.defaultAccounts) {
