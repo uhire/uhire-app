@@ -26,4 +26,6 @@
   width: 100%;
   height: 2.5rem;            /* Footer height */
 }
-
+.page-filler {
+  height: 610px;
+}
