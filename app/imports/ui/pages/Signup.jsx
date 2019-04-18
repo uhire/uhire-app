@@ -46,12 +46,12 @@ export default class Signup extends React.Component {
         value: 'student',
         icon: 'student',
       },
-      {
+      /** {
         key: 'Admin',
         text: 'Admin',
         value: 'admin',
         icon: 'user',
-      },
+      }, */
     ];
 
     // Added a redirectToReferer to redirect to home pages
