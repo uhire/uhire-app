@@ -7,10 +7,8 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
 import PositionItem from '/imports/ui/components/PositionItem';
-/*
 import { Companies } from '/imports/api/company/company.js';
-import Company from '/imports/ui/components/Company';
-*/
+import CompanyDetails from '/imports/ui/components/Company';
 import { Students } from '/imports/api/stuff/student';
 import StudentItem from '/imports/ui/components/StudentItem';
 
@@ -63,28 +61,12 @@ class CompanyHome extends React.Component {
           <Grid columns={5} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
-              <Image
-                  src='/images/Logo.jpg'
-                  as='a'
-                  size='small'
-                  href='http://localhost:3000/#/'
-                  target='_blank'
-              />
+
             </Grid.Column>
             <Grid.Column>
               <List>
-                <List.Item>
-                  <List.Icon name='building'/>
-                  <List.Content>Company Co.</List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name='marker'/>
-                  <List.Content>City, State</List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name='world'/>
-                  <List.Content as='a' href='http://localhost:3000/#/'>website.com</List.Content>
-                </List.Item>
+                {this.props.companies.map((company, index) => <CompanyDetails key={index} company={company}/>)}
+
               </List>
             </Grid.Column>
 
@@ -151,6 +133,7 @@ class CompanyHome extends React.Component {
 CompanyHome.propTypes = {
   positions: PropTypes.array.isRequired,
   students: PropTypes.array.isRequired,
+  companies: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -159,10 +142,12 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subPositions = Meteor.subscribe('Position');
   const subStudents = Meteor.subscribe('Student');
+  const subCompanies = Meteor.subscribe('Companies');
 
   return {
     positions: Positions.find({}).fetch(),
     students: Students.find({}).fetch(),
-    ready: subPositions.ready() && subStudents.ready(),
+    companies: Companies.find({}).fetch(),
+    ready: subPositions.ready() && subStudents.ready() && subCompanies.ready(),
   };
 })(CompanyHome);
