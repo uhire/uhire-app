@@ -8,6 +8,16 @@
     {
       "email": "john@foo.com",
       "password": "changeme"
+    },
+    {
+      "email": "company@foo.com",
+      "password": "changeme",
+      "role": "company"
+    },
+    {
+      "email": "student@foo.com",
+      "password": "changeme",
+      "role": "student"
     }
   ],
   "defaultData": [
@@ -97,7 +107,7 @@
       "description": "default1",
       "owner": "default1"
     }
-    ],
+  ],
   "defaultInterests": [
     {
       "key": 1,
