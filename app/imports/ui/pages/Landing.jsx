@@ -6,6 +6,8 @@ class Landing extends React.Component {
   render() {
     return (
         <div className="uhire-landing-background">
+          <br></br>
+          <br></br>
           <Grid>
             <Grid.Column width={9}>
                   <Container>
@@ -66,7 +68,8 @@ class Landing extends React.Component {
               <Header as='h3' inverted>Companies and students can exchange information by way of email.</Header>
             </Grid.Column>
           </Grid>
-
+          <br></br>
+          <br></br>
           <Container textAlign='center'>
             <a className="ui massive inverted button" role="button" href="#/signup">Sign me up!</a>
           </Container>
