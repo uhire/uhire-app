@@ -19,6 +19,7 @@ import StudentHome from '../pages/StudentHome';
 import StudentProfile from '../pages/StudentProfile';
 import CompanyHome from '../pages/CompanyHome';
 import CompanyRegistration from '../pages/CompanyRegistration';
+import SuccessfulRegistration from '../pages/SuccessfulRegistration';
 import EditPosition from '../pages/EditPosition';
 import AddPosition from '../pages/AddPosition';
 import EditStudent from '../pages/EditStudent';
@@ -37,6 +38,7 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
+              <Route path="/sucReg" component={SuccessfulRegistration}/>
               <Route path="/coregis" component={CompanyRegistration}/>
               <Route path="/browsestu" component={BrowseStudents}/>
               <Route path="/browsecom" component={BrowseCompanies}/>

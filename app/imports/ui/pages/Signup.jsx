@@ -46,16 +46,19 @@ export default class Signup extends React.Component {
         value: 'student',
         icon: 'student',
       },
-      {
+      /** {
         key: 'Admin',
         text: 'Admin',
         value: 'admin',
         icon: 'user',
-      },
+      }, */
     ];
 
     // Added a redirectToReferer to redirect to home pages
-    if (this.state.redirectToReferer && this.state.role === 'student') {
+    if (this.state.redirectToReferer) {
+      return <Redirect to={'/sucReg/'}/>;
+    }
+    /** if (this.state.redirectToReferer && this.state.role === 'student') {
       return <Redirect to={'/studentHome/'}/>;
     }
     if (this.state.redirectToReferer && this.state.role === 'company') {
@@ -63,7 +66,7 @@ export default class Signup extends React.Component {
     }
     if (this.state.redirectToReferer && this.state.role === 'admin') {
       return <Redirect to={'/admin/'}/>;
-    }
+    } */
 
     return (
         <Container>
