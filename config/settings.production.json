@@ -20,32 +20,6 @@
       "role": "student"
     }
   ],
-  "defaultData": [
-    {
-      "name": "Basket",
-      "quantity": 3,
-      "owner": "john@foo.com",
-      "condition": "excellent"
-    },
-    {
-      "name": "Bicycle",
-      "quantity": 2,
-      "owner": "john@foo.com",
-      "condition": "poor"
-    },
-    {
-      "name": "Banana",
-      "quantity": 2,
-      "owner": "admin@foo.com",
-      "condition": "good"
-    },
-    {
-      "name": "Boogie Board",
-      "quantity": 2,
-      "owner": "admin@foo.com",
-      "condition": "excellent"
-    }
-  ],
   "defaultCompany": [
     {
       "companyName": "Default",
@@ -62,6 +36,22 @@
       "image": "http://i.imgur.com/AItCxSs.jpg",
       "contact": "Default",
       "owner": "admin@foo.com"
+    },
+    {
+      "companyName": "Default",
+      "location": "Default",
+      "description": "Default",
+      "image": "http://i.imgur.com/AItCxSs.jpg",
+      "contact": "Default",
+      "owner": "company@foo.com"
+    },
+    {
+      "companyName": "Default",
+      "location": "Default",
+      "description": "Default",
+      "image": "http://i.imgur.com/AItCxSs.jpg",
+      "contact": "Default",
+      "owner": "student@foo.com"
     }
   ],
   "defaultStudentData": [
@@ -72,7 +62,8 @@
       "city": "Honolulu, HI",
       "locationZip": 96822,
       "profile": "https://www.google.com",
-      "interests": "Programming, AI, Web Development",
+      "picture": "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+      "interests": [],
       "owner": "john@foo.com",
       "grade": "Junior"
     },
@@ -83,9 +74,58 @@
       "city": "Honolulu, HI",
       "locationZip": 96822,
       "profile": "https://www.google.com",
-      "interests": "Programming, AI, Web Development",
+      "picture": "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+      "interests": [],
       "owner": "john@foo.com",
       "grade": "Junior"
+    }
+  ],
+  "defaultPositions": [
+    {
+      "title": "default0",
+      "location": "default0",
+      "openings": 0,
+      "date": "default0",
+      "description": "default0",
+      "owner": "default0"
+    },
+    {
+      "title": "default1",
+      "location": "default1",
+      "openings": 1,
+      "date": "default1",
+      "description": "default1",
+      "owner": "default1"
+    }
+  ],
+  "defaultInterests": [
+    {
+      "key": 1,
+      "value": 1,
+      "name": "JavaScript",
+      "text": "JavaScript",
+      "description": "test"
+    },
+    {
+      "key": 2,
+      "value": 2,
+      "name": "AI",
+      "text": "AI",
+      "description": "test"
+    },
+    {
+      "key": 3,
+      "value": 3,
+      "name": "Web Development",
+      "text": "Web Development",
+      "description": "test"
+    },
+    {
+      "key": 4,
+      "value": 4,
+      "name": "Project Management",
+      "text": "Project Management",
+      "description": "test"
     }
   ],
 
