@@ -46,7 +46,7 @@ class CompanyAdd extends React.Component {
   render() {
     // redirect to company profile
     if (this.state.redirectToReferer) {
-      return <Redirect to={'/list/'}/>;
+      return <Redirect to={'/cohome'}/>;
     }
     return (
         <Grid container centered>
