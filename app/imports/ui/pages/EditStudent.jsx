@@ -76,7 +76,7 @@ class EditStudent extends React.Component {
 
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Student</Header>
+            <Header as="h2" inverted textAlign="center">Edit Student</Header>
             <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
                 <TextField name='firstName'/>
