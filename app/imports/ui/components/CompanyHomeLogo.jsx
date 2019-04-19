@@ -12,7 +12,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Company extends React.Component {
+class CompanyHomeLogo extends React.Component {
 
   submit(data) {
     const { companyName, location, description, contact, image, _id } = data;
@@ -24,8 +24,8 @@ class Company extends React.Component {
   render() {
     return (
         <div>
-          <Image src={this.props.company.image} size='medium' floated='right'/>
-          <Modal trigger={<Button basic fluid color='black'>Edit Image</Button>}>
+          <Image src={this.props.company.image} centered size='medium'/><br/>
+          <Modal trigger={<Button basic compact fluid size='mini' color='black'>Edit Image</Button>}>
             <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
               <Segment>
                 <TextField name='image'/>
@@ -45,10 +45,10 @@ class Company extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-Company.propTypes = {
+CompanyHomeLogo.propTypes = {
   model: PropTypes.object,
   company: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Company);
+export default withRouter(CompanyHomeLogo);
