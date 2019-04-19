@@ -66,7 +66,7 @@ class CompanyHome extends React.Component {
               {this.props.companies.map((company, index) => <CompanyHomeLogo key={index} company={company}/>)}
 
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column width={9}>
 
               {this.props.companies.map((company, index) => <CompanyDetails key={index} company={company}/>)}
 
