@@ -1,16 +1,18 @@
 // import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Button, CardGroup, Container, Grid, Image, List, Loader, Table } from 'semantic-ui-react';
+import { Button, Card, Container, Grid, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
 import PositionItem from '/imports/ui/components/PositionItem';
 import { Companies } from '/imports/api/company/company.js';
-import CompanyDetails from '/imports/ui/components/Company';
+import CompanyDetails from '/imports/ui/components/CompanyDetails';
+import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
 import StudentItem from '/imports/ui/components/StudentItem';
+
 
 /** A simple static component to render some text for the landing page. */
 class CompanyHome extends React.Component {
@@ -58,21 +60,21 @@ class CompanyHome extends React.Component {
           <br/>
           <br/>
 
-          <Grid columns={5} centered verticalAlign='middle' textAlign='center'>
+          <Grid columns={3} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
+              {this.props.companies.map((company, index) => <CompanyHomeLogo key={index} company={company}/>)}
 
             </Grid.Column>
             <Grid.Column>
-              <List>
-                {this.props.companies.map((company, index) => <CompanyDetails key={index} company={company}/>)}
 
-              </List>
+              {this.props.companies.map((company, index) => <CompanyDetails key={index} company={company}/>)}
+
             </Grid.Column>
 
             <Grid.Column floated='right'>
 
-             <Button color='red' as={NavLink} exact to="/addposition"
+              <Button color='red' as={NavLink} exact to="/addposition"
                       key='add' content='Add Position' icon='add' />
 
             </Grid.Column>
@@ -120,9 +122,9 @@ class CompanyHome extends React.Component {
           <br/>
           <br/>
 
-          <CardGroup centered>
+          <Card.Group centered>
             {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff} />)}
-          </CardGroup>
+          </Card.Group>
 
         </Container>
     );
