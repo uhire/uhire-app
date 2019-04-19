@@ -20,7 +20,7 @@ class CompanyHome extends React.Component {
 
   state = {
     column: null,
-    data: null,
+    data: Positions,
     direction: null,
   }
 
@@ -73,9 +73,9 @@ class CompanyHome extends React.Component {
             </Grid.Column>
 
             <Grid.Column floated='right'>
+              
+              <a className="ui massive inverted button" role="button" href="#/addposition">Add Position</a>
 
-              <Button color='red' as={NavLink} exact to="/addposition"
-                      key='add' content='Add Position' icon='add' />
 
             </Grid.Column>
 
