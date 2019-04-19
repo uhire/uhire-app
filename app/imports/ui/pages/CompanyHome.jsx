@@ -1,9 +1,8 @@
 // import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Button, Card, Container, Grid, Loader, Table } from 'semantic-ui-react';
+import { Card, Container, Grid, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
 import PositionItem from '/imports/ui/components/PositionItem';
@@ -13,10 +12,8 @@ import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
 import StudentItem from '/imports/ui/components/StudentItem';
 
-
 /** A simple static component to render some text for the landing page. */
 class CompanyHome extends React.Component {
-
 
   state = {
     column: null,
@@ -47,7 +44,6 @@ class CompanyHome extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-
   renderPage() {
 
     console.log(this.props);
@@ -73,7 +69,7 @@ class CompanyHome extends React.Component {
             </Grid.Column>
 
             <Grid.Column floated='right'>
-              
+
               <a className="ui massive inverted button" role="button" href="#/addposition">Add Position</a>
 
 
@@ -88,23 +84,23 @@ class CompanyHome extends React.Component {
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell sorted={column === 'title' ? direction : null}
-                                  onClick={this.handleSort('title')} >
+                                  onClick={this.handleSort('title')}>
                   Title
                 </Table.HeaderCell>
                 <Table.HeaderCell sorted={column === 'location' ? direction : null}
-                                  onClick={this.handleSort('location')} >
+                                  onClick={this.handleSort('location')}>
                   Location
                 </Table.HeaderCell>
                 <Table.HeaderCell sorted={column === 'openings' ? direction : null}
-                                  onClick={this.handleSort('openings')} >
+                                  onClick={this.handleSort('openings')}>
                   Openings
                 </Table.HeaderCell>
                 <Table.HeaderCell sorted={column === 'date' ? direction : null}
-                                  onClick={this.handleSort('date')} >
+                                  onClick={this.handleSort('date')}>
                   Date
                 </Table.HeaderCell>
                 <Table.HeaderCell sorted={column === 'description' ? direction : null}
-                                  onClick={this.handleSort('description')} >
+                                  onClick={this.handleSort('description')}>
                   Description
                 </Table.HeaderCell>
                 <Table.HeaderCell> Edit </Table.HeaderCell>
@@ -114,7 +110,7 @@ class CompanyHome extends React.Component {
 
             <Table.Body>
 
-              {this.props.positions.map((position) => <PositionItem key={position._id} position={position} />)}
+              {this.props.positions.map((position) => <PositionItem key={position._id} position={position}/>)}
 
             </Table.Body>
           </Table>
@@ -123,7 +119,7 @@ class CompanyHome extends React.Component {
           <br/>
 
           <Card.Group centered>
-            {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff} />)}
+            {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff}/>)}
           </Card.Group>
 
         </Container>
