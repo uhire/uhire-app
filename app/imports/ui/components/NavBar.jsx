@@ -19,49 +19,52 @@ class NavBar extends React.Component {
           {/** [Defines the contents available on an admin nav-bar.] */}
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Menu.Item>
-              <Dropdown item text='All Pages'>
-                <Dropdown.Menu>
-                  <Dropdown.Item icon="user" text="Admin Home Page" as={NavLink} exact to="/admin"/>
-                  <Dropdown.Item icon="briefcase" text="Add Company Page" as={NavLink} exact to="/add"/>
-                  <Dropdown.Item icon="briefcase" text="Add Position Page" as={NavLink} exact to="/addposition"/>
-                  <Dropdown.Item icon="briefcase" text="Edit Position Page" as={NavLink} exact to="/editposition"/>
-                  <Dropdown.Item icon="briefcase" text="Company Profile Page" as={NavLink} exact to="/list"/>
-                  <Dropdown.Item icon="briefcase" text="Company Home Page" as={NavLink} exact to="/cohome"/>
-                  <Dropdown.Item icon="briefcase" text="Browse Companies Page" as={NavLink} exact to="/browsecom"/>
-                  <Dropdown.Item icon="student" text="Student Profile Page" as={NavLink} exact to="/sprofile"/>
-                  <Dropdown.Item icon="student" text="Student Home Page" as={NavLink} exact to="/studentHome"/>
-                  <Dropdown.Item icon="student" text="Browse Student Page" as={NavLink} exact to="/browsestu"/>
-                  <Dropdown.Item icon="student" text="Edit Student Page" as={NavLink} exact to="/editstu"/>
-                </Dropdown.Menu>
-              </Dropdown>
+                <Dropdown item text='All Pages'>
+                  <Dropdown.Menu>
+                    <Dropdown.Item icon="user" text="Admin Home Page" as={NavLink} exact to="/admin"/>
+                    <Dropdown.Item icon="briefcase" text="Add Company Page" as={NavLink} exact to="/add"/>
+                    <Dropdown.Item icon="briefcase" text="Add Position Page" as={NavLink} exact to="/addposition"/>
+                    <Dropdown.Item icon="briefcase" text="Edit Position Page" as={NavLink} exact to="/editposition"/>
+                    <Dropdown.Item icon="briefcase" text="Company Profile Page" as={NavLink} exact to="/list"/>
+                    <Dropdown.Item icon="briefcase" text="Company Home Page" as={NavLink} exact to="/cohome"/>
+                    <Dropdown.Item icon="briefcase" text="Browse Companies Page" as={NavLink} exact to="/browsecom"/>
+                    <Dropdown.Item icon="student" text="Student Profile Page" as={NavLink} exact to="/sprofile"/>
+                    <Dropdown.Item icon="student" text="Student Home Page" as={NavLink} exact to="/studentHome"/>
+                    <Dropdown.Item icon="student" text="Browse Student Page" as={NavLink} exact to="/browsestu"/>
+                    <Dropdown.Item icon="student" text="Edit Student Page" as={NavLink} exact to="/editstu"/>
+                  </Dropdown.Menu>
+                </Dropdown>
               </Menu.Item>) : ''}
 
           {/** [Defines the contents available on a company nav-bar.] */}
           {Roles.userIsInRole(Meteor.userId(), 'company') ? (
-              <Menu.Item>
-              <Dropdown item text='Company Pages'>
-                <Dropdown.Menu>
-                  <Dropdown.Item icon="briefcase" text="Add Company Page" as={NavLink} exact to="/add"/>
-                  <Dropdown.Item icon="briefcase" text="Add Position Page" as={NavLink} exact to="/addposition"/>
-                  <Dropdown.Item icon="briefcase" text="Edit Position Page" as={NavLink} exact to="/editposition"/>
-                  <Dropdown.Item icon="briefcase" text="Company Profile Page" as={NavLink} exact to="/list"/>
-                  <Dropdown.Item icon="briefcase" text="Company Home Page" as={NavLink} exact to="/cohome"/>
-                </Dropdown.Menu>
-              </Dropdown>
-              </Menu.Item>) : ''}
+                [<Menu.Item as={NavLink} activeClassName="active" exact to="/cohome"
+                            key='cohome'>
+                <Header color='green' as='h3'>Company Home Page</Header>
+              </Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/list"
+                           key='list'>
+                  <Header color='green'>Company Profile Page</Header>
+                </Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/browsestu"
+                           key='browsestu'>
+                  <Header color='green'>Browse Students</Header>
+                </Menu.Item>]) : ''}
 
           {/** [Defines the contents available on a student nav-bar.] */}
           {Roles.userIsInRole(Meteor.userId(), 'student') ? (
-              <Menu.Item>
-              <Dropdown item text='Student Pages'>
-                <Dropdown.Menu>
-                  <Dropdown.Item icon="student" text="Student Profile Page" as={NavLink} exact to="/sprofile"/>
-                  <Dropdown.Item icon="student" text="Student Home Page" as={NavLink} exact to="/studentHome"/>
-                  <Dropdown.Item icon="student" text="Browse Companies Page" as={NavLink} exact to="/browsecom"/>
-                  <Dropdown.Item icon="student" text="Edit Student Page" as={NavLink} exact to="/editstu"/>
-                </Dropdown.Menu>
-              </Dropdown>
-              </Menu.Item>) : ''}
+              [<Menu.Item as={NavLink} activeClassName="active" exact to="/studentHome"
+                          key='studentHome'>
+                <Header color='green' as='h3'>Student Home Page</Header>
+              </Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/sprofile"
+                           key='sprofile'>
+                  <Header color='green'>Student Profile Page</Header>
+                </Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/browsecom"
+                           key='browsecom'>
+                  <Header color='green'>Browse Companies Page</Header>
+                </Menu.Item>]) : ''}
 
           {/** [Defines the contents available to ALL users' nav-bar.] */}
           <Menu.Item position="right">
