@@ -10,7 +10,6 @@ import Landing from '../pages/Landing';
 import CompanyAdd from '../pages/CompanyAdd';
 import CompanyProfilePage from '../pages/CompanyProfilePage';
 import AdminHome from '../pages/AdminHome';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -26,7 +25,6 @@ import EditStudent from '../pages/EditStudent';
 import BrowseStudents from '../pages/BrowseStudents';
 import BrowseCompanies from '../pages/BrowseCompanies';
 
-
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
@@ -39,21 +37,19 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/sucReg" component={SuccessfulRegistration}/>
-              <Route path="/coregis" component={CompanyRegistration}/>
-              <Route path="/browsestu" component={BrowseStudents}/>
-              <Route path="/browsecom" component={BrowseCompanies}/>
-              <ProtectedRoute path="/list" component={CompanyProfilePage}/>
-              <ProtectedRoute path="/add" component={CompanyAdd}/>
-              { /* cannot remain unprotected */ }
-              <Route path="/cohome" component={CompanyHome}/>
-              <Route path="/sprofile" component={StudentProfile}/>
-              <ProtectedRoute path="/addposition" component={AddPosition}/>
-              <ProtectedRoute path="/studentHome" component={StudentHome}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-              <ProtectedRoute path="/editposition/:_id" component={EditPosition}/>
-              <ProtectedRoute path="/editstu/:_id" component={EditStudent}/>
-              <AdminProtectedRoute path="/admin" component={AdminHome}/>
               <ProtectedRoute path="/signout" component={Signout}/>
+              <AdminProtectedRoute path="/admin" component={AdminHome}/>
+              <CompanyProtectedRoute path="/coregis" component={CompanyRegistration}/>
+              <CompanyProtectedRoute path="/browsestu" component={BrowseStudents}/>
+              <CompanyProtectedRoute path="/addposition" component={AddPosition}/>
+              <CompanyProtectedRoute path="/editposition/:_id" component={EditPosition}/>
+              <CompanyProtectedRoute path="/list" component={CompanyProfilePage}/>
+              <CompanyProtectedRoute path="/add" component={CompanyAdd}/>
+              <CompanyProtectedRoute path="/cohome" component={CompanyHome}/>
+              <StudentProtectedRoute path="/sprofile" component={StudentProfile}/>
+              <StudentProtectedRoute path="/browsecom" component={BrowseCompanies}/>
+              <StudentProtectedRoute path="/studentHome" component={StudentHome}/>
+              <StudentProtectedRoute path="/editstu/:_id" component={EditStudent}/>
               <Route component={NotFound}/>
             </Switch>
             <Footer/>
@@ -69,16 +65,16 @@ class App extends React.Component {
  * @param {any} { component: Component, ...rest }
  */
 const ProtectedRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) => {
-      const isLogged = Meteor.userId() !== null;
-      return isLogged ?
-          (<Component {...props} />) :
-          (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
-      );
-    }}
-  />
+    <Route
+        {...rest}
+        render={(props) => {
+          const isLogged = Meteor.userId() !== null;
+          return isLogged ?
+              (<Component {...props} />) :
+              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              );
+        }}
+    />
 );
 
 /**
@@ -99,6 +95,34 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
         }}
     />
 );
+const CompanyProtectedRoute = ({ component: Component, ...rest }) => (
+    <Route
+        {...rest}
+        render={(props) => {
+          const isLogged = Meteor.userId() !== null;
+          const isCompany = Roles.userIsInRole(Meteor.userId(), 'company');
+          const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
+          return (isLogged && (isCompany || isAdmin) ?
+              (<Component {...props} />) :
+              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              ));
+        }}
+    />
+);
+const StudentProtectedRoute = ({ component: Component, ...rest }) => (
+    <Route
+        {...rest}
+        render={(props) => {
+          const isLogged = Meteor.userId() !== null;
+          const isStudent = Roles.userIsInRole(Meteor.userId(), 'student');
+          const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
+          return (isLogged && (isStudent || isAdmin) ?
+              (<Component {...props} />) :
+              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              ));
+        }}
+    />
+);
 
 /** Require a component and location to be passed to each ProtectedRoute. */
 ProtectedRoute.propTypes = {
@@ -108,6 +132,14 @@ ProtectedRoute.propTypes = {
 
 /** Require a component and location to be passed to each AdminProtectedRoute. */
 AdminProtectedRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
+CompanyProtectedRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
+StudentProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,
 };
