@@ -25,7 +25,7 @@ class StudentItem extends React.Component {
           <Card.Content>
             <Card.Header>Interests</Card.Header>
             <Card.Description>
-              {this.props.student.interests.map((stuff) => <InterestItem key={stuff._id} interest={stuff} />)}
+              {this.props.student.interests.map((stuff) => <InterestItem interest={stuff} />)}
             </Card.Description>
           </Card.Content>
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (<Link to={`/editstu/${this.props.student._id}`}>Edit</Link>)
