@@ -10,6 +10,6 @@ Meteor.methods({
     if (name == owner) {
       return true
     }
-    else return false;
+    else false;
   }
 })
