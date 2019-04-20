@@ -23,7 +23,7 @@ class CompanyCard extends React.Component {
             {this.props.company.location}
 
           </Card.Meta>
-          <Card.Description extra>
+          <Card.Description>
             {this.props.company.description}
 
           </Card.Description>
