@@ -14,6 +14,7 @@ import ListAddField from 'uniforms-semantic/ListAddField';
 import RadioField from 'uniforms-semantic/RadioField';
 import AutoField from 'uniforms-semantic/AutoField';
 import { Meteor } from 'meteor/meteor';
+import LongTextField from 'uniforms-semantic/LongTextField';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -81,10 +82,9 @@ class EditStudent extends React.Component {
               <Segment>
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
-                <TextField name='description'/>
+                <LongTextField name='description'/>
                 <TextField name='city'/>
                 <NumField name='locationZip' decimal={false}/>
-                <TextField name='grade'/>
                 <TextField name='profile'/>
                 <TextField name='picture'/>
                 <AutoField name='interests'/>
