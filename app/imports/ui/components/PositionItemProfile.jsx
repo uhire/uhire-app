@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Positions } from '../../api/position/position';
+import { Feed } from 'semantic-ui-react/dist/commonjs/views/Feed';
 
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -35,7 +36,11 @@ class PositionItemProfile extends React.Component {
           <Table.Cell>{this.props.position.title}</Table.Cell>
           <Table.Cell>{this.props.position.location}</Table.Cell>
           <Table.Cell>{this.props.position.openings}</Table.Cell>
-          <Table.Cell>{this.props.position.date}</Table.Cell>
+          <Table.Cell> <Feed.Event>
+            <Feed.Content>
+              <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')} />
+            </Feed.Content>
+          </Feed.Event></Table.Cell>
           <Table.Cell>{this.props.position.description}</Table.Cell>
         </Table.Row>
     );
