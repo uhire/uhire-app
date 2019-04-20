@@ -20,7 +20,7 @@ const StudentSchema = new SimpleSchema({
   },
   'interests.$': {
     type: String,
-    allowedValues: [ "JavaScript", "AI", "Web Development", "Project Management"]
+    allowedValues: [ 'JavaScript', 'AI', 'Web Development', 'Project Management']
   },
   owner: String,
   grade: {
