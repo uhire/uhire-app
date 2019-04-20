@@ -24,7 +24,7 @@ import AddPosition from '../pages/AddPosition';
 import EditStudent from '../pages/EditStudent';
 import BrowseStudents from '../pages/BrowseStudents';
 import BrowseCompanies from '../pages/BrowseCompanies';
-
+import StudentAdd from '../pages/StudentAdd'
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
@@ -50,6 +50,7 @@ class App extends React.Component {
               <StudentProtectedRoute path="/sprofile" component={StudentProfile}/>
               <StudentProtectedRoute path="/browsecom" component={BrowseCompanies}/>
               <StudentProtectedRoute path="/studentHome" component={StudentHome}/>
+              <StudentProtectedRoute path="/addStudent" component={StudentAdd}/>
               <StudentProtectedRoute path="/editstu/:_id" component={EditStudent}/>
               <Route component={NotFound}/>
             </Switch>

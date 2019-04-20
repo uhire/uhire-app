@@ -41,7 +41,7 @@ export default class Signin extends React.Component {
   /** Render the signin form. */
   render() {
     if (this.state.redirectToReferer && Roles.userIsInRole(Meteor.userId(), 'student')) {
-      return <Redirect to={'/sprofile/'}/>;
+      return <Redirect to={'/addStudent/'}/>;
     }
     if (this.state.redirectToReferer && Roles.userIsInRole(Meteor.userId(), 'company')) {
       return <Redirect to={'/add/'}/>;
