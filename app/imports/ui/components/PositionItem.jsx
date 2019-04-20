@@ -36,11 +36,13 @@ class PositionItem extends React.Component {
           <Table.Cell>{this.props.position.location}</Table.Cell>
           <Table.Cell>{this.props.position.openings}</Table.Cell>
           <Table.Cell>
+
             <Feed.Event>
-            <Feed.Content>
-              <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')} />
-            </Feed.Content>
-          </Feed.Event>
+              <Feed.Content>
+                <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')} />
+              </Feed.Content>
+            </Feed.Event>
+
           </Table.Cell>
           <Table.Cell>{this.props.position.description}</Table.Cell>
          <Table.Cell>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Positions, PositionSchema } from '/imports/api/position/position';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
-
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import NumField from 'uniforms-semantic/NumField';

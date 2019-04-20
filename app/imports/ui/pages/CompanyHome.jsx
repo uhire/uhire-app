@@ -17,7 +17,7 @@ class CompanyHome extends React.Component {
 
   state = {
     column: null,
-    data: Positions,
+    data: null,
     direction: null,
   }
 
@@ -117,11 +117,6 @@ class CompanyHome extends React.Component {
 
           <br/>
           <br/>
-
-          <Card.Group centered>
-            {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff}/>)}
-          </Card.Group>
-
         </Container>
     );
   }
