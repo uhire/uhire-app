@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react';
+import { Feed, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
@@ -11,8 +11,15 @@ class PositionItem extends React.Component {
           <Table.Cell>{this.props.position.title}</Table.Cell>
           <Table.Cell>{this.props.position.location}</Table.Cell>
           <Table.Cell>{this.props.position.openings}</Table.Cell>
-          <Table.Cell>{this.props.position.date}</Table.Cell>
-          <Table.Cell>{this.props.position.description}</Table.Cell>
+          <Table.Cell>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')} />
+              </Feed.Content>
+            </Feed.Event>
+          </Table.Cell>
+          <
+            Table.Cell>{this.props.position.description}</Table.Cell>
         </Table.Row>
     );
   }
