@@ -2,7 +2,6 @@ import React from 'react';
 import { Positions, PositionSchema } from '/imports/api/position/position';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
-
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import NumField from 'uniforms-semantic/NumField';
@@ -70,10 +69,10 @@ class AddPosition extends React.Component {
                 <TextField name='title'/>
                 <TextField name='location'/>
                 <NumField name='openings' decimal={false}/>
-                <TextField name='date'/>
                 <LongTextField name='description'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
+                <HiddenField name='date' value={new Date()}/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>
               </Segment>
             </AutoForm>

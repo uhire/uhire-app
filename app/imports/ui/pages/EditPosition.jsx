@@ -64,7 +64,7 @@ class EditPosition extends React.Component {
                 <TextField name='title'/>
                 <TextField name='location'/>
                 <NumField name='openings' decimal={false}/>
-                <TextField name='date'/>
+                <HiddenField name='date'/>
                 <LongTextField name='description'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>

@@ -17,7 +17,7 @@ class CompanyHome extends React.Component {
 
   state = {
     column: null,
-    data: Positions,
+    data: null,
     direction: null,
   }
 
