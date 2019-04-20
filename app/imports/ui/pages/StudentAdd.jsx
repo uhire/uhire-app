@@ -80,7 +80,7 @@ class StudentAdd extends React.Component {
                 <RadioField name='grade'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='owner' />
+                <HiddenField name='owner' value='fakeuser@foo.com' />
               </Segment>
             </AutoForm>
           </Grid.Column>
