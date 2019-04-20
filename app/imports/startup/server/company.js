@@ -26,10 +26,9 @@ Meteor.publish('Companies', function publish() {
 });
 
 /** This subscription publishes only the documents associated with the logged in user */
-Meteor.publish('Company', function publish() {
-  if (this.userId && Roles.userIsInRole(this.userId, 'company')) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Companies.find({ owner: username }, { sort: { $natural: -1 }, limit: 1 });
+Meteor.publish('CompaniesStudent', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'student')) {
+    return Companies.find();
   }
   return this.ready();
 });
