@@ -10,7 +10,7 @@ const PositionSchema = new SimpleSchema({
   title: String,
   location: String,
   openings: Number,
-  date: String,
+  date: Date,
   description: String,
   owner: String,
 }, { tracker: Tracker });
