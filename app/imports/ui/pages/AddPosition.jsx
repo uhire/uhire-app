@@ -70,10 +70,10 @@ class AddPosition extends React.Component {
                 <TextField name='title'/>
                 <TextField name='location'/>
                 <NumField name='openings' decimal={false}/>
+                <TextField name='date'/>
                 <LongTextField name='description'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='date'/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>
               </Segment>
             </AutoForm>

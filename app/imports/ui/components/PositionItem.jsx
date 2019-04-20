@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Feed, Table } from 'semantic-ui-react';
+import { Button, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -35,13 +35,7 @@ class PositionItem extends React.Component {
           <Table.Cell>{this.props.position.title}</Table.Cell>
           <Table.Cell>{this.props.position.location}</Table.Cell>
           <Table.Cell>{this.props.position.openings}</Table.Cell>
-          <Table.Cell>
-            <Feed.Event>
-            <Feed.Content>
-              <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')} />
-            </Feed.Content>
-          </Feed.Event>
-          </Table.Cell>
+          <Table.Cell>{this.props.position.date}</Table.Cell>
           <Table.Cell>{this.props.position.description}</Table.Cell>
          <Table.Cell>
             <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
