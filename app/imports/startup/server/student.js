@@ -21,3 +21,11 @@ Meteor.publish('Student', function publish() {
   }
   return this.ready();
 });
+
+Meteor.publish('SelfStudent', function publish() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Students.find({ owner: username });
+  }
+  return this.ready();
+});

@@ -4,6 +4,7 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
+import AutoField from 'uniforms-semantic/AutoField';
 import NumField from 'uniforms-semantic/NumField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
@@ -46,9 +47,9 @@ class AddPosition extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { title, location, openings, date, description } = data;
+    const { title, location, openings, date, description, interests } = data;
     const owner = Meteor.user().username;
-    Positions.insert({ title, location, openings, date, description, owner }, this.insertCallback);
+    Positions.insert({ title, location, openings, date, description, interests, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -70,6 +71,7 @@ class AddPosition extends React.Component {
                 <TextField name='location'/>
                 <NumField name='openings' decimal={false}/>
                 <LongTextField name='description'/>
+                <AutoField name='interests'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='date' value={new Date()}/>

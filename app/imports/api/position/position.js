@@ -12,6 +12,13 @@ const PositionSchema = new SimpleSchema({
   openings: Number,
   date: Date,
   description: String,
+  interests: {
+    type: Array,
+  },
+  'interests.$': {
+    type: String,
+    allowedValues: [ 'JavaScript', 'AI', 'Web Development', 'Project Management']
+  },
   owner: String,
 }, { tracker: Tracker });
 
