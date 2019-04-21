@@ -24,7 +24,8 @@ import AddPosition from '../pages/AddPosition';
 import EditStudent from '../pages/EditStudent';
 import BrowseStudents from '../pages/BrowseStudents';
 import BrowseCompanies from '../pages/BrowseCompanies';
-import StudentAdd from '../pages/StudentAdd'
+import StudentAdd from '../pages/StudentAdd';
+
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
@@ -44,7 +45,8 @@ class App extends React.Component {
               <CompanyProtectedRoute path="/browsestu" component={BrowseStudents}/>
               <CompanyProtectedRoute path="/addposition" component={AddPosition}/>
               <CompanyProtectedRoute path="/editposition/:_id" component={EditPosition}/>
-              <CompanyProtectedRoute path="/list" component={CompanyProfilePage}/>
+              <CompanyProtectedRoute path="/list" component={CompanyProfilePage}
+                                     onClick={Meteor.call('visitCounter', '/list')}/>
               <CompanyProtectedRoute path="/add" component={CompanyAdd}/>
               <CompanyProtectedRoute path="/cohome" component={CompanyHome}/>
               <StudentProtectedRoute path="/sprofile" component={StudentProfile}/>
@@ -97,6 +99,11 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
         }}
     />
 );
+/**
+ * CompanyProtectedRoute (see React Router v4 sample)
+ * Checks for Meteor login, company or admin role before routing to the requested page, otherwise goes to signin page.
+ * @param {any} { component: Component, ...rest }
+ */
 const CompanyProtectedRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
@@ -111,6 +118,11 @@ const CompanyProtectedRoute = ({ component: Component, ...rest }) => (
         }}
     />
 );
+/**
+ * StudentProtectedRoute (see React Router v4 sample)
+ * Checks for Meteor login, student or admin role before routing to the requested page, otherwise goes to signin page.
+ * @param {any} { component: Component, ...rest }
+ */
 const StudentProtectedRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
@@ -137,10 +149,12 @@ AdminProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,
 };
+/** Require a component and location to be passed to each CompanyProtectedRoute. */
 CompanyProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,
 };
+/** Require a component and location to be passed to each StudentProtectedRoute. */
 StudentProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,

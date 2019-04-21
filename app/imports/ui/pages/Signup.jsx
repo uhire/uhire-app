@@ -25,6 +25,10 @@ export default class Signup extends React.Component {
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
     const { email, password, role } = this.state;
+    if (!role || !password) {
+      this.setState({ error: 'Fields Can Not Be Blank' });
+      throw new Meteor.Error('Fields Can Not Be Blank');
+    }
     Meteor.call('createNewUser', email, password, role);
     this.setState({ error: '', redirectToReferer: true });
   }
@@ -95,7 +99,7 @@ export default class Signup extends React.Component {
                       type="password"
                       onChange={this.handleChange}
                   />
-                  <Dropdown
+                  <Dropdown required
                       placeholder='Choose a Profession'
                       fluid
                       selection
@@ -103,7 +107,7 @@ export default class Signup extends React.Component {
                       name={'role'}
                       onChange={this.handleChange}
                   />
-                  <br></br>
+                  <br/>
                   <Form.Button color="green" content="Submit"/>
                 </Segment>
               </Form>

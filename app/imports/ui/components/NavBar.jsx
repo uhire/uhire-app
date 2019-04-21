@@ -38,8 +38,8 @@ class NavBar extends React.Component {
 
           {/** [Defines the contents available on a company nav-bar.] */}
           {Roles.userIsInRole(Meteor.userId(), 'company') ? (
-                [<Menu.Item as={NavLink} activeClassName="active" exact to="/cohome"
-                            key='cohome'>
+              [<Menu.Item as={NavLink} activeClassName="active" exact to="/cohome"
+                          key='cohome'>
                 <Header color='green' as='h3'>Company Home Page</Header>
               </Menu.Item>,
                 <Menu.Item as={NavLink} activeClassName="active" exact to="/list"

@@ -46,6 +46,10 @@ class CompanyHome extends React.Component {
   }
 
   renderPage() {
+    if (this.props.companies.length === 0) {
+      return <Redirect to={'/add'}/>;
+    }
+    console.log(this.props.companies);
     if (this.state.data == null) {
       this.state.data = this.props.positions;
     }

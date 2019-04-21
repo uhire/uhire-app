@@ -53,15 +53,15 @@ export default class Signin extends React.Component {
     return (
         <div className="page-filler">
           <Container>
-            <br></br>
-            <br></br>
-            <br></br>
+            <br/>
+            <br/>
+            <br/>
             <Header as="h1" textAlign="center" inverted>
               Congratulations! Your Registration Was a Success.
             </Header>
-            <br></br>
-            <br></br>
-            <br></br>
+            <br/>
+            <br/>
+            <br/>
 
             <Grid divided="vertically" textAlign="left">
               <Grid.Row columns={2}>

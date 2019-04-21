@@ -3,12 +3,15 @@ import { Loader, Grid, Container, Image, Table } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import Company from '/imports/ui/components/Company';
 import CompanyLogo from '/imports/ui/components/CompanyLogo';
+import Counter from '/imports/ui/components/Counter';
 import { Companies } from '/imports/api/company/company.js';
 import { Positions } from '/imports/api/position/position.js';
+import { Visits } from '/imports/api/visit/visit.js';
 import PositionItemProfile from '/imports/ui/components/PositionItemProfile';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
+import { Redirect } from 'react-router-dom';
 
 /** Renders the Page for adding a document. */
 class CompanyProfilePage extends React.Component {
@@ -38,7 +41,6 @@ class CompanyProfilePage extends React.Component {
     });
   }
 
-
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -46,13 +48,15 @@ class CompanyProfilePage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    if (this.props.companies.length === 0) {
+      return <Redirect to={'/add'}/>;
+    }
 
     const { column, direction } = this.state;
-
-
+    console.log(this.props.visits);
     return (
         <Container>
-          <Image src='images/Background4CD.jpg' className='company-profile-page-banner' centered />
+          <Image src='images/Background4CD.jpg' className='company-profile-page-banner' centered/>
           <br/>
           <Grid columns={2} divided>
             <Grid.Column width={12}>
@@ -60,6 +64,7 @@ class CompanyProfilePage extends React.Component {
             </Grid.Column>
             <Grid.Column width={3}>
               {this.props.companies.map((company, index) => <CompanyLogo key={index} company={company}/>)}
+              <Counter count={this.props.visits[0].visitCount}/>
             </Grid.Column>
           </Grid>
 
@@ -106,6 +111,7 @@ class CompanyProfilePage extends React.Component {
 CompanyProfilePage.propTypes = {
   positions: PropTypes.array.isRequired,
   companies: PropTypes.array.isRequired,
+  visits: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -114,10 +120,12 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Companies');
   const subscription2 = Meteor.subscribe('Position');
+  const subscription3 = Meteor.subscribe('Visits');
   return {
     // companies: Companies.find({}, { sort: { _id: 1 }, limit: 1 }).fetch(),
     positions: Positions.find({}).fetch(),
     companies: Companies.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready(),
+    visits: Visits.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
 })(CompanyProfilePage);
