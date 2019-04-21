@@ -22,7 +22,6 @@ class CompanyDetails extends React.Component {
   }
 
   render() {
-    // const emailLink = 'mailto: ' + contact;
     return (
 
         <Container>
