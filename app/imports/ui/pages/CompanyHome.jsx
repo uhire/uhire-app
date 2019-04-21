@@ -61,7 +61,7 @@ class CompanyHome extends React.Component {
           <Grid columns={3} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
-              {this.state.data.map((company, index) => <CompanyHomeLogo key={index} company={company}/>)}
+              {this.props.companies.map((company, index) => <CompanyHomeLogo key={index} company={company}/>)}
 
             </Grid.Column>
             <Grid.Column width={9}>
@@ -112,7 +112,7 @@ class CompanyHome extends React.Component {
 
             <Table.Body>
 
-              {this.props.positions.map((position) => <PositionItem key={position._id} position={position}/>)}
+              {this.state.data.map((position) => <PositionItem key={position._id} position={position}/>)}
 
             </Table.Body>
           </Table>
