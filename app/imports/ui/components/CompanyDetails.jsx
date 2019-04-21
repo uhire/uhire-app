@@ -78,8 +78,8 @@ class CompanyDetails extends React.Component {
               <Grid.Column width={8}>
                 <Header>
                   <Icon name='world'/>
-                  <Header.Content><a href={this.props.company.contact} target='_blank'
-                                     rel='noopener noreferrer'>{this.props.company.contact}</a></Header.Content>
+                  <Header.Content><a href="mailto: {this.props.company.contact}">
+                    {this.props.company.contact}</a></Header.Content>
                 </Header>
               </Grid.Column>
               <Grid.Column>
