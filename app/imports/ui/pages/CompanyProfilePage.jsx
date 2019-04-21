@@ -48,7 +48,7 @@ class CompanyProfilePage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    if (this.state.data == null) {
+    if (this.props.companies.length === 0) {
       return <Redirect to={'/add'}/>;
     }
 
