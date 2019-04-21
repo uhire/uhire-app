@@ -11,6 +11,7 @@ import PositionItemProfile from '/imports/ui/components/PositionItemProfile';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
+import { Redirect } from 'react-router-dom';
 
 /** Renders the Page for adding a document. */
 class CompanyProfilePage extends React.Component {
@@ -47,6 +48,9 @@ class CompanyProfilePage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    if (this.state.data == null) {
+      return <Redirect to={'/add'}/>;
+    }
 
     const { column, direction } = this.state;
     console.log(this.props.visits);

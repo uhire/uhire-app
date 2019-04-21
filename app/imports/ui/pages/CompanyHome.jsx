@@ -48,6 +48,7 @@ class CompanyHome extends React.Component {
   renderPage() {
     if (this.state.data == null) {
       this.state.data = this.props.positions;
+      return <Redirect to={'/add'}/>;
     }
     console.log(this.props);
     const { column, direction } = this.state;
