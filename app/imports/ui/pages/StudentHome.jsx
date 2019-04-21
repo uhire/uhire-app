@@ -1,13 +1,13 @@
 // import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Container, Grid, Loader, Table } from 'semantic-ui-react';
+import { Container, Grid, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
 import PositionItem from '/imports/ui/components/PositionItem';
 import { Companies } from '/imports/api/company/company.js';
-import CompanyDetails from '/imports/ui/components/CompanyDetails';
+import StudentDetails from '/imports/ui/components/StudentDetails';
 import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
 // import StudentItem from '/imports/ui/components/StudentItem';
@@ -65,16 +65,12 @@ class StudentHome2 extends React.Component {
           <Grid columns={3} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
-              {this.props.students.map((company, index) =>
-                  <CompanyHomeLogo key={index} company={company}/>
-              )}
+              {this.props.students.map((company, index) => <CompanyHomeLogo key={index} company={company}/>)}
 
             </Grid.Column>
             <Grid.Column width={9}>
 
-              {this.props.students.map((company, index) =>
-                  <CompanyDetails key={index} company={company}/>
-              )}
+              {this.props.students.map((company, index) => <StudentDetails key={index} company={company}/>)}
 
             </Grid.Column>
 

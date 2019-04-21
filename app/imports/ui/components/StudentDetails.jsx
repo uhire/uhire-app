@@ -3,6 +3,7 @@ import { Container, Modal, Icon, Header, Grid, Button, Segment } from 'semantic-
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Students, StudentSchema } from '/imports/api/stuff/student';
+import InterestItem from '/imports/ui/components/InterestItem';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import AutoField from 'uniforms-semantic/AutoField';
@@ -12,14 +13,15 @@ import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
-import LongTextField from '../pages/EditStudent';
+import NumField from 'uniforms-semantic/NumField';
+import LongTextField from 'uniforms-semantic/LongTextField';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudentDetails extends React.Component {
 
   submit(data) {
     const { firstName, lastName, description, city, locationZip, profile, picture, interests, grade, _id } = data;
-    Companies.update(_id, { $set: {
+    Students.update(_id, { $set: {
         firstName,
         lastName,
         description,
@@ -30,7 +32,7 @@ class StudentDetails extends React.Component {
         interests,
         grade,
       },
-      }, (error) => (error ?
+    }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -52,18 +54,18 @@ class StudentDetails extends React.Component {
                 <Modal trigger={<Icon disabled link name='edit'/>}>
                   <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                     <Segment>
-                    <TextField name='firstName'/>
-                    <TextField name='lastName'/>
-                    <SubmitField value='Submit'/>
-                    <ErrorsField/>
-                    <HiddenField name='city' value={this.props.student.city}/>
-                    <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                    <HiddenField name='description' value={this.props.student.description}/>
-                    <HiddenField name='profile' value={this.props.student.profile}/>
-                    <HiddenField name='picture' value={this.props.student.picture}/>
-                    <HiddenField name='interests' value={this.props.student.interests}/>
-                    <HiddenField name='grade' value={this.props.student.grade}/>
-                    <HiddenField name='owner' value={this.props.student.owner}/>
+                      <TextField name='firstName'/>
+                      <TextField name='lastName'/>
+                      <SubmitField value='Submit'/>
+                      <ErrorsField/>
+                      <HiddenField name='city' value={this.props.student.city}/>
+                      <HiddenField name='locationZip' value={this.props.student.locationZip}/>
+                      <HiddenField name='description' value={this.props.student.description}/>
+                      <HiddenField name='profile' value={this.props.student.profile}/>
+                      <HiddenField name='picture' value={this.props.student.picture}/>
+                      <HiddenField name='interests' value={this.props.student.interests}/>
+                      <HiddenField name='grade' value={this.props.student.grade}/>
+                      <HiddenField name='owner' value={this.props.student.owner}/>
                     </Segment>
                   </AutoForm>
                 </Modal>
@@ -81,18 +83,18 @@ class StudentDetails extends React.Component {
                 <Modal trigger={<Icon disabled link name='edit'/>}>
                   <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                     <Segment>
-                    <TextField name='city'/>
-                    <TextField name='locationZip'/>
-                    <SubmitField value='Submit'/>
-                    <ErrorsField/>
-                    <HiddenField name='firstName' value={this.props.student.firstName}/>
-                    <HiddenField name='lastName' value={this.props.student.lastName}/>
-                    <HiddenField name='description' value={this.props.student.description}/>
-                    <HiddenField name='profile' value={this.props.student.profile}/>
-                    <HiddenField name='picture' value={this.props.student.picture}/>
-                    <HiddenField name='interests' value={this.props.student.interests}/>
-                    <HiddenField name='grade' value={this.props.student.grade}/>
-                    <HiddenField name='owner' value={this.props.student.owner}/>
+                      <TextField name='city'/>
+                      <TextField name='locationZip'/>
+                      <SubmitField value='Submit'/>
+                      <ErrorsField/>
+                      <HiddenField name='firstName' value={this.props.student.firstName}/>
+                      <HiddenField name='lastName' value={this.props.student.lastName}/>
+                      <HiddenField name='description' value={this.props.student.description}/>
+                      <HiddenField name='profile' value={this.props.student.profile}/>
+                      <HiddenField name='picture' value={this.props.student.picture}/>
+                      <HiddenField name='interests' value={this.props.student.interests}/>
+                      <HiddenField name='grade' value={this.props.student.grade}/>
+                      <HiddenField name='owner' value={this.props.student.owner}/>
                     </Segment>
                   </AutoForm>
                 </Modal>
@@ -110,18 +112,18 @@ class StudentDetails extends React.Component {
                 <Modal trigger={<Icon disabled link name='edit'/>}>
                   <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                     <Segment>
-                    <TextField name='profile'/>
-                    <SubmitField value='Submit'/>
-                    <ErrorsField/>
-                    <HiddenField name='firstName' value={this.props.student.firstName}/>
-                    <HiddenField name='lastName' value={this.props.student.lastName}/>
-                    <HiddenField name='city' value={this.props.student.city}/>
-                    <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                    <HiddenField name='description' value={this.props.student.description}/>
-                    <HiddenField name='picture' value={this.props.student.picture}/>
-                    <HiddenField name='interests' value={this.props.student.interests}/>
-                    <HiddenField name='grade' value={this.props.student.grade}/>
-                    <HiddenField name='owner' value={this.props.student.owner}/>
+                      <TextField name='profile'/>
+                      <SubmitField value='Submit'/>
+                      <ErrorsField/>
+                      <HiddenField name='firstName' value={this.props.student.firstName}/>
+                      <HiddenField name='lastName' value={this.props.student.lastName}/>
+                      <HiddenField name='city' value={this.props.student.city}/>
+                      <HiddenField name='locationZip' value={this.props.student.locationZip}/>
+                      <HiddenField name='description' value={this.props.student.description}/>
+                      <HiddenField name='picture' value={this.props.student.picture}/>
+                      <HiddenField name='interests' value={this.props.student.interests}/>
+                      <HiddenField name='grade' value={this.props.student.grade}/>
+                      <HiddenField name='owner' value={this.props.student.owner}/>
                     </Segment>
                   </AutoForm>
                 </Modal>
@@ -129,33 +131,33 @@ class StudentDetails extends React.Component {
             </Grid.Row>
 
             <Grid.Row>
-            <Grid.Column width={8}>
-              <Header>
-                <Icon name='tag'/>
-                <Header.Content>{this.props.student.interests.map((stuff) => <InterestItem interest={stuff} />)}</Header.Content>
-              </Header>
-            </Grid.Column>
-            <Grid.Column>
-              <Modal trigger={<Icon disabled link name='edit'/>}>
-                <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
-                  <Segment>
-                  <AutoField name='interests'/>
-                  <SubmitField value='Submit'/>
-                  <ErrorsField/>
-                  <HiddenField name='firstName' value={this.props.student.firstName}/>
-                  <HiddenField name='lastName' value={this.props.student.lastName}/>
-                  <HiddenField name='city' value={this.props.student.city}/>
-                  <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                  <HiddenField name='description' value={this.props.student.description}/>
-                  <HiddenField name='profile' value={this.props.student.profile}/>
-                  <HiddenField name='picture' value={this.props.student.picture}/>
-                  <HiddenField name='grade' value={this.props.student.grade}/>
-                  <HiddenField name='owner' value={this.props.student.owner}/>
-                  </Segment>
-                </AutoForm>
-              </Modal>
-            </Grid.Column>
-          </Grid.Row>
+              <Grid.Column width={8}>
+                <Header>
+                  <Icon name='tag'/>
+                  <Header.Content>{this.props.student.interests.map((stuff) => <InterestItem interest={stuff} />)}</Header.Content>
+                </Header>
+              </Grid.Column>
+              <Grid.Column>
+                <Modal trigger={<Icon disabled link name='edit'/>}>
+                  <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
+                    <Segment>
+                      <AutoField name='interests'/>
+                      <SubmitField value='Submit'/>
+                      <ErrorsField/>
+                      <HiddenField name='firstName' value={this.props.student.firstName}/>
+                      <HiddenField name='lastName' value={this.props.student.lastName}/>
+                      <HiddenField name='city' value={this.props.student.city}/>
+                      <HiddenField name='locationZip' value={this.props.student.locationZip}/>
+                      <HiddenField name='description' value={this.props.student.description}/>
+                      <HiddenField name='profile' value={this.props.student.profile}/>
+                      <HiddenField name='picture' value={this.props.student.picture}/>
+                      <HiddenField name='grade' value={this.props.student.grade}/>
+                      <HiddenField name='owner' value={this.props.student.owner}/>
+                    </Segment>
+                  </AutoForm>
+                </Modal>
+              </Grid.Column>
+            </Grid.Row>
 
             <Grid.Row>
               <Modal trigger={<Button basic compact fluid size='mini' color='black'>Edit Image</Button>}>
