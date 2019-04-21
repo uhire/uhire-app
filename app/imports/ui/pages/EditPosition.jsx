@@ -5,6 +5,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Redirect } from 'react-router-dom';
 
 import AutoForm from 'uniforms-semantic/AutoForm';
+import AutoField from 'uniforms-semantic/AutoField';
 import TextField from 'uniforms-semantic/TextField';
 import NumField from 'uniforms-semantic/NumField';
 import LongTextField from 'uniforms-semantic/LongTextField';
@@ -31,8 +32,8 @@ class EditPosition extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { title, location, openings, date, description, _id } = data;
-    Positions.update(_id, { $set: { title, location, openings, date, description } }, (error) => {
+    const { title, location, openings, date, description, interests, _id } = data;
+    Positions.update(_id, { $set: { title, location, openings, date, description, interests } }, (error) => {
       if (error) {
         return Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` });
       } else {
@@ -66,6 +67,7 @@ class EditPosition extends React.Component {
                 <NumField name='openings' decimal={false}/>
                 <HiddenField name='date'/>
                 <LongTextField name='description'/>
+                <AutoField name='interests'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />

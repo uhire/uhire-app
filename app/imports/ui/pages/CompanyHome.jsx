@@ -109,6 +109,7 @@ class CompanyHome extends React.Component {
                                   onClick={this.handleSort('description')}>
                   Description
                 </Table.HeaderCell>
+                <Table.HeaderCell> Interests </Table.HeaderCell>
                 <Table.HeaderCell> Edit </Table.HeaderCell>
                 <Table.HeaderCell> Delete </Table.HeaderCell>
               </Table.Row>
