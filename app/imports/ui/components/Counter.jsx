@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -19,7 +19,9 @@ class Counter extends React.Component {
     return (
         <div className='main_container'>
           <div className='container_inner'>
-            <Container className='num_tiles' textAlign='center' fluid>{this.props.count}</Container>
+            <Container className='num_tiles' textAlign='center' fluid>
+              <Button size='large'>{this.props.count}</Button>
+            </Container>
           </div>
         </div>
     );
