@@ -99,6 +99,11 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
         }}
     />
 );
+/**
+ * CompanyProtectedRoute (see React Router v4 sample)
+ * Checks for Meteor login, company or admin role before routing to the requested page, otherwise goes to signin page.
+ * @param {any} { component: Component, ...rest }
+ */
 const CompanyProtectedRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
@@ -113,6 +118,11 @@ const CompanyProtectedRoute = ({ component: Component, ...rest }) => (
         }}
     />
 );
+/**
+ * StudentProtectedRoute (see React Router v4 sample)
+ * Checks for Meteor login, student or admin role before routing to the requested page, otherwise goes to signin page.
+ * @param {any} { component: Component, ...rest }
+ */
 const StudentProtectedRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
@@ -139,10 +149,12 @@ AdminProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,
 };
+/** Require a component and location to be passed to each CompanyProtectedRoute. */
 CompanyProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,
 };
+/** Require a component and location to be passed to each StudentProtectedRoute. */
 StudentProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,
