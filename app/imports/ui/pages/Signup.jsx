@@ -107,7 +107,7 @@ export default class Signup extends React.Component {
                       name={'role'}
                       onChange={this.handleChange}
                   />
-                  <br></br>
+                  <br/>
                   <Form.Button color="green" content="Submit"/>
                 </Segment>
               </Form>
