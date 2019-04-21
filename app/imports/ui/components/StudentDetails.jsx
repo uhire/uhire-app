@@ -15,7 +15,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import LongTextField from '../pages/EditStudent';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class CompanyDetails extends React.Component {
+class StudentDetails extends React.Component {
 
   submit(data) {
     const { firstName, lastName, description, city, locationZip, profile, picture, interests, grade, _id } = data;
@@ -186,9 +186,9 @@ class CompanyDetails extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-CompanyDetails.propTypes = {
+StudentDetails.propTypes = {
   student: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(CompanyDetails);
+export default withRouter(StudentDetails);
