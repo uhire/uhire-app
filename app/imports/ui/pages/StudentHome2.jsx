@@ -67,14 +67,14 @@ class StudentHome2 extends React.Component {
             <Grid.Column>
               {this.props.students.map((company, index) =>
                   <CompanyHomeLogo key={index} company={company}/>
-              )}
+                  )}
 
             </Grid.Column>
             <Grid.Column width={9}>
 
               {this.props.students.map((company, index) =>
                   <CompanyDetails key={index} company={company}/>
-              )}
+                  )}
 
             </Grid.Column>
 
