@@ -11,6 +11,7 @@ import CompanyDetails from '/imports/ui/components/CompanyDetails';
 import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
 import StudentItem from '/imports/ui/components/StudentItem';
+import { Redirect } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class CompanyHome extends React.Component {
@@ -45,10 +46,11 @@ class CompanyHome extends React.Component {
   }
 
   renderPage() {
-
+    if (this.state.data == null) {
+      this.state.data = this.props.positions;
+    }
     console.log(this.props);
     const { column, direction } = this.state;
-
     return (
 
         <Container>
@@ -59,7 +61,7 @@ class CompanyHome extends React.Component {
           <Grid columns={3} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
-              {this.props.companies.map((company, index) => <CompanyHomeLogo key={index} company={company}/>)}
+              {this.state.data.map((company, index) => <CompanyHomeLogo key={index} company={company}/>)}
 
             </Grid.Column>
             <Grid.Column width={9}>
