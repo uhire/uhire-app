@@ -75,7 +75,7 @@ class StudentAdd extends React.Component {
                 <TextField name='city'/>
                 <NumField name='locationZip' decimal={false}/>
                 <TextField name='profile'/>
-                <TextField name='picture'/>
+                <TextField name='picture' />
                 <AutoField name='interests'/>
                 <RadioField name='grade'/>
                 <SubmitField value='Submit'/>

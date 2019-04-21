@@ -14,7 +14,10 @@ const StudentSchema = new SimpleSchema({
   city: String,
   locationZip: Number,
   profile: String,
-  picture: String,
+  picture: {
+    type: String,
+    defaultValue: 'https://react.semantic-ui.com/images/avatar/large/matthew.png'
+  },
   interests: {
     type: Array,
   },
