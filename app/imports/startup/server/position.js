@@ -33,3 +33,11 @@ Meteor.publish('PositionAdmin', function publish() {
   }
   return this.ready();
 });
+
+
+Meteor.publish('PositionStudent', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'student')) {
+    return Positions.find();
+  }
+  return this.ready();
+});
