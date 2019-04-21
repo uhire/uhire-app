@@ -24,7 +24,7 @@ import AddPosition from '../pages/AddPosition';
 import EditStudent from '../pages/EditStudent';
 import BrowseStudents from '../pages/BrowseStudents';
 import BrowseCompanies from '../pages/BrowseCompanies';
-import StudentAdd from '../pages/StudentAdd'
+import StudentAdd from '../pages/StudentAdd';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
