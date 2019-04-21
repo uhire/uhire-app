@@ -6,6 +6,7 @@ import { Students, StudentSchema } from '/imports/api/stuff/student';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import AutoField from 'uniforms-semantic/AutoField';
+import NumField from 'uniforms-semantic/AutoField';
 import RadioField from 'uniforms-semantic/RadioField';
 // import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
@@ -82,7 +83,7 @@ class StudentDetails extends React.Component {
                   <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                     <Segment>
                     <TextField name='city'/>
-                    <TextField name='locationZip'/>
+                    <NumField name='locationZip' decimal={false}/>
                     <SubmitField value='Submit'/>
                     <ErrorsField/>
                     <HiddenField name='firstName' value={this.props.student.firstName}/>
@@ -158,7 +159,7 @@ class StudentDetails extends React.Component {
           </Grid.Row>
 
             <Grid.Row>
-              <Modal trigger={<Button basic compact fluid size='mini' color='black'>Edit Image</Button>}>
+              <Modal trigger={<Button basic compact fluid size='mini' color='black'>Edit Profile</Button>}>
                 <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                   <Segment>
                     <TextField name='firstName'/>
