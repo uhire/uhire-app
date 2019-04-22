@@ -10,10 +10,10 @@ import { Companies } from '/imports/api/company/company.js';
 import CompanyDetails from '/imports/ui/components/CompanyDetails';
 import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
-// import StudentItem from '/imports/ui/components/StudentItem';
-import { Redirect } from 'react-router-dom';
+import StudentItem from '/imports/ui/components/StudentItem';
 import StudentDetails from '/imports/ui/components/StudentDetails';
-import StudentHomeImage from '../components/StudentHomeImage';
+import StudentHomeImage from '/imports/ui/components/StudentHomeImage';
+import { Redirect } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class StudentHome extends React.Component {
@@ -71,8 +71,7 @@ class StudentHome extends React.Component {
 
             </Grid.Column>
             <Grid.Column width={9}>
-
-              {this.props.students.map((company, index) => <CompanyDetails key={index} company={company}/>)}
+              {this.props.students.map((company, index) => <StudentDetails key={index} company={company}/>)}
 
             </Grid.Column>
 
@@ -140,7 +139,7 @@ StudentHome.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subPositions = Meteor.subscribe('Position');
-  const subStudents = Meteor.subscribe('Student');
+  const subStudents = Meteor.subscribe('SelfStudent');
   const subCompanies = Meteor.subscribe('Companies');
 
   return {
