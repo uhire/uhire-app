@@ -43,9 +43,10 @@ BrowseCompanies.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subCompanies = Meteor.subscribe('CompaniesStudent');
+  const subAdmin = Meteor.subscribe('CompanyAdmin');
 
   return {
     companies: Companies.find({}).fetch(),
-    ready: subCompanies.ready(),
+    ready: subCompanies.ready() && subAdmin.ready(),
   };
 })(BrowseCompanies);
