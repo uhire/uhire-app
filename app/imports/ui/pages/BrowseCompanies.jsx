@@ -8,6 +8,7 @@ import { Companies } from '/imports/api/company/company';
 import CompanyCard from '/imports/ui/components/CompanyCard';
 
 
+
 /** A simple static component to render some text for the landing page. */
 class BrowseCompanies extends React.Component {
 
@@ -34,13 +35,13 @@ class BrowseCompanies extends React.Component {
 
 state = {
   companies: [],
-  searchBy: 'interests',
+  searchBy: 'companyName',
   currentInterests: [],
 };
 
   constructor(props) {
     super(props);
-    this.handleInterestChange = this.handleInterestChange.bind(this);
+   /** this.handleInterestChange = this.handleInterestChange.bind(this); */
     this.handleGeneralChange = this.handleGeneralChange.bind(this);
     this.createOptions = this.createOptions.bind(this);
     this.setSearchBy = this.setSearchBy.bind(this);
@@ -78,13 +79,13 @@ state = {
     const companies = this.props.companies.filter((x) => (x[category].toUpperCase().indexOf(data.value.toUpperCase()) !== -1));
     this.setState({ companies: companies });
   }
-
+/**
   handleInterestChange(event, data) {
-    /* eslint-disable-next-line */
+    // eslint-disable-next-line
     const companies = this.props.companies.filter((x) => _.intersection(x.interests, data.value).length === data.value.length);
     this.setState({ companies: companies });
     this.setState({ currentInterests: data.value });
-  }
+  }*/
 
   onClickClear() {
     this.setState({ companies: [] });
@@ -107,7 +108,7 @@ renderPage() {
   return (
       <div style={contentStyle}>
         <Container>
-          <Header as="h2" dividing textAlign="center">Directory</Header>
+          <Header as="h2" dividing textAlign="center" inverted>Company Directory</Header>
           <Menu>
             <Dropdown selection defaultValue='companyName' options={this.searchBy}
                       onChange={(e, data) => this.setSearchBy(e, data)}/>
