@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { Students } from '/imports/api/stuff/student';
 import StudentItem from '/imports/ui/components/StudentItem';
 import { Redirect } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class StudentProfile extends React.Component {
@@ -17,7 +18,7 @@ class StudentProfile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    if (this.props.students.length === 0) {
+    if ((this.props.students.length === 0) && (Roles.userIsInRole(Meteor.userId(), 'student'))) {
       return <Redirect to={'/addStudent'}/>;
     }
     return (
@@ -25,7 +26,7 @@ class StudentProfile extends React.Component {
         <Container>
           <Header as="h2" textAlign="center" inverted>Student Profiles </Header>
           <CardGroup centered>
-            {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff} />)}
+            {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff}/>)}
           </CardGroup>
         </Container>
 

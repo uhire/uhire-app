@@ -63,7 +63,7 @@
     {
       "firstName": "Connor",
       "lastName": "MacLeod",
-      "description": "Student at UH Manoa",
+      "description": "There can be only one!",
       "city": "Mililani, HI",
       "locationZip": 96789,
       "profile": "https://www.google.com",
@@ -83,36 +83,6 @@
       "interests": [],
       "owner": "admin@foo.com",
       "grade": "Senior"
-    }
-  ],
-  "defaultInterests": [
-    {
-      "key": 1,
-      "value": 1,
-      "name": "JavaScript",
-      "text": "JavaScript",
-      "description": "test"
-    },
-    {
-      "key": 2,
-      "value": 2,
-      "name": "AI",
-      "text": "AI",
-      "description": "test"
-    },
-    {
-      "key": 3,
-      "value": 3,
-      "name": "Web Development",
-      "text": "Web Development",
-      "description": "test"
-    },
-    {
-      "key": 4,
-      "value": 4,
-      "name": "Project Management",
-      "text": "Project Management",
-      "description": "test"
     }
   ]
 }

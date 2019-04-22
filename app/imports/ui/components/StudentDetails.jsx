@@ -106,7 +106,8 @@ class StudentDetails extends React.Component {
               <Grid.Column width={8}>
                 <Header>
                   <Icon name='world'/>
-                  <Header.Content><a href={this.props.student.profile}>{this.props.student.profile}</a></Header.Content>
+                  <Header.Content><a href="mailto: {this.props.student.contact}">
+                    {this.props.student.contact}</a></Header.Content>
                 </Header>
               </Grid.Column>
               <Grid.Column>

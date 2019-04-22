@@ -11,6 +11,7 @@ import PositionItemProfile from '/imports/ui/components/PositionItemProfile';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
+import { Roles } from 'meteor/alanning:roles';
 import { Redirect } from 'react-router-dom';
 
 /** Renders the Page for adding a document. */
@@ -48,7 +49,7 @@ class CompanyProfilePage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    if (this.props.companies.length === 0) {
+    if ((this.props.companies.length === 0) && (Roles.userIsInRole(Meteor.userId(), 'company'))) {
       return <Redirect to={'/add'}/>;
     }
 
