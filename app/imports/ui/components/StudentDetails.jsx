@@ -14,6 +14,7 @@ import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import LongTextField from '../pages/EditStudent';
+import InterestItem from '/imports/ui/components/InterestItem';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudentDetails extends React.Component {

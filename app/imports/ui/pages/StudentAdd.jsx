@@ -15,6 +15,7 @@ import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router-dom';
 
 
+
 /** Renders the Page for adding a document. */
 class StudentAdd extends React.Component {
 
