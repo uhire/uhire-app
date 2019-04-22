@@ -107,12 +107,12 @@ renderPage() {
   return (
       <div style={contentStyle}>
         <Container>
-          <Header as="h2" dividing textAlign="center">Club Directory</Header>
+          <Header as="h2" dividing textAlign="center">Directory</Header>
           <Menu>
             <Dropdown selection defaultValue='interests' options={this.searchBy}
                       onChange={(e, data) => this.setSearchBy(e, data)}/>
             {this.state.searchBy === 'interests' ? (
-                <Dropdown placeholder='Search by Interests' fluid multiple search selection
+                <Dropdown placeholder='Search by Company Name' fluid multiple search selection
                           options={this.interests} value={this.state.currentInterests} icon='search'
                           onChange={(event, data) => this.handleInterestChange(event, data)}
                 />
@@ -123,7 +123,7 @@ renderPage() {
                           onAddItem={(e, data) => this.handleAddition(e, data, this.state.searchBy)}
                 />
             )}
-            <Button negative onClick={this.onClickClear}>Clear</Button>
+            <Button basic onClick={this.onClickClear}>Clear</Button>
           </Menu>
           <Card.Group style={cardPadding}>
             {this.state.companies.length === 0 ? (
