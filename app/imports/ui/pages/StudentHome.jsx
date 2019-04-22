@@ -1,7 +1,7 @@
 // import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Grid, Loader, Table } from 'semantic-ui-react';
+import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
@@ -83,7 +83,7 @@ class StudentHome extends React.Component {
 
           <br/>
           <br/>
-
+          <Header as='h1' inverted textAlign='center'>Your Positions</Header>
           <Table sortable celled fixed>
             <Table.Header>
               <Table.Row>
