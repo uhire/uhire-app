@@ -11,6 +11,7 @@ class CompanyCard extends React.Component {
 
   render() {
     return (
+        <a href="_id/cohome">
         <Card>
           <Image src={this.props.company.image}/>
 
@@ -28,6 +29,7 @@ class CompanyCard extends React.Component {
 
           </Card.Description>
         </Card>
+        </a>
     );
   }
 }
