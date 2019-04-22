@@ -21,7 +21,8 @@ class StudentDetails extends React.Component {
 
   submit(data) {
     const { firstName, lastName, description, city, locationZip, profile, picture, interests, grade, _id } = data;
-    Students.update(_id, { $set: {
+    Students.update(_id, {
+      $set: {
         firstName,
         lastName,
         description,
@@ -134,7 +135,8 @@ class StudentDetails extends React.Component {
               <Grid.Column width={8}>
                 <Header>
                   <Icon name='tag'/>
-                  <Header.Content>{this.props.student.interests.map((stuff, key) => <InterestItem key={key} interest={stuff} />)}</Header.Content>
+                  <Header.Content>{this.props.student.interests.map((stuff, key) => <InterestItem
+                      key={key} interest={stuff}/>)}</Header.Content>
                 </Header>
               </Grid.Column>
               <Grid.Column>

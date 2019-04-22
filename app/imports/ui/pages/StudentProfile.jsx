@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Students } from '/imports/api/stuff/student';
 import StudentItem from '/imports/ui/components/StudentItem';
+import { Redirect } from 'react-router-dom';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class StudentProfile extends React.Component {
@@ -16,6 +17,9 @@ class StudentProfile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    if (this.props.students.length === 0) {
+      return <Redirect to={'/addStudent'}/>;
+    }
     return (
 
         <Container>
