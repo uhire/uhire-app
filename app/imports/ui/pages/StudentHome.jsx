@@ -131,7 +131,6 @@ class StudentHome extends React.Component {
 StudentHome.propTypes = {
   positions: PropTypes.array.isRequired,
   students: PropTypes.array.isRequired,
-  companies: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -145,7 +144,6 @@ export default withTracker(() => {
   return {
     positions: Positions.find({}).fetch(),
     students: Students.find({}).fetch(),
-    companies: Companies.find({}).fetch(),
-    ready: subPositions.ready() && subStudents.ready() && subCompanies.ready(),
+    ready: subPositions.ready() && subStudents.ready(),
   };
 })(StudentHome);
