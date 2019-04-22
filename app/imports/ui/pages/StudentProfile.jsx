@@ -40,7 +40,7 @@ StudentProfile.propTypes = {
 
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Student');
+  const subscription = Meteor.subscribe('StudentProfile');
   return {
     students: Students.find({}).fetch(),
     ready: subscription.ready(),

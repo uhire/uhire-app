@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Students } from '../../api/stuff/student.js';
+import { Companies } from '../../api/company/company';
 
 /** Initialize the database with a default data document. */
 function addData(data, collection) {
@@ -21,6 +22,15 @@ Meteor.publish('Student', function publish() {
   }
   return this.ready();
 });
+
+Meteor.publish('StudentProfile', function publish() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Students.find({ owner: username }, { sort: { $natural: -1 }, limit: 1 });
+  }
+  return this.ready();
+});
+
 
 Meteor.publish('SelfStudent', function publish() {
   if (this.userId) {
