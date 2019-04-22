@@ -30,7 +30,9 @@ class BrowseCompanies extends React.Component {
         </Container>
     );
   }
-}  * */
+}  **/
+
+/** search functionality adapted from ClUHbs: https://github.com/cluhbs */
 
 
 state = {
