@@ -137,7 +137,7 @@ StudentHome.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subPositions = Meteor.subscribe('Position');
+  const subPositions = Meteor.subscribe('PositionStudent');
   const subStudents = Meteor.subscribe('SelfStudent');
   const subCompanies = Meteor.subscribe('Companies');
 
