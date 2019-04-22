@@ -17,9 +17,9 @@ class StudentProfile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    /** if (this.props.students.length === 0) {
+    if (this.props.students.length === 0) {
       return <Redirect to={'/addStudent'}/>;
-    } */
+    }
     return (
 
         <Container>
