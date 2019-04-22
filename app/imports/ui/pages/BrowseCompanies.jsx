@@ -109,7 +109,7 @@ renderPage() {
         <Container>
           <Header as="h2" dividing textAlign="center">Directory</Header>
           <Menu>
-            <Dropdown selection defaultValue='interests' options={this.searchBy}
+            <Dropdown selection defaultValue='companyName' options={this.searchBy}
                       onChange={(e, data) => this.setSearchBy(e, data)}/>
             {this.state.searchBy === 'interests' ? (
                 <Dropdown placeholder='Search by Company Name' fluid multiple search selection
