@@ -67,7 +67,8 @@ class StudentHome extends React.Component {
           <Grid columns={3} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
-             
+              {this.props.students.map((student, index) => <StudentHomeImage key={index} student={student}/>)}
+
             </Grid.Column>
             <Grid.Column width={9}>
               {this.props.students.map((student, index) => <StudentDetails key={index} student={student}/>)}
