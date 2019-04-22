@@ -36,23 +36,23 @@ class StudentHomeImage extends React.Component {
   render() {
     return (
         <div>
-          <Image src={this.props.student.picture} centered size='medium'/><br/>
+          <Image src={this.props.students.picture} centered size='medium'/><br/>
 
           <Modal trigger={<Button basic compact fluid size='mini' color='black'>Edit Image</Button>}>
-            <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
+            <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.students}>
               <Segment>
                 <TextField name='picture'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='firstName' value={this.props.student.firstName}/>
-                <HiddenField name='lastName' value={this.props.student.lastName}/>
-                <HiddenField name='city' value={this.props.student.city}/>
-                <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                <HiddenField name='description' value={this.props.student.description}/>
-                <HiddenField name='profile' value={this.props.student.profile}/>
-                <HiddenField name='interests' value={this.props.student.interests}/>
-                <HiddenField name='grade' value={this.props.student.grade}/>
-                <HiddenField name='owner' value={this.props.student.owner}/>
+                <HiddenField name='firstName' value={this.props.students.firstName}/>
+                <HiddenField name='lastName' value={this.props.students.lastName}/>
+                <HiddenField name='city' value={this.props.students.city}/>
+                <HiddenField name='locationZip' value={this.props.students.locationZip}/>
+                <HiddenField name='description' value={this.props.students.description}/>
+                <HiddenField name='profile' value={this.props.students.profile}/>
+                <HiddenField name='interests' value={this.props.students.interests}/>
+                <HiddenField name='grade' value={this.props.students.grade}/>
+                <HiddenField name='owner' value={this.props.students.owner}/>
               </Segment>
             </AutoForm>
           </Modal>
@@ -64,7 +64,7 @@ class StudentHomeImage extends React.Component {
 /** Require a document to be passed to this component. */
 StudentHomeImage.propTypes = {
   model: PropTypes.object,
-  student: PropTypes.object.isRequired,
+  students: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
