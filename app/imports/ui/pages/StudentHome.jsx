@@ -7,14 +7,16 @@ import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
 import PositionItem from '/imports/ui/components/PositionItem';
 import { Companies } from '/imports/api/company/company.js';
-import StudentDetails from '/imports/ui/components/StudentDetails';
+import CompanyDetails from '/imports/ui/components/CompanyDetails';
 import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
 // import StudentItem from '/imports/ui/components/StudentItem';
 import { Redirect } from 'react-router-dom';
+import StudentDetails from '/imports/ui/components/StudentDetails';
+import StudentHomeImage from '../components/StudentHomeImage';
 
 /** A simple static component to render some text for the landing page. */
-class StudentHome2 extends React.Component {
+class StudentHome extends React.Component {
 
   state = {
     column: null,
@@ -47,7 +49,7 @@ class StudentHome2 extends React.Component {
 
   renderPage() {
     if (this.props.students.length === 0) {
-      return <Redirect to={'/add'}/>;
+      return <Redirect to={'/addStudent'}/>;
     }
     console.log(this.props.students);
     if (this.state.data == null) {
@@ -65,12 +67,12 @@ class StudentHome2 extends React.Component {
           <Grid columns={3} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
-              {this.props.students.map((company, index) => <CompanyHomeLogo key={index} company={company}/>)}
+              {this.props.students.map((company, index) => <StudentHomeImage key={index} company={company}/>)}
 
             </Grid.Column>
             <Grid.Column width={9}>
 
-              {this.props.students.map((company, index) => <StudentDetails key={index} company={company}/>)}
+              {this.props.students.map((company, index) => <CompanyDetails key={index} company={company}/>)}
 
             </Grid.Column>
 
@@ -127,7 +129,7 @@ class StudentHome2 extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-StudentHome2.propTypes = {
+StudentHome.propTypes = {
   positions: PropTypes.array.isRequired,
   students: PropTypes.array.isRequired,
   companies: PropTypes.array.isRequired,
@@ -147,4 +149,4 @@ export default withTracker(() => {
     companies: Companies.find({}).fetch(),
     ready: subPositions.ready() && subStudents.ready() && subCompanies.ready(),
   };
-})(StudentHome2);
+})(StudentHome);

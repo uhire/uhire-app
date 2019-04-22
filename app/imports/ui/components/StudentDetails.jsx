@@ -159,26 +159,6 @@ class StudentDetails extends React.Component {
               </Grid.Column>
             </Grid.Row>
 
-            <Grid.Row>
-              <Modal trigger={<Button basic compact fluid size='mini' color='black'>Edit Image</Button>}>
-                <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
-                  <Segment>
-                    <TextField name='firstName'/>
-                    <TextField name='lastName'/>
-                    <LongTextField name='description'/>
-                    <TextField name='city'/>
-                    <NumField name='locationZip' decimal={false}/>
-                    <TextField name='profile'/>
-                    <TextField name='picture'/>
-                    <AutoField name='interests'/>
-                    <RadioField name='grade'/>
-                    <SubmitField value='Submit'/>
-                    <ErrorsField/>
-                    <HiddenField name='owner' />
-                  </Segment>
-                </AutoForm>
-              </Modal>
-            </Grid.Row>
 
           </Grid>
         </Container>
