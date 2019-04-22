@@ -24,14 +24,16 @@ class NavBar extends React.Component {
                     <Dropdown.Item icon="user" text="Admin Home Page" as={NavLink} exact to="/admin"/>
                     <Dropdown.Item icon="briefcase" text="Add Company Page" as={NavLink} exact to="/add"/>
                     <Dropdown.Item icon="briefcase" text="Add Position Page" as={NavLink} exact to="/addposition"/>
-                    <Dropdown.Item icon="briefcase" text="Edit Position Page" as={NavLink} exact to="/editposition"/>
+                    {/** <Dropdown.Item icon="briefcase" text="Edit Position Page"
+                     as={NavLink} exact to="/editposition"/> */}
                     <Dropdown.Item icon="briefcase" text="Company Profile Page" as={NavLink} exact to="/list"/>
                     <Dropdown.Item icon="briefcase" text="Company Home Page" as={NavLink} exact to="/cohome"/>
                     <Dropdown.Item icon="briefcase" text="Browse Companies Page" as={NavLink} exact to="/browsecom"/>
                     <Dropdown.Item icon="student" text="Student Profile Page" as={NavLink} exact to="/sprofile"/>
                     <Dropdown.Item icon="student" text="Student Home Page" as={NavLink} exact to="/studentHome"/>
                     <Dropdown.Item icon="student" text="Browse Student Page" as={NavLink} exact to="/browsestu"/>
-                    <Dropdown.Item icon="student" text="Edit Student Page" as={NavLink} exact to="/editstu"/>
+                    {/** <Dropdown.Item icon="student" text="Edit Student Page"
+                     as={NavLink} exact to="/editstu"/> */}
                   </Dropdown.Menu>
                 </Dropdown>
               </Menu.Item>) : ''}
