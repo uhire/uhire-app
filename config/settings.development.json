@@ -31,28 +31,20 @@
       "owner": "john@foo.com"
     },
     {
-      "companyName": "Default",
-      "location": "Default",
-      "description": "Default",
-      "image": "http://i.imgur.com/AItCxSs.jpg",
-      "contact": "Default",
+      "companyName": "Admin",
+      "location": "Heaven",
+      "description": "Access to All",
+      "image": "/images/Admin.jpg",
+      "contact": "admin@foo.com",
       "owner": "admin@foo.com"
     },
     {
-      "companyName": "Default",
-      "location": "Default",
-      "description": "Default",
-      "image": "http://i.imgur.com/AItCxSs.jpg",
-      "contact": "Default",
+      "companyName": "UHire",
+      "location": "1776 University Ave, Honolulu, HI 96822",
+      "description": "Web Application Development",
+      "image": "/images/Logo.jpg",
+      "contact": "company@foo.com",
       "owner": "company@foo.com"
-    },
-    {
-      "companyName": "Default",
-      "location": "Default",
-      "description": "Default",
-      "image": "http://i.imgur.com/AItCxSs.jpg",
-      "contact": "Default",
-      "owner": "student@foo.com"
     }
   ],
   "defaultStudentData": [
@@ -69,19 +61,30 @@
       "grade": "Junior"
     },
     {
-      "firstName": "John",
-      "lastName": "Yap",
+      "firstName": "Connor",
+      "lastName": "MacLeod",
       "description": "Student at UH Manoa",
-      "city": "Honolulu, HI",
-      "locationZip": 96822,
+      "city": "Mililani, HI",
+      "locationZip": 96789,
       "profile": "https://www.google.com",
-      "picture": "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+      "picture": "/images/Student.jpg",
       "interests": [],
-      "owner": "john@foo.com",
-      "grade": "Junior"
+      "owner": "student@foo.com",
+      "grade": "Freshman"
+    },
+    {
+      "firstName": "The Almighty",
+      "lastName": "Admin",
+      "description": "Student at UH Manoa",
+      "city": "Haleiwa, HI",
+      "locationZip": 96712,
+      "profile": "https://www.google.com",
+      "picture": "/images/Student.jpg",
+      "interests": [],
+      "owner": "admin@foo.com",
+      "grade": "Senior"
     }
   ],
-
   "defaultInterests": [
     {
       "key": 1,
