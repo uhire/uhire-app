@@ -21,9 +21,8 @@ class BrowseCompanies extends React.Component {
           </Menu.Item>
           <br/>
           <Grid centered columns={3} padded='vertically'>
-            <Card.Group>
+
               {this.props.companies.map((company, index) => <CompanyCard key={index} company={company}/>)}
-            </Card.Group>
           </Grid>
           <br/>
 
