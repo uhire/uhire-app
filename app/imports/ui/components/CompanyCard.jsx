@@ -2,34 +2,30 @@ import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
-// import { Companies } from '/imports/api/company/company';
-
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class CompanyCard extends React.Component {
 
-
   render() {
     return (
-        <a href="_id/cohome">
-        <Card>
-          <Image src={this.props.company.image}/>
+        <Link to={`/companyprofile/${this.props.company.companyName}`}>
+          <Card>
+            <Image src={this.props.company.image}/>
 
+            <Card.Header>
+              {this.props.company.companyName}
 
-          <Card.Header>
-            {this.props.company.companyName}
+            </Card.Header>
+            <Card.Meta>
+              {this.props.company.location}
 
-          </Card.Header>
-          <Card.Meta>
-            {this.props.company.location}
+            </Card.Meta>
+            <Card.Description>
+              {this.props.company.description}
 
-          </Card.Meta>
-          <Card.Description>
-            {this.props.company.description}
-
-          </Card.Description>
-        </Card>
-        </a>
+            </Card.Description>
+          </Card>
+        </Link>
     );
   }
 }

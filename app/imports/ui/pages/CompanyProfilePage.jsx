@@ -54,7 +54,6 @@ class CompanyProfilePage extends React.Component {
     }
 
     const { column, direction } = this.state;
-    console.log(this.props.visits);
     return (
         <Container>
           <Image src='images/Background4CD.jpg' className='company-profile-page-banner' centered/>
@@ -117,16 +116,18 @@ CompanyProfilePage.propTypes = {
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(() => {
+export default withTracker(({ match }) => {
   // Get access to Stuff documents.
+  const documentId = match.params.companyName;
   const subscription = Meteor.subscribe('Companies');
   const subscription2 = Meteor.subscribe('Position');
   const subscription3 = Meteor.subscribe('Visits');
+  const subscription4 = Meteor.subscribe('CompanyAdmin');
   return {
-    // companies: Companies.find({}, { sort: { _id: 1 }, limit: 1 }).fetch(),
     positions: Positions.find({}).fetch(),
-    companies: Companies.find({}).fetch(),
+    companies: Companies.find({ companyName: documentId }).fetch(),
     visits: Visits.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
+    ready: subscription.ready() && subscription2.ready() && subscription3.ready()
+        && subscription.ready() && subscription4.ready(),
   };
 })(CompanyProfilePage);
