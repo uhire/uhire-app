@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Students } from '../../api/stuff/student.js';
-import { Companies } from '../../api/company/company';
+// import { Companies } from '../../api/company/company';
 
 /** Initialize the database with a default data document. */
 function addData(data, collection) {
