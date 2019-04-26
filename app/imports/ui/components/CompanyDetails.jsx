@@ -30,8 +30,10 @@ class CompanyDetails extends React.Component {
             <Grid.Row>
               <Grid.Column width={8}>
                 <Header>
-                  <Icon name='building'/>
+                  <Icon color='grey' name='building'/>
+                  <font color="white">
                   <Header.Content>{this.props.company.companyName}</Header.Content>
+                  </font>
                 </Header>
               </Grid.Column>
               <Grid.Column>
@@ -54,8 +56,10 @@ class CompanyDetails extends React.Component {
 
               <Grid.Column width={8}>
                 <Header>
-                  <Icon name='marker'/>
+                  <Icon color='grey' name='marker'/>
+                  <font color="white">
                   <Header.Content>{this.props.company.location}</Header.Content>
+                  </font>
                 </Header>
               </Grid.Column>
               <Grid.Column>
@@ -78,7 +82,7 @@ class CompanyDetails extends React.Component {
             <Grid.Row>
               <Grid.Column width={8}>
                 <Header>
-                  <Icon name='world'/>
+                  <Icon color='grey' name='world'/>
                   <Header.Content><a href="mailto: {this.props.company.contact}">
                     {this.props.company.contact}</a></Header.Content>
                 </Header>
