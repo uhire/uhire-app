@@ -30,78 +30,68 @@ class CompanyDetails extends React.Component {
             <Grid.Row>
               <Grid.Column width={8}>
                 <Header>
-                  <Icon color='grey' name='building'/>
+                  <Modal trigger={<Icon color='grey' disabled link name='building'/>}>
+                    <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
+                      <TextField name='companyName'/>
+                      <SubmitField value='Submit'/>
+                      <ErrorsField/>
+                      <HiddenField name='location' value={this.props.company.location}/>
+                      <HiddenField name='description' value={this.props.company.description}/>
+                      <HiddenField name='contact' value={this.props.company.contact}/>
+                      <HiddenField name='image' value={this.props.company.image}/>
+                      <HiddenField name='owner' value={this.props.company.owner}/>
+                    </AutoForm>
+                  </Modal>
                   <font color="white">
                   <Header.Content>{this.props.company.companyName}</Header.Content>
                   </font>
                 </Header>
               </Grid.Column>
-              <Grid.Column>
-                <Modal trigger={<Icon disabled link name='edit'/>}>
-                  <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
-                    <TextField name='companyName'/>
-                    <SubmitField value='Submit'/>
-                    <ErrorsField/>
-                    <HiddenField name='location' value={this.props.company.location}/>
-                    <HiddenField name='description' value={this.props.company.description}/>
-                    <HiddenField name='contact' value={this.props.company.contact}/>
-                    <HiddenField name='image' value={this.props.company.image}/>
-                    <HiddenField name='owner' value={this.props.company.owner}/>
-                  </AutoForm>
-                </Modal>
-              </Grid.Column>
             </Grid.Row>
 
             <Grid.Row>
 
               <Grid.Column width={8}>
                 <Header>
-                  <Icon color='grey' name='marker'/>
+                  <Modal trigger={<Icon color='grey' disabled link name='marker'/>}>
+                    <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
+                      <TextField name='location'/>
+                      <SubmitField value='Submit'/>
+                      <ErrorsField/>
+                      <HiddenField name='companyName' value={this.props.company.companyName}/>
+                      <HiddenField name='description' value={this.props.company.description}/>
+                      <HiddenField name='contact' value={this.props.company.contact}/>
+                      <HiddenField name='image' value={this.props.company.image}/>
+                      <HiddenField name='owner' value={this.props.company.owner}/>
+                    </AutoForm>
+                  </Modal>
                   <font color="white">
                   <Header.Content>{this.props.company.location}</Header.Content>
                   </font>
                 </Header>
               </Grid.Column>
-              <Grid.Column>
-                <Modal trigger={<Icon disabled link name='edit'/>}>
-                  <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
-                    <TextField name='location'/>
-                    <SubmitField value='Submit'/>
-                    <ErrorsField/>
-                    <HiddenField name='companyName' value={this.props.company.companyName}/>
-                    <HiddenField name='description' value={this.props.company.description}/>
-                    <HiddenField name='contact' value={this.props.company.contact}/>
-                    <HiddenField name='image' value={this.props.company.image}/>
-                    <HiddenField name='owner' value={this.props.company.owner}/>
-                  </AutoForm>
-                </Modal>
-              </Grid.Column>
 
             </Grid.Row>
 
             <Grid.Row>
               <Grid.Column width={8}>
                 <Header>
-                  <Icon color='grey' name='world'/>
+                  <Modal trigger={<Icon color='grey' disabled link name='world'/>}>
+                    <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
+                      <TextField name='contact'/>
+                      <SubmitField value='Submit'/>
+                      <ErrorsField/>
+                      <HiddenField name='companyName' value={this.props.company.companyName}/>
+                      <HiddenField name='location' value={this.props.company.location}/>
+                      <HiddenField name='description' value={this.props.company.description}/>
+                      <HiddenField name='image' value={this.props.company.image}/>
+                      <HiddenField name='owner' value={this.props.company.owner}/>
+                    </AutoForm>
+                  </Modal>
                   <Header.Content><a href="mailto: {this.props.company.contact}">
                     {this.props.company.contact}</a></Header.Content>
                 </Header>
               </Grid.Column>
-              <Grid.Column>
-                <Modal trigger={<Icon disabled link name='edit'/>}>
-                  <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
-                    <TextField name='contact'/>
-                    <SubmitField value='Submit'/>
-                    <ErrorsField/>
-                    <HiddenField name='companyName' value={this.props.company.companyName}/>
-                    <HiddenField name='location' value={this.props.company.location}/>
-                    <HiddenField name='description' value={this.props.company.description}/>
-                    <HiddenField name='image' value={this.props.company.image}/>
-                    <HiddenField name='owner' value={this.props.company.owner}/>
-                  </AutoForm>
-                </Modal>
-              </Grid.Column>
-
             </Grid.Row>
 
           </Grid>
