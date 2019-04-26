@@ -30,7 +30,7 @@ class CompanyDetails extends React.Component {
             <Grid.Row>
               <Grid.Column width={8}>
                 <Header>
-                  <div className="landing-font">
+                  <div className="hyper-link-font">
                   <Modal trigger={<Icon color='grey' disabled link name='building'/>}>
                     <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
                       <TextField name='companyName'/>
@@ -51,7 +51,7 @@ class CompanyDetails extends React.Component {
 
             <Grid.Row>
 
-              <Grid.Column width={10}>
+              <Grid.Column width={15}>
                 <Header>
                   <div className="hyper-link-font">
                   <Modal trigger={<Icon color='grey' disabled link name='marker'/>}>
