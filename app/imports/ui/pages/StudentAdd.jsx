@@ -1,6 +1,6 @@
 import React from 'react';
 import { Students, StudentSchema } from '/imports/api/stuff/student';
-import { Grid, Loader, Header, Segment, Dropdown } from 'semantic-ui-react';
+import { Grid, Header, Segment } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import AutoField from 'uniforms-semantic/AutoField';
@@ -13,8 +13,6 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router-dom';
-
-
 
 /** Renders the Page for adding a document. */
 class StudentAdd extends React.Component {
@@ -42,7 +40,7 @@ class StudentAdd extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, description, city, locationZip, profile, picture, interests, grade, _id } = data;
+    const { firstName, lastName, description, city, locationZip, profile, picture, interests, grade } = data;
     const owner = Meteor.user().username;
     Students.insert({
       firstName,

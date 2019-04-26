@@ -22,14 +22,14 @@ class StudentProfile extends React.Component {
       return <Redirect to={'/addStudent'}/>;
     }
     return (
-
-        <Container>
-          <Header as="h2" textAlign="center" inverted>Student Profiles </Header>
-          <CardGroup centered>
-            {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff}/>)}
-          </CardGroup>
-        </Container>
-
+        <div className="page-filler">
+          <Container>
+            <Header as="h2" textAlign="center" inverted>Student Profiles </Header>
+            <CardGroup centered>
+              {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff}/>)}
+            </CardGroup>
+          </Container>
+        </div>
     );
   }
 }

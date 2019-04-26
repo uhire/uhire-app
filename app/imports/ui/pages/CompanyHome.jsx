@@ -57,7 +57,6 @@ class CompanyHome extends React.Component {
     console.log(this.props);
     const { column, direction } = this.state;
     return (
-
         <Container>
 
           <br/>
