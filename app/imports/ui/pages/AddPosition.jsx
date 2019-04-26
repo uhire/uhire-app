@@ -2,6 +2,7 @@ import React from 'react';
 import { Positions, PositionSchema } from '/imports/api/position/position';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
+import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import AutoField from 'uniforms-semantic/AutoField';
@@ -12,6 +13,8 @@ import LongTextField from 'uniforms-semantic/LongTextField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import SubmitField from 'uniforms-semantic/SubmitField';
+import { Companies } from '/imports/api/company/company.js';
+import PropTypes from 'prop-types';
 
 /** Renders the Page for adding a document. */
 class AddPosition extends React.Component {
@@ -66,7 +69,6 @@ class AddPosition extends React.Component {
     if (this.state.redirectToReferer) {
       return <Redirect to={'/cohome'}/>;
     }
-
     return (
         <Grid container centered>
           <Grid.Column>
@@ -75,7 +77,6 @@ class AddPosition extends React.Component {
               this.formRef = ref;
             }} schema={PositionSchema} onSubmit={this.submit}>
               <Segment>
-                <TextField name='companyName'/>
                 <TextField name='title'/>
                 <TextField name='location'/>
                 <NumField name='openings' decimal={false}/>
@@ -83,6 +84,7 @@ class AddPosition extends React.Component {
                 <AutoField name='interests'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
+                <HiddenField name='companyName' value={this.props.companies[0].companyName}/>
                 <HiddenField name='date' value={new Date()}/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>
               </Segment>
@@ -93,4 +95,17 @@ class AddPosition extends React.Component {
   }
 }
 
-export default AddPosition;
+AddPosition.propTypes = {
+  companies: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subCompanies = Meteor.subscribe('Companies');
+
+  return {
+    companies: Companies.find({}).fetch(),
+    ready: subCompanies.ready(),
+  };
+})(AddPosition);
