@@ -30,6 +30,7 @@ class CompanyDetails extends React.Component {
             <Grid.Row>
               <Grid.Column width={8}>
                 <Header>
+                  <div className="landing-font">
                   <Modal trigger={<Icon color='grey' disabled link name='building'/>}>
                     <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
                       <TextField name='companyName'/>
@@ -42,17 +43,17 @@ class CompanyDetails extends React.Component {
                       <HiddenField name='owner' value={this.props.company.owner}/>
                     </AutoForm>
                   </Modal>
-                  <font color="white">
                   <Header.Content>{this.props.company.companyName}</Header.Content>
-                  </font>
+                  </div>
                 </Header>
               </Grid.Column>
             </Grid.Row>
 
             <Grid.Row>
 
-              <Grid.Column width={8}>
+              <Grid.Column width={10}>
                 <Header>
+                  <div className="hyper-link-font">
                   <Modal trigger={<Icon color='grey' disabled link name='marker'/>}>
                     <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
                       <TextField name='location'/>
@@ -65,9 +66,8 @@ class CompanyDetails extends React.Component {
                       <HiddenField name='owner' value={this.props.company.owner}/>
                     </AutoForm>
                   </Modal>
-                  <font color="white">
                   <Header.Content>{this.props.company.location}</Header.Content>
-                  </font>
+                  </div>
                 </Header>
               </Grid.Column>
 

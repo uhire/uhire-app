@@ -62,4 +62,11 @@
   font-family: verdana;
   vertical-align: center;
 }
+.hyper-link-font {
+  font-family: 'Roboto', serif;
+  font-weight: bold;
+  font-size: x-large;
+  color: #4183c4;
+  vertical-align: middle;
+}
 
