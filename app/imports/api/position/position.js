@@ -17,9 +17,10 @@ const PositionSchema = new SimpleSchema({
   },
   'interests.$': {
     type: String,
-    allowedValues: [ 'JavaScript', 'AI', 'Web Development', 'Project Management']
+    allowedValues: ['JavaScript', 'AI', 'Web Development', 'Project Management'],
   },
   owner: String,
+  companyName: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

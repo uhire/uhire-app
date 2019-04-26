@@ -33,7 +33,6 @@ class AddPosition extends React.Component {
     this.setState({ [name]: value });
   }
 
-
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
     if (error) {
@@ -47,26 +46,36 @@ class AddPosition extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { title, location, openings, date, description, interests } = data;
+    const { companyName, title, location, openings, date, description, interests } = data;
     const owner = Meteor.user().username;
-    Positions.insert({ title, location, openings, date, description, interests, owner }, this.insertCallback);
+    Positions.insert({
+      companyName,
+      title,
+      location,
+      openings,
+      date,
+      description,
+      interests,
+      owner,
+    }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
 
-
     if (this.state.redirectToReferer) {
-      return <Redirect to={'/cohome'} />;
+      return <Redirect to={'/cohome'}/>;
     }
-
 
     return (
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center" inverted>Add Position</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={PositionSchema} onSubmit={this.submit}>
+            <AutoForm ref={(ref) => {
+              this.formRef = ref;
+            }} schema={PositionSchema} onSubmit={this.submit}>
               <Segment>
+                <TextField name='companyName'/>
                 <TextField name='title'/>
                 <TextField name='location'/>
                 <NumField name='openings' decimal={false}/>
