@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Image, Modal, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Companies, CompanySchema } from '/imports/api/company/company';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
