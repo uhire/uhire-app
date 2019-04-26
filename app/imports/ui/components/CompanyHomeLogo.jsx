@@ -25,7 +25,7 @@ class CompanyHomeLogo extends React.Component {
     return (
         <div>
           <Image src={this.props.company.image} centered size='medium'/><br/>
-          <Modal trigger={<Button basic compact fluid size='mini' color='black'>Edit Image</Button>}>
+          <Modal trigger={<Button inverted basic compact size='mini' color='black'>Edit Image</Button>}>
             <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
               <Segment>
                 <TextField name='image'/>
