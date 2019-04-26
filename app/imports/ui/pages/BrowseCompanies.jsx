@@ -7,30 +7,24 @@ import PropTypes from 'prop-types';
 import { Companies } from '/imports/api/company/company.js';
 import CompanyCard from '/imports/ui/components/CompanyCard';
 
-
 /** A simple static component to render some text for the landing page. */
 class BrowseCompanies extends React.Component {
 
-
   render() {
     return (
-
-        <Container>
-          <Menu.Item position="right">
-            <Input icon='search' placeholder='Search...' />
-          </Menu.Item>
-          <br/>
-          <Grid centered columns={3} padded='vertically'>
-
+          <Container>
+            <Menu.Item position="right">
+              <Input icon='search' placeholder='Search...'/>
+            </Menu.Item>
+            <br/>
+            <Grid centered columns={3} padded='vertically'>
               {this.props.companies.map((company, index) => <CompanyCard key={index} company={company}/>)}
-          </Grid>
-          <br/>
-
-        </Container>
+            </Grid>
+            <br/>
+          </Container>
     );
   }
 }
-
 
 /** Require an array of Stuff documents in the props. */
 BrowseCompanies.propTypes = {

@@ -31,7 +31,7 @@ class CompanyDetails extends React.Component {
               <Grid.Column width={8}>
                 <Header>
                   <div className="hyper-link-font">
-                  <Modal trigger={<Icon color='grey' disabled link name='building'/>}>
+                  <Modal trigger={<Icon color='green' disabled link name='building'/>}>
                     <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
                       <TextField name='companyName'/>
                       <SubmitField value='Submit'/>
@@ -54,7 +54,7 @@ class CompanyDetails extends React.Component {
               <Grid.Column width={15}>
                 <Header>
                   <div className="hyper-link-font">
-                  <Modal trigger={<Icon color='grey' disabled link name='marker'/>}>
+                  <Modal trigger={<Icon color='green' disabled link name='marker'/>}>
                     <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
                       <TextField name='location'/>
                       <SubmitField value='Submit'/>
@@ -76,7 +76,7 @@ class CompanyDetails extends React.Component {
             <Grid.Row>
               <Grid.Column width={8}>
                 <Header>
-                  <Modal trigger={<Icon color='grey' disabled link name='world'/>}>
+                  <Modal trigger={<Icon color='green' disabled link name='world'/>}>
                     <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
                       <TextField name='contact'/>
                       <SubmitField value='Submit'/>

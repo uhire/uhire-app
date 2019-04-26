@@ -73,6 +73,7 @@ export default class Signup extends React.Component {
     } */
 
     return (
+        <div className="page-filler">
         <Container>
           <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
             <Grid.Column>
@@ -126,6 +127,7 @@ export default class Signup extends React.Component {
             </Grid.Column>
           </Grid>
         </Container>
+        </div>
     );
   }
 }
