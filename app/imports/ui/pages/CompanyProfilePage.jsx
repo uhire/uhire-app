@@ -52,7 +52,7 @@ class CompanyProfilePage extends React.Component {
     if ((this.props.companies.length === 0) && (Roles.userIsInRole(Meteor.userId(), 'company'))) {
       return <Redirect to={'/add'}/>;
     }
-
+    console.log(this.props.companies);
     const { column, direction } = this.state;
     return (
         <Container>
@@ -120,14 +120,15 @@ export default withTracker(({ match }) => {
   // Get access to Stuff documents.
   const documentId = match.params.companyName;
   const subscription = Meteor.subscribe('Companies');
-  const subscription2 = Meteor.subscribe('Position');
+  const subscription2 = Meteor.subscribe('PositionStudent');
   const subscription3 = Meteor.subscribe('Visits');
   const subscription4 = Meteor.subscribe('CompanyAdmin');
+  const subscription5 = Meteor.subscribe('CompaniesStudent');
   return {
     positions: Positions.find({}).fetch(),
     companies: Companies.find({ companyName: documentId }).fetch(),
     visits: Visits.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready() && subscription3.ready()
-        && subscription.ready() && subscription4.ready(),
+        && subscription.ready() && subscription4.ready() && subscription5.ready(),
   };
 })(CompanyProfilePage);

@@ -39,6 +39,7 @@ class CompanyHomeLogo extends React.Component {
               </Segment>
             </AutoForm>
           </Modal>
+          <Link to={`/companyprofile/${this.props.company.companyName}`}>Link to profile.</Link>
         </div>
     );
   }
