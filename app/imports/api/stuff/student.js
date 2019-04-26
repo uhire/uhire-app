@@ -16,14 +16,14 @@ const StudentSchema = new SimpleSchema({
   profile: String,
   picture: {
     type: String,
-    defaultValue: 'https://react.semantic-ui.com/images/avatar/large/matthew.png'
+    defaultValue: 'https://react.semantic-ui.com/images/avatar/large/matthew.png',
   },
   interests: {
     type: Array,
   },
   'interests.$': {
     type: String,
-    allowedValues: [ 'JavaScript', 'AI', 'Web Development', 'Project Management']
+    allowedValues: ['JavaScript', 'AI', 'Web Development', 'Project Management'],
   },
   owner: String,
   grade: {
@@ -32,8 +32,6 @@ const StudentSchema = new SimpleSchema({
     defaultValue: 'Junior',
   },
 }, { tracker: Tracker });
-
-
 
 
 /** Attach this schema to the collection. */
