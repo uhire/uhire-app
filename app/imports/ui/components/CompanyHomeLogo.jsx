@@ -44,7 +44,7 @@ class CompanyHomeLogo extends React.Component {
           <div className="ui massive inverted animated button" tabIndex="2">
             <div className="visible content">Profile</div>
             <div className="hidden content">
-              <Link to={`/companyprofile/${this.props.company.companyName}`}>Edit Profile</Link>
+              <Link to={`/companyprofile/${this.props.company.companyName}`}>View Profile</Link>
             </div>
           </div>
 
