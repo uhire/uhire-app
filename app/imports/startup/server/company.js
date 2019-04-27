@@ -17,10 +17,17 @@ if (Companies.find().count() === 0) {
 }
 
 /** This subscription publishes only the documents associated with the logged in user */
+// Meteor.publish('CompaniesAll', function publish() {
+//   if (this.userId) {
+//     return Companies.find();
+//   }
+//   return this.ready();
+// });
+
 Meteor.publish('Companies', function publish() {
-  if (this.userId) {
+  if (this.userId && Roles.userIsInRole(this.userId, 'company')) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Companies.find({ owner: username }, { sort: { $natural: -1 }, limit: 1 });
+    return Companies.find({ owner: username });
   }
   return this.ready();
 });
@@ -36,7 +43,7 @@ Meteor.publish('CompaniesStudent', function publish() {
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
 Meteor.publish('CompanyAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Companies.find();
+    return Companies.find({});
   }
   return this.ready();
 });

@@ -45,7 +45,7 @@ class App extends React.Component {
               <CompanyProtectedRoute path="/browsestu" component={BrowseStudents}/>
               <CompanyProtectedRoute path="/addposition" component={AddPosition}/>
               <CompanyProtectedRoute path="/editposition/:_id" component={EditPosition}/>
-              <ProtectedRoute path="/list" component={CompanyProfilePage}
+              <ProtectedRoute path="/companyprofile/:companyName" component={CompanyProfilePage}
                                      onClick={Meteor.call('visitCounter', '/list')}/>
               <CompanyProtectedRoute path="/add" component={CompanyAdd}/>
               <CompanyProtectedRoute path="/cohome" component={CompanyHome}/>

@@ -12,6 +12,7 @@ import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
 import StudentItem from '/imports/ui/components/StudentItem';
 import { Redirect } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 
 /** A simple static component to render some text for the landing page. */
 class CompanyHome extends React.Component {
@@ -46,7 +47,7 @@ class CompanyHome extends React.Component {
   }
 
   renderPage() {
-    if (this.props.companies.length === 0) {
+    if ((this.props.companies.length === 0) && (Roles.userIsInRole(Meteor.userId(), 'company'))) {
       return <Redirect to={'/add'}/>;
     }
     console.log(this.props.companies);
@@ -56,7 +57,6 @@ class CompanyHome extends React.Component {
     console.log(this.props);
     const { column, direction } = this.state;
     return (
-
         <Container>
 
           <br/>

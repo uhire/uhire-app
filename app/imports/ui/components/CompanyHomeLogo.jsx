@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Image, Modal, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Companies, CompanySchema } from '/imports/api/company/company';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -25,7 +25,7 @@ class CompanyHomeLogo extends React.Component {
     return (
         <div>
           <Image src={this.props.company.image} centered size='medium'/><br/>
-          <Modal trigger={<Button basic compact fluid size='mini' color='black'>Edit Image</Button>}>
+          <Modal trigger={<Button inverted basic compact size='mini' color='green'>Edit Image</Button>}>
             <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
               <Segment>
                 <TextField name='image'/>
@@ -39,6 +39,7 @@ class CompanyHomeLogo extends React.Component {
               </Segment>
             </AutoForm>
           </Modal>
+          <Link to={`/companyprofile/${this.props.company.companyName}`}>Link to profile.</Link>
         </div>
     );
   }

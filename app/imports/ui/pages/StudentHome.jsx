@@ -58,7 +58,6 @@ class StudentHome extends React.Component {
     console.log(this.props);
     const { column, direction } = this.state;
     return (
-
         <Container>
 
           <br/>
@@ -83,7 +82,7 @@ class StudentHome extends React.Component {
 
           <br/>
           <br/>
-          <Header as='h1' inverted textAlign='center'>Your Positions</Header>
+          <Header as='h1' inverted textAlign='center'>Available Positions</Header>
           <Table sortable celled fixed>
             <Table.Header>
               <Table.Row>

@@ -12,20 +12,18 @@ class BrowseCompanies extends React.Component {
 
   /**
    render() {
+  render() {
     return (
-
-        <Container>
-          <Menu.Item position="right">
-            <Input icon='search' placeholder='Search...' />
-          </Menu.Item>
-          <br/>
-          <Grid centered columns={3} padded='vertically'>
-
+          <Container>
+            <Menu.Item position="right">
+              <Input icon='search' placeholder='Search...'/>
+            </Menu.Item>
+            <br/>
+            <Grid centered columns={3} padded='vertically'>
               {this.props.companies.map((company, index) => <CompanyCard key={index} company={company}/>)}
-          </Grid>
-          <br/>
-
-        </Container>
+            </Grid>
+            <br/>
+          </Container>
     );
   }
    } */
@@ -128,6 +126,7 @@ class BrowseCompanies extends React.Component {
     );
   }
 }
+
 
 /** Require an array of Stuff documents in the props. */
 BrowseCompanies.propTypes = {
