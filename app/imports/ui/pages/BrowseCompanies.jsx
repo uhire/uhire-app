@@ -36,7 +36,6 @@ class BrowseCompanies extends React.Component {
   state = {
     companies: [],
     searchBy: 'companyName',
-    currentInterests: [],
   };
 
   constructor(props) {
@@ -52,7 +51,7 @@ class BrowseCompanies extends React.Component {
   createOptions() {
     // this.searchBy = searchByList.map((value, index) => ({ key: index, value: value, text: value }));
     this.searchBy = [
-      { key: 1, value: 'companyName', text: 'Name' },
+      { key: 1, value: 'companyName', text: 'Company Name' },
     ];
     /* eslint-disable-next-line */
     for (const category of this.searchBy) {
@@ -84,18 +83,9 @@ class BrowseCompanies extends React.Component {
     this.setState({ companies: companies });
   }
 
-  /**
-   handleInterestChange(event, data) {
-    // eslint-disable-next-line
-    const companies = this.props.companies.filter
-    ((x) => _.intersection(x.interests, data.value).length === data.value.length);
-    this.setState({ companies: companies });
-    this.setState({ currentInterests: data.value });
-  } */
 
   onClickClear() {
     this.setState({ companies: [] });
-    this.setState({ currentInterests: [] });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -107,9 +97,9 @@ class BrowseCompanies extends React.Component {
   renderPage() {
     const cardPadding = { padding: '30px 0px 0px 0px' };
     const contentStyle = { marginBottom: '50px' };
-    if (this.interests === undefined) {
-      this.createOptions();
-    }
+
+    this.createOptions();
+
     return (
         <div style={contentStyle}>
           <Container>
@@ -117,18 +107,12 @@ class BrowseCompanies extends React.Component {
             <Menu>
               <Dropdown selection defaultValue='companyName' options={this.searchBy}
                         onChange={(e, data) => this.setSearchBy(e, data)}/>
-              {this.state.searchBy === 'interests' ? (
-                  <Dropdown placeholder='Search by Company Name' fluid multiple search selection
-                            options={this.interests} value={this.state.currentInterests} icon='search'
-                            onChange={(event, data) => this.handleInterestChange(event, data)}
-                  />
-              ) : (
-                  <Dropdown placeholder={`Search By ${this.state.searchBy}`} deburr fluid search selection
-                            options={this[this.state.searchBy]} icon='search' allowAdditions additionLabel=''
-                            onChange={(event, data) => this.handleGeneralChange(event, data, this.state.searchBy)}
-                            onAddItem={(e, data) => this.handleAddition(e, data, this.state.searchBy)}
-                  />
-              )}
+
+              <Dropdown placeholder={`Search By ${this.state.searchBy}`} deburr fluid search selection
+                        options={this[this.state.searchBy]} icon='search' allowAdditions additionLabel=''
+                        onChange={(event, data) => this.handleGeneralChange(event, data, this.state.searchBy)}
+                        onAddItem={(e, data) => this.handleAddition(e, data, this.state.searchBy)}
+              />
               <Button basic onClick={this.onClickClear}>Clear</Button>
             </Menu>
             <Card.Group style={cardPadding}>

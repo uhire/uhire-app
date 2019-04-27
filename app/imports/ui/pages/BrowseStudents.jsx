@@ -34,13 +34,12 @@ class BrowseStudents extends React.Component {
 
   state = {
     students: [],
-    searchBy: 'lastName',
-    currentInterests: [],
+    searchBy: 'interests',
   };
 
   constructor(props) {
     super(props);
-    /** this.handleInterestChange = this.handleInterestChange.bind(this); */
+    this.handleInterestChange = this.handleInterestChange.bind(this);
     this.handleGeneralChange = this.handleGeneralChange.bind(this);
     this.createOptions = this.createOptions.bind(this);
     this.setSearchBy = this.setSearchBy.bind(this);
@@ -51,7 +50,9 @@ class BrowseStudents extends React.Component {
   createOptions() {
     // this.searchBy = searchByList.map((value, index) => ({ key: index, value: value, text: value }));
     this.searchBy = [
-      { key: 1, value: 'lastName', text: 'Last Name' },
+      { key: 1, value: 'interests', text: 'Interests' },
+      { key: 2, value: 'lastName', text: 'Last Name' },
+
     ];
     /* eslint-disable-next-line */
     for (const category of this.searchBy) {
@@ -83,14 +84,13 @@ class BrowseStudents extends React.Component {
     this.setState({ students: students });
   }
 
-  /**
+
    handleInterestChange(event, data) {
     // eslint-disable-next-line
-    const students = this.props.students.filter
-    ((x) => _.intersection(x.interests, data.value).length === data.value.length);
+    const students = this.props.students.filter((x) => _.intersection(x.interests, data.value).length === data.value.length);
     this.setState({ students: students });
     this.setState({ currentInterests: data.value });
-  } */
+  }
 
   onClickClear() {
     this.setState({ students: [] });
@@ -106,18 +106,18 @@ class BrowseStudents extends React.Component {
   renderPage() {
     const cardPadding = { padding: '30px 0px 0px 0px' };
     const contentStyle = { marginBottom: '50px' };
-    if (this.interests === undefined) {
-      this.createOptions();
-    }
+
+    this.createOptions();
+
     return (
         <div style={contentStyle}>
           <Container>
-            <Header as="h2" dividing textAlign="center" inverted>Company Directory</Header>
+            <Header as="h2" dividing textAlign="center" inverted>Student Directory</Header>
             <Menu>
-              <Dropdown selection defaultValue='studentName' options={this.searchBy}
+              <Dropdown selection defaultValue='interests' options={this.searchBy}
                         onChange={(e, data) => this.setSearchBy(e, data)}/>
               {this.state.searchBy === 'interests' ? (
-                  <Dropdown placeholder='Search by Company Name' fluid multiple search selection
+                  <Dropdown placeholder='Search by Interests' fluid multiple search selection
                             options={this.interests} value={this.state.currentInterests} icon='search'
                             onChange={(event, data) => this.handleInterestChange(event, data)}
                   />
