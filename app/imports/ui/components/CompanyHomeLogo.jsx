@@ -10,7 +10,6 @@ import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 
-
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class CompanyHomeLogo extends React.Component {
 
@@ -39,7 +38,17 @@ class CompanyHomeLogo extends React.Component {
               </Segment>
             </AutoForm>
           </Modal>
-          <Link to={`/companyprofile/${this.props.company.companyName}`}>Link to profile.</Link>
+          <br/>
+          <br/>
+          <br/>
+          <div className="ui massive inverted animated button" tabIndex="2">
+            <div className="visible content">Profile</div>
+            <div className="hidden content">
+              <Link to={`/companyprofile/${this.props.company.companyName}`}>Edit Profile</Link>
+            </div>
+          </div>
+
+          {/** <Link to={`/companyprofile/${this.props.company.companyName}`}>Link to profile.</Link> */}
         </div>
     );
   }
