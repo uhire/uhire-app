@@ -75,10 +75,7 @@ class CompanyHome extends React.Component {
             </Grid.Column>
 
             <Grid.Column floated='right'>
-
               <a className="ui massive inverted button" role="button" href="#/addposition">Add Position</a>
-
-
             </Grid.Column>
 
           </Grid>
