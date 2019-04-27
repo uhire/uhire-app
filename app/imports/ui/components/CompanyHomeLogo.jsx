@@ -38,14 +38,22 @@ class CompanyHomeLogo extends React.Component {
             </AutoForm>
           </Modal>
           <br/>
-          <div className="ui big inverted animated button" tabIndex="4">
+          <div>
+            <Link to={`/companyprofile/${this.props.company.companyName}`}>
+              <a className="ui large label">
+                <i className="large address card outline icon"> Company Profile</i>
+              </a>
+            </Link>
+          </div>
+
+          {/** <div className="ui big inverted animated button" tabIndex="4">
             <div className="visible content">Profile</div>
             <div className="hidden content">
               <Link to={`/companyprofile/${this.props.company.companyName}`}>View Profile</Link>
             </div>
           </div>
 
-          {/** <Link to={`/companyprofile/${this.props.company.companyName}`}>Link to profile.</Link> */}
+           <Link to={`/companyprofile/${this.props.company.companyName}`}>Link to profile.</Link> */}
         </div>
     );
   }
