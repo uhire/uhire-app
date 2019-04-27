@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Modal, Segment } from 'semantic-ui-react';
+import { Image, Modal, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Companies, CompanySchema } from '/imports/api/company/company';
@@ -23,8 +23,7 @@ class CompanyHomeLogo extends React.Component {
   render() {
     return (
         <div>
-          <Image src={this.props.company.image} centered size='medium'/><br/>
-          <Modal trigger={<Button inverted basic compact size='mini' color='green'>Edit Image</Button>}>
+          <Modal trigger={<Image src={this.props.company.image} size='medium'/>}>
             <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
               <Segment>
                 <TextField name='image'/>
@@ -39,9 +38,7 @@ class CompanyHomeLogo extends React.Component {
             </AutoForm>
           </Modal>
           <br/>
-          <br/>
-          <br/>
-          <div className="ui massive inverted animated button" tabIndex="2">
+          <div className="ui big inverted animated button" tabIndex="4">
             <div className="visible content">Profile</div>
             <div className="hidden content">
               <Link to={`/companyprofile/${this.props.company.companyName}`}>View Profile</Link>

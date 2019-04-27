@@ -63,26 +63,34 @@ class CompanyHome extends React.Component {
           <br/>
 
           <Grid columns={3} centered verticalAlign='middle' textAlign='center'>
-
             <Grid.Column>
               {this.props.companies.map((company, index) => <CompanyHomeLogo key={index} company={company}/>)}
-
             </Grid.Column>
-            <Grid.Column width={9}>
 
+            <Grid.Column width={8}>
               {this.props.companies.map((company, index) => <CompanyDetails key={index} company={company}/>)}
-
             </Grid.Column>
 
-            <Grid.Column floated='right'>
-              <a className="ui massive inverted button" role="button" href="#/addposition">Add Position</a>
-            </Grid.Column>
-
+            {/** <Grid.Column floated='right'>
+             <div className="ui massive inverted vertical animated button" tabIndex="5">
+             <div className="visible content">Position</div>
+             <div className="hidden content">
+             <a href="#/addposition"> Add Position </a>
+             </div>
+             </div>
+             </Grid.Column> */}
           </Grid>
 
           <br/>
           <br/>
-          <Header as='h1' inverted textAlign='center'>Your Positions</Header>
+          <Header as='h1' textAlign='center'>
+            <div className="ui massive inverted vertical animated button" tabIndex="5">
+              <div className="visible content">Your Positions</div>
+              <div className="hidden content">
+                <a href="#/addposition"> Add Position </a>
+              </div>
+            </div>
+          </Header>
 
           <Table sortable celled fixed>
             <Table.Header>
