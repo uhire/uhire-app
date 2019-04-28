@@ -5,7 +5,7 @@ import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
-import PositionItem from '/imports/ui/components/PositionItem';
+import PositionItemProfile from '/imports/ui/components/PositionItemProfile';
 import { Companies } from '/imports/api/company/company.js';
 import CompanyDetails from '/imports/ui/components/CompanyDetails';
 import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
@@ -107,14 +107,12 @@ class StudentHome extends React.Component {
                   Description
                 </Table.HeaderCell>
                 <Table.HeaderCell> Interests </Table.HeaderCell>
-                <Table.HeaderCell> Edit </Table.HeaderCell>
-                <Table.HeaderCell> Delete </Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
 
-              {this.state.data.map((position) => <PositionItem key={position._id} position={position}/>)}
+              {this.state.data.map((position) => <PositionItemProfile key={position._id} position={position}/>)}
 
             </Table.Body>
           </Table>

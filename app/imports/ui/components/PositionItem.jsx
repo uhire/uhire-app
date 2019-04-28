@@ -46,7 +46,7 @@ class PositionItem extends React.Component {
 
           </Table.Cell>
           <Table.Cell>{this.props.position.description}</Table.Cell>
-          <Table.Cell>{this.props.position.interests.map((stuff) => <InterestItem interest={stuff} />)}</Table.Cell>
+          <Table.Cell>{this.props.position.interests.map((stuff, key) => <InterestItem key={key} interest={stuff} />)}</Table.Cell>
          <Table.Cell>
             <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
           </Table.Cell>

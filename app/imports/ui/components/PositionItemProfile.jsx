@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Positions } from '../../api/position/position';
+import InterestItem from '/imports/ui/components/InterestItem';
 
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -45,6 +46,7 @@ class PositionItemProfile extends React.Component {
 
           </Table.Cell>
           <Table.Cell>{this.props.position.description}</Table.Cell>
+          <Table.Cell>{this.props.position.interests.map((stuff, key) => <InterestItem key={key} interest={stuff} />)}</Table.Cell>
         </Table.Row>
     );
   }
