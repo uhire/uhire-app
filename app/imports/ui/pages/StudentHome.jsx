@@ -1,7 +1,7 @@
 // import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
+import { Button, Container, Dropdown, Grid, Header, Loader, Menu, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
@@ -18,6 +18,8 @@ class StudentHome extends React.Component {
     column: null,
     data: null,
     direction: null,
+    positions: [],
+    searchBy: 'interests',
   }
 
   handleSort = clickedColumn => () => {
@@ -28,6 +30,8 @@ class StudentHome extends React.Component {
         column: clickedColumn,
         data: _.sortBy(data, [clickedColumn]),
         direction: 'ascending',
+        positions: [],
+        searchBy: 'interests'
       });
 
       return;
@@ -36,7 +40,68 @@ class StudentHome extends React.Component {
     this.setState({
       data: data.reverse(),
       direction: direction === 'ascending' ? 'descending' : 'ascending',
+      positions: [],
+      searchBy: 'interests'
     });
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.handleInterestChange = this.handleInterestChange.bind(this);
+    this.handleGeneralChange = this.handleGeneralChange.bind(this);
+    this.createOptions = this.createOptions.bind(this);
+    this.setSearchBy = this.setSearchBy.bind(this);
+    this.handleAddition = this.handleAddition.bind(this);
+    this.onClickClear = this.onClickClear.bind(this);
+  }
+
+  createOptions() {
+    this.searchBy = [
+      { key: 1, value: 'interests', text: 'Interests' },
+
+    ];
+    /* eslint-disable-next-line */
+    for (const category of this.searchBy) {
+      /* eslint-disable-next-line */
+      const list = _.uniq(_.pluck(this.props.positions, category.value).flatten()).sort();
+      this[category.value] = list.map((value, index) => ({ key: index, value: value, text: value }));
+    }
+  }
+
+  returnPosition(positionId) {
+    return Positions.findOne({ _id: positionId });
+  }
+
+  setSearchBy(event, data) {
+    this.setState({ searchBy: data.value });
+  }
+
+  handleAddition(e, { value }, category) {
+    const positions = this.props.positions.filter(
+        (x) => (x[category].toUpperCase().indexOf(value.toUpperCase()) !== -1),
+    );
+    this.setState({ positions: positions });
+  }
+
+  handleGeneralChange(event, data, category) {
+    const positions = this.props.positions.filter(
+        (x) => (x[category].toUpperCase().indexOf(data.value.toUpperCase()) !== -1),
+    );
+    this.setState({ positions: positions });
+  }
+
+
+  handleInterestChange(event, data) {
+    // eslint-disable-next-line
+    const positions = this.props.positions.filter((x) => _.intersection(x.interests, data.value).length === data.value.length);
+    this.setState({ positions: positions });
+    this.setState({ currentInterests: data.value });
+  }
+
+  onClickClear() {
+    this.setState({ positions: [] });
+    this.setState({ currentInterests: [] });
   }
 
   render() {
@@ -49,7 +114,7 @@ class StudentHome extends React.Component {
     }
     console.log(this.props.students);
     if (this.state.data == null) {
-      this.state.data = this.props.positions;
+      this.setState({ data: this.props.positions });
     }
     console.log(this.props);
     const { column, direction } = this.state;
@@ -78,42 +143,70 @@ class StudentHome extends React.Component {
 
           <br/>
           <br/>
-          <Header as='h1' inverted textAlign='center'>Available Positions</Header>
-          <Table sortable celled selectable striped fixed>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell sorted={column === 'title' ? direction : null}
-                                  onClick={this.handleSort('title')}>
-                  Title
-                </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'location' ? direction : null}
-                                  onClick={this.handleSort('location')}>
-                  Location
-                </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'openings' ? direction : null}
-                                  onClick={this.handleSort('openings')}>
-                  Openings
-                </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'date' ? direction : null}
-                                  onClick={this.handleSort('date')}>
-                  Date
-                </Table.HeaderCell>
-                <Table.HeaderCell width={5} sorted={column === 'description' ? direction : null}
-                                  onClick={this.handleSort('description')}>
-                  Description
-                </Table.HeaderCell>
-                <Table.HeaderCell width={3}> Interests </Table.HeaderCell>
+          <div>
+            <Header as='h1' inverted textAlign='center'>Available Positions</Header>
 
-              </Table.Row>
-            </Table.Header>
+            <Menu>
+              <Dropdown selection defaultValue='interests' options={this.searchBy}
+                        onChange={(e, data) => this.setSearchBy(e, data)}/>
+              {this.state.searchBy === 'interests' ? (
+                  <Dropdown placeholder='Search by Interests' fluid multiple search selection
+                            options={this.interests} value={this.state.currentInterests} icon='search'
+                            onChange={(event, data) => this.handleInterestChange(event, data)}
+                  />
+              ) : (
+                  <Dropdown placeholder={`Search By ${this.state.searchBy}`} deburr fluid search selection
+                            options={this[this.state.searchBy]} icon='search' allowAdditions additionLabel=''
+                            onChange={(event, data) => this.handleGeneralChange(event, data, this.state.searchBy)}
+                            onAddItem={(e, data) => this.handleAddition(e, data, this.state.searchBy)}
+                  />
+              )}
+              <Button basic onClick={this.onClickClear}>Clear</Button>
+            </Menu>
 
-            <Table.Body>
+            <Table sortable celled selectable striped fixed>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell sorted={column === 'title' ? direction : null}
+                                    onClick={this.handleSort('title')}>
+                    Title
+                  </Table.HeaderCell>
+                  <Table.HeaderCell sorted={column === 'location' ? direction : null}
+                                    onClick={this.handleSort('location')}>
+                    Location
+                  </Table.HeaderCell>
+                  <Table.HeaderCell sorted={column === 'openings' ? direction : null}
+                                    onClick={this.handleSort('openings')}>
+                    Openings
+                  </Table.HeaderCell>
+                  <Table.HeaderCell sorted={column === 'date' ? direction : null}
+                                    onClick={this.handleSort('date')}>
+                    Date
+                  </Table.HeaderCell>
+                  <Table.HeaderCell width={5} sorted={column === 'description' ? direction : null}
+                                    onClick={this.handleSort('description')}>
+                    Description
+                  </Table.HeaderCell>
+                  <Table.HeaderCell width={3}> Interests </Table.HeaderCell>
 
-              {this.state.data.map((position) => <PositionItemProfile key={position._id} position={position}/>)}
+                </Table.Row>
+              </Table.Header>
 
-            </Table.Body>
-          </Table>
+              <Table.Body>
 
+                {this.state.positions.length === 0 ? (
+                    this.props.positions.map((position, index) => <PositionItemProfile key={index} position={position}/>)
+                ) : (
+                    this.state.positions.map((position, index) => <PositionItemProfile
+                        key={index} position={this.returnPosition(position._id)}/>))
+                }
+
+                {/** this.state.data.map((position) => <PositionItemProfile key={position._id} position={position}/>) **/}
+
+              </Table.Body>
+            </Table>
+
+          </div>
           <br/>
           <br/>
         </Container>

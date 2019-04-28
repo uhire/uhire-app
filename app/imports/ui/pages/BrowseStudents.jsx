@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Grid, Input, Menu, Loader, Header, Dropdown, Button } from 'semantic-ui-react';
+import { Container, Card, Menu, Loader, Header, Dropdown, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 // import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -60,7 +60,7 @@ class BrowseStudents extends React.Component {
     }
   }
 
-  returnCompany(studentId) {
+  returnStudent(studentId) {
     return Students.findOne({ _id: studentId });
   }
 
@@ -133,7 +133,7 @@ class BrowseStudents extends React.Component {
                   this.props.students.map((student, index) => <StudentItem key={index} student={student}/>)
               ) : (
                   this.state.students.map((student, index) => <StudentItem
-                      key={index} student={this.returnCompany(student._id)}/>))
+                      key={index} student={this.returnStudent(student._id)}/>))
               }
             </Card.Group>
           </Container>
