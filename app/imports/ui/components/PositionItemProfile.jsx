@@ -11,9 +11,10 @@ import InterestItem from '/imports/ui/components/InterestItem';
 class PositionItemProfile extends React.Component {
 
   render() {
+    const modalPadding = { padding: '10px 10px 10px 10px' };
 
     return (
-        <Modal trigger={
+        <Modal style={modalPadding} trigger={
           <Table.Row>
             <Table.Cell >{this.props.position.title}</Table.Cell>
             <Table.Cell>{this.props.position.location}</Table.Cell>
