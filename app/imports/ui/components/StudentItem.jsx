@@ -22,11 +22,9 @@ class StudentItem extends React.Component {
           <Card.Content>
             <Card.Header>Interests</Card.Header>
             <Card.Description>
-              {this.props.student.interests.map((stuff) => <InterestItem interest={stuff} />)}
+              {this.props.student.interests.map((stuff, index) => <InterestItem key={index} interest={stuff} />)}
             </Card.Description>
           </Card.Content>
-          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (<Link to={`/editstu/${this.props.student._id}`}>Edit</Link>)
-                  : ''}
           <Card.Content extra>
             <Icon name='home' />
             {this.props.student.city} {this.props.student.locationZip}
