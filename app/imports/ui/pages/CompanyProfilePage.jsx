@@ -68,7 +68,7 @@ class CompanyProfilePage extends React.Component {
           </Grid>
 
 
-          <Table sortable celled fixed>
+          <Table sortable celled fixed singleLine>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell sorted={column === 'title' ? direction : null}

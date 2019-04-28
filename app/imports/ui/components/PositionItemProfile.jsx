@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Feed, Table } from 'semantic-ui-react';
+import { Button, Feed, Table, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -44,7 +44,12 @@ class PositionItemProfile extends React.Component {
             </Feed.Event>
 
           </Table.Cell>
-          <Table.Cell>{this.props.position.description}</Table.Cell>
+          <Table.Cell>
+            <Modal trigger={<Button size='mini' floated='right' compact>view</Button>}>
+              {this.props.position.description}
+            </Modal>
+            {this.props.position.description}
+          </Table.Cell>
         </Table.Row>
     );
   }

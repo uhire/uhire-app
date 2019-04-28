@@ -1,15 +1,13 @@
 import React from 'react';
-import { Button, Feed, Table } from 'semantic-ui-react';
+import { Button, Feed, Table, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Positions } from '../../api/position/position';
 import InterestItem from '/imports/ui/components/InterestItem';
 
-
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class PositionItem extends React.Component {
-
 
   constructor(props) {
     super(props);
@@ -40,14 +38,19 @@ class PositionItem extends React.Component {
 
             <Feed.Event>
               <Feed.Content>
-                <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')} />
+                <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')}/>
               </Feed.Content>
             </Feed.Event>
 
           </Table.Cell>
-          <Table.Cell>{this.props.position.description}</Table.Cell>
-          <Table.Cell>{this.props.position.interests.map((stuff) => <InterestItem interest={stuff} />)}</Table.Cell>
-         <Table.Cell>
+          <Table.Cell>
+            <Modal trigger={<Button size='mini' floated='right' compact>view</Button>}>
+              {this.props.position.description}
+            </Modal>
+            {this.props.position.description}
+          </Table.Cell>
+          <Table.Cell>{this.props.position.interests.map((stuff) => <InterestItem interest={stuff}/>)}</Table.Cell>
+          <Table.Cell>
             <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
           </Table.Cell>
           <Table.Cell><Button basic onClick={this.onClick}>Delete</Button></Table.Cell>
