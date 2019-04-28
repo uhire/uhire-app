@@ -6,26 +6,30 @@ import { withRouter, Link } from 'react-router-dom';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class CompanyCard extends React.Component {
 
+
   render() {
+
     return (
-        <Link to={`/companyprofile/${this.props.company.companyName}`}>
-          <Card>
-            <Image src={this.props.company.image}/>
+        <Card>
+          <Link to={`/companyprofile/${this.props.company.companyName}`}>
+            <Card.Content>
+              <Image src={this.props.company.image}/>
 
-            <Card.Header>
-              {this.props.company.companyName}
+              <Card.Header>
+                {this.props.company.companyName}
 
-            </Card.Header>
-            <Card.Meta>
-              {this.props.company.location}
+              </Card.Header>
+              <Card.Meta>
+                {this.props.company.location}
 
-            </Card.Meta>
-            <Card.Description>
-              {this.props.company.description}
+              </Card.Meta>
+              <Card.Description>
+                {this.props.company.description}
 
-            </Card.Description>
-          </Card>
-        </Link>
+              </Card.Description>
+            </Card.Content>
+          </Link>
+        </Card>
     );
   }
 }
