@@ -15,7 +15,7 @@ class PositionItemProfile extends React.Component {
     return (
         <Modal trigger={
           <Table.Row>
-            <Table.Cell>{this.props.position.title}</Table.Cell>
+            <Table.Cell >{this.props.position.title}</Table.Cell>
             <Table.Cell>{this.props.position.location}</Table.Cell>
             <Table.Cell>{this.props.position.openings}</Table.Cell>
             <Table.Cell>
@@ -27,10 +27,10 @@ class PositionItemProfile extends React.Component {
               </Feed.Event>
 
             </Table.Cell>
-            <Table.Cell singleLine>
+            <Table.Cell width={5} singleLine>
               {this.props.position.description}
             </Table.Cell>
-            <Table.Cell>
+            <Table.Cell width={3}>
               <Label.Group>
                 {this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}
               </Label.Group>
@@ -39,6 +39,14 @@ class PositionItemProfile extends React.Component {
         }>
 
           <Table celled selectable>
+            <Table.Header>
+            <Table.HeaderCell>Title</Table.HeaderCell>
+            <Table.HeaderCell>Location</Table.HeaderCell>
+            <Table.HeaderCell># of Openings</Table.HeaderCell>
+            <Table.HeaderCell>Date Added</Table.HeaderCell>
+            <Table.HeaderCell>Description</Table.HeaderCell>
+            <Table.HeaderCell>Interests</Table.HeaderCell>
+            </Table.Header>
             <Table.Body>
               <Table.Row>
                 <Table.Cell>{this.props.position.title}</Table.Cell>
