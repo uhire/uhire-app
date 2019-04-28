@@ -28,7 +28,7 @@ class CompanyDetails extends React.Component {
           <Grid>
 
             <Grid.Row>
-              <Grid.Column width={8}>
+              <Grid.Column>
                 <Header>
                   <div className="hyper-link-font">
                   <Modal trigger={<Icon color='green' disabled link name='building'/>}>
@@ -51,7 +51,7 @@ class CompanyDetails extends React.Component {
 
             <Grid.Row>
 
-              <Grid.Column width={15}>
+              <Grid.Column>
                 <Header>
                   <div className="hyper-link-font">
                   <Modal trigger={<Icon color='green' disabled link name='marker'/>}>

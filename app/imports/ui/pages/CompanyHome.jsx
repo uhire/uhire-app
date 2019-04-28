@@ -1,7 +1,7 @@
 // import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
+import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
@@ -10,7 +10,7 @@ import { Companies } from '/imports/api/company/company.js';
 import CompanyDetails from '/imports/ui/components/CompanyDetails';
 import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
-import StudentItem from '/imports/ui/components/StudentItem';
+// import StudentItem from '/imports/ui/components/StudentItem';
 import { Redirect } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 
