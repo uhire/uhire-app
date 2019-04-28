@@ -31,6 +31,7 @@ class PositionItem extends React.Component {
     const modalPadding = { padding: '30px 30px 10px 10px' };
 
     return (
+
         <Modal style={modalPadding} trigger={
           <Table.Row>
             <Table.Cell >{this.props.position.title}</Table.Cell>
@@ -57,21 +58,24 @@ class PositionItem extends React.Component {
               <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
             </Table.Cell>
             <Table.Cell><Button basic onClick={this.onClick}>Delete</Button></Table.Cell>
-          </Table.Row>}>
+          </Table.Row>
+        }>
 
           <Table celled selectable>
             <Table.Header>
-              <Table.HeaderCell>Title</Table.HeaderCell>
-              <Table.HeaderCell>Location</Table.HeaderCell>
-              <Table.HeaderCell># of Openings</Table.HeaderCell>
-              <Table.HeaderCell>Date Added</Table.HeaderCell>
-              <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.HeaderCell>Interests</Table.HeaderCell>
-              <Table.HeaderCell>Edit</Table.HeaderCell>
-              <Table.HeaderCell>Delete</Table.HeaderCell>
+              <Table.Row>
+
+                <Table.HeaderCell>Title</Table.HeaderCell>
+                <Table.HeaderCell>Location</Table.HeaderCell>
+                <Table.HeaderCell># of Openings</Table.HeaderCell>
+                <Table.HeaderCell>Date Added</Table.HeaderCell>
+                <Table.HeaderCell>Description</Table.HeaderCell>
+                <Table.HeaderCell>Interests</Table.HeaderCell>
+                <Table.HeaderCell>Edit</Table.HeaderCell>
+                <Table.HeaderCell>Delete</Table.HeaderCell>
+              </Table.Row>
 
             </Table.Header>
-
             <Table.Body>
               <Table.Row>
                 <Table.Cell>{this.props.position.title}</Table.Cell>
