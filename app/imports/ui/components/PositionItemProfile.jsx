@@ -10,25 +10,6 @@ import InterestItem from '/imports/ui/components/InterestItem';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class PositionItemProfile extends React.Component {
 
-
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
-  }
-
-  deleteCallback(error) {
-    if (error) {
-      Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
-    } else {
-      Bert.alert({ type: 'success', message: 'Delete succeeded' });
-      this.formRef.reset();
-    }
-  }
-
-  onClick() {
-    Positions.remove(this.props.position._id, this.deleteCallback);
-  }
-
   render() {
 
     return (
@@ -57,7 +38,7 @@ class PositionItemProfile extends React.Component {
           </Table.Row>
         }>
 
-          <Table.Body celled selectable>
+          <Table celled selectable>
             <Table.Row>
               <Table.Cell>{this.props.position.title}</Table.Cell>
               <Table.Cell>{this.props.position.location}</Table.Cell>
@@ -76,7 +57,7 @@ class PositionItemProfile extends React.Component {
               </Table.Cell>
               <Table.Cell><Label.Group>{this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}</Label.Group></Table.Cell>
             </Table.Row>
-          </Table.Body>
+          </Table>
 
         </Modal>
     );

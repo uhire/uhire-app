@@ -56,7 +56,7 @@ class PositionItem extends React.Component {
             <Table.Cell><Button basic onClick={this.onClick}>Delete</Button></Table.Cell>
           </Table.Row>}>
 
-          <Table.Body celled selectable>
+          <Table celled selectable>
             <Table.Row>
               <Table.Cell>{this.props.position.title}</Table.Cell>
               <Table.Cell>{this.props.position.location}</Table.Cell>
@@ -79,7 +79,7 @@ class PositionItem extends React.Component {
               </Table.Cell>
               <Table.Cell><Button basic onClick={this.onClick}>Delete</Button></Table.Cell>
             </Table.Row>
-          </Table.Body>
+          </Table>
         </Modal>
     );
   }
