@@ -29,12 +29,11 @@ class PositionItem extends React.Component {
 
   render() {
     const modalPadding = { padding: '30px 30px 10px 10px' };
-    const descContainer = { width: '400px'};
 
     return (
-        <Modal trigger={
+        <Modal style={modalPadding} trigger={
           <Table.Row>
-            <Table.Cell>{this.props.position.title}</Table.Cell>
+            <Table.Cell >{this.props.position.title}</Table.Cell>
             <Table.Cell>{this.props.position.location}</Table.Cell>
             <Table.Cell>{this.props.position.openings}</Table.Cell>
             <Table.Cell>
@@ -46,17 +45,33 @@ class PositionItem extends React.Component {
               </Feed.Event>
 
             </Table.Cell>
-            <Table.Cell singleLine>
+            <Table.Cell width={5} singleLine>
               {this.props.position.description}
             </Table.Cell>
-            <Table.Cell><Label.Group>{this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}</Label.Group></Table.Cell>
-            <Table.Cell>
+            <Table.Cell width={3}>
+              <Label.Group>
+                {this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}
+              </Label.Group>
+            </Table.Cell>
+            <Table.Cell width={1} >
               <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
             </Table.Cell>
             <Table.Cell><Button basic onClick={this.onClick}>Delete</Button></Table.Cell>
           </Table.Row>}>
 
           <Table celled selectable>
+            <Table.Header>
+              <Table.HeaderCell>Title</Table.HeaderCell>
+              <Table.HeaderCell>Location</Table.HeaderCell>
+              <Table.HeaderCell># of Openings</Table.HeaderCell>
+              <Table.HeaderCell>Date Added</Table.HeaderCell>
+              <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.HeaderCell>Interests</Table.HeaderCell>
+              <Table.HeaderCell>Edit</Table.HeaderCell>
+              <Table.HeaderCell>Delete</Table.HeaderCell>
+
+            </Table.Header>
+
             <Table.Body>
               <Table.Row>
                 <Table.Cell>{this.props.position.title}</Table.Cell>
@@ -74,7 +89,11 @@ class PositionItem extends React.Component {
                 <Table.Cell>
                   {this.props.position.description}
                 </Table.Cell>
-                <Table.Cell><Label.Group>{this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}</Label.Group></Table.Cell>
+                <Table.Cell>
+                  <Label.Group>
+                    {this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}
+                  </Label.Group>
+                </Table.Cell>
                 <Table.Cell>
                   <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
                 </Table.Cell>

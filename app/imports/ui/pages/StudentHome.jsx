@@ -98,11 +98,11 @@ class StudentHome extends React.Component {
                                   onClick={this.handleSort('date')}>
                   Date
                 </Table.HeaderCell>
-                <Table.HeaderCell width='four' sorted={column === 'description' ? direction : null}
+                <Table.HeaderCell width={5} sorted={column === 'description' ? direction : null}
                                   onClick={this.handleSort('description')}>
                   Description
                 </Table.HeaderCell>
-                <Table.HeaderCell> Interests </Table.HeaderCell>
+                <Table.HeaderCell width={3}> Interests </Table.HeaderCell>
 
               </Table.Row>
             </Table.Header>
