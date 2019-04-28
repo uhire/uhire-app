@@ -6,11 +6,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
 import PositionItemProfile from '/imports/ui/components/PositionItemProfile';
-import { Companies } from '/imports/api/company/company.js';
-import CompanyDetails from '/imports/ui/components/CompanyDetails';
-import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
-import StudentItem from '/imports/ui/components/StudentItem';
 import StudentDetails from '/imports/ui/components/StudentDetails';
 import StudentHomeImage from '/imports/ui/components/StudentHomeImage';
 import { Redirect } from 'react-router-dom';
@@ -51,12 +47,11 @@ class StudentHome extends React.Component {
     if (this.props.students.length === 0) {
       return <Redirect to={'/addStudent'}/>;
     }
-    console.log(this.props.students);
     if (this.state.data == null) {
       this.state.data = this.props.positions;
     }
-    console.log(this.props);
     const { column, direction } = this.state;
+
     return (
         <Container>
 
@@ -111,8 +106,11 @@ class StudentHome extends React.Component {
             </Table.Header>
 
             <Table.Body>
+              {console.log(this.state.data)}
+              {console.log(this.props.students)}
+              {console.log(this.props.positions)}
 
-              {this.state.data.map((position) => <PositionItemProfile key={position._id} position={position}/>)}
+              {/** this.state.data.map((position) => <PositionItemProfile key={position._id} position={position}/>) **/}
 
             </Table.Body>
           </Table>
@@ -136,7 +134,6 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subPositions = Meteor.subscribe('PositionStudent');
   const subStudents = Meteor.subscribe('SelfStudent');
-  const subCompanies = Meteor.subscribe('Companies');
 
   return {
     positions: Positions.find({}).fetch(),
