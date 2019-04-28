@@ -40,9 +40,9 @@ class CompanyHomeLogo extends React.Component {
           <br/>
           <div>
             <Link to={`/companyprofile/${this.props.company.companyName}`}>
-              <a className="ui large label">
+              <div className="ui large label">
                 <i className="large address card outline icon"> Company Profile</i>
-              </a>
+              </div>
             </Link>
           </div>
 
