@@ -92,7 +92,7 @@ class CompanyHome extends React.Component {
             </div>
           </Header>
 
-          <Table sortable celled fixed singleLine>
+          <Table sortable celled selectable striped fixed>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell sorted={column === 'title' ? direction : null}

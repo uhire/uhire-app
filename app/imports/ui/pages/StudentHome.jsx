@@ -5,12 +5,8 @@ import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
-import PositionItem from '/imports/ui/components/PositionItem';
-import { Companies } from '/imports/api/company/company.js';
-import CompanyDetails from '/imports/ui/components/CompanyDetails';
-import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
+import PositionItemProfile from '/imports/ui/components/PositionItemProfile';
 import { Students } from '/imports/api/stuff/student';
-import StudentItem from '/imports/ui/components/StudentItem';
 import StudentDetails from '/imports/ui/components/StudentDetails';
 import StudentHomeImage from '/imports/ui/components/StudentHomeImage';
 import { Redirect } from 'react-router-dom';
@@ -83,7 +79,7 @@ class StudentHome extends React.Component {
           <br/>
           <br/>
           <Header as='h1' inverted textAlign='center'>Available Positions</Header>
-          <Table sortable celled fixed>
+          <Table sortable celled selectable striped fixed>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell sorted={column === 'title' ? direction : null}
@@ -102,19 +98,18 @@ class StudentHome extends React.Component {
                                   onClick={this.handleSort('date')}>
                   Date
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'description' ? direction : null}
+                <Table.HeaderCell width='four' sorted={column === 'description' ? direction : null}
                                   onClick={this.handleSort('description')}>
                   Description
                 </Table.HeaderCell>
                 <Table.HeaderCell> Interests </Table.HeaderCell>
-                <Table.HeaderCell> Edit </Table.HeaderCell>
-                <Table.HeaderCell> Delete </Table.HeaderCell>
+
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
 
-              {this.state.data.map((position) => <PositionItem key={position._id} position={position}/>)}
+              {this.state.data.map((position) => <PositionItemProfile key={position._id} position={position}/>)}
 
             </Table.Body>
           </Table>
@@ -138,7 +133,6 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subPositions = Meteor.subscribe('PositionStudent');
   const subStudents = Meteor.subscribe('SelfStudent');
-  const subCompanies = Meteor.subscribe('Companies');
 
   return {
     positions: Positions.find({}).fetch(),
