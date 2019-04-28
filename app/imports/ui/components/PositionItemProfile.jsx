@@ -39,24 +39,26 @@ class PositionItemProfile extends React.Component {
         }>
 
           <Table celled selectable>
-            <Table.Row>
-              <Table.Cell>{this.props.position.title}</Table.Cell>
-              <Table.Cell>{this.props.position.location}</Table.Cell>
-              <Table.Cell>{this.props.position.openings}</Table.Cell>
-              <Table.Cell>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>{this.props.position.title}</Table.Cell>
+                <Table.Cell>{this.props.position.location}</Table.Cell>
+                <Table.Cell>{this.props.position.openings}</Table.Cell>
+                <Table.Cell>
 
-                <Feed.Event>
-                  <Feed.Content>
-                    <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')}/>
-                  </Feed.Content>
-                </Feed.Event>
+                  <Feed.Event>
+                    <Feed.Content>
+                      <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')}/>
+                    </Feed.Content>
+                  </Feed.Event>
 
-              </Table.Cell>
-              <Table.Cell>
-                {this.props.position.description}
-              </Table.Cell>
-              <Table.Cell><Label.Group>{this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}</Label.Group></Table.Cell>
-            </Table.Row>
+                </Table.Cell>
+                <Table.Cell>
+                  {this.props.position.description}
+                </Table.Cell>
+                <Table.Cell><Label.Group>{this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}</Label.Group></Table.Cell>
+              </Table.Row>
+            </Table.Body>
           </Table>
 
         </Modal>
