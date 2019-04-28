@@ -1,7 +1,7 @@
 // import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
+import { Button, Container, Dropdown, Grid, Header, Loader, Menu, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
@@ -14,30 +14,73 @@ import { Redirect } from 'react-router-dom';
 /** A simple static component to render some text for the landing page. */
 class StudentHome extends React.Component {
 
+
   state = {
-    column: null,
-    data: null,
-    direction: null,
+    positions: [],
+    searchBy: 'interests',
+  };
+
+  constructor(props) {
+    super(props);
+    this.handleInterestChange = this.handleInterestChange.bind(this);
+    this.handleGeneralChange = this.handleGeneralChange.bind(this);
+    this.createOptions = this.createOptions.bind(this);
+    this.setSearchBy = this.setSearchBy.bind(this);
+    this.handleAddition = this.handleAddition.bind(this);
+    this.onClickClear = this.onClickClear.bind(this);
   }
 
-  handleSort = clickedColumn => () => {
-    const { column, data, direction } = this.state;
+  createOptions() {
+    // this.searchBy = searchByList.map((value, index) => ({ key: index, value: value, text: value }));
+    this.searchBy = [
+      { key: 1, value: 'interests', text: 'Interests' },
+      { key: 2, value: 'title', text: 'Title' },
 
-    if (column !== clickedColumn) {
-      this.setState({
-        column: clickedColumn,
-        data: _.sortBy(data, [clickedColumn]),
-        direction: 'ascending',
-      });
 
-      return;
+    ];
+    /* eslint-disable-next-line */
+    for (const category of this.searchBy) {
+      /* eslint-disable-next-line */
+      const list = _.uniq(_.pluck(this.props.positions, category.value).flatten()).sort();
+      this[category.value] = list.map((value, index) => ({ key: index, value: value, text: value }));
     }
-
-    this.setState({
-      data: data.reverse(),
-      direction: direction === 'ascending' ? 'descending' : 'ascending',
-    });
   }
+
+  returnCompany(positionId) {
+    return Positions.findOne({ _id: positionId });
+  }
+
+  setSearchBy(event, data) {
+    this.setState({ searchBy: data.value });
+  }
+
+  handleAddition(e, { value }, category) {
+    const positions = this.props.positions.filter(
+        (x) => (x[category].toUpperCase().indexOf(value.toUpperCase()) !== -1),
+    );
+    this.setState({ positions: positions });
+  }
+
+  handleGeneralChange(event, data, category) {
+    const positions = this.props.positions.filter(
+        (x) => (x[category].toUpperCase().indexOf(data.value.toUpperCase()) !== -1),
+    );
+    this.setState({ positions: positions });
+  }
+
+
+  handleInterestChange(event, data) {
+    // eslint-disable-next-line
+    const positions = this.props.positions.filter((x) => _.intersection(x.interests, data.value).length === data.value.length);
+    this.setState({ positions: positions });
+    this.setState({ currentInterests: data.value });
+  }
+
+  onClickClear() {
+    this.setState({ positions: [] });
+    this.setState({ currentInterests: [] });
+  }
+
 
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -47,13 +90,8 @@ class StudentHome extends React.Component {
     if (this.props.students.length === 0) {
       return <Redirect to={'/addStudent'}/>;
     }
-    console.log(this.props.students);
-    if (this.state.data == null) {
-      this.state.data = this.props.positions;
-    }
-    console.log(this.props);
-    const { column, direction } = this.state;
     return (
+
         <Container>
 
           <br/>
@@ -79,27 +117,31 @@ class StudentHome extends React.Component {
           <br/>
           <br/>
           <Header as='h1' inverted textAlign='center'>Available Positions</Header>
+          <Menu>
+            <Dropdown selection defaultValue='interests' options={this.searchBy}
+                      onChange={(e, data) => this.setSearchBy(e, data)}/>
+            <Dropdown placeholder='Search by Interests' fluid multiple search selection
+                      options={this.interests} value={this.state.currentInterests} icon='search'
+                      onChange={(event, data) => this.handleInterestChange(event, data)}
+            />
+            <Button basic onClick={this.onClickClear}>Clear</Button>
+          </Menu>
           <Table sortable celled selectable striped fixed>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell sorted={column === 'title' ? direction : null}
-                                  onClick={this.handleSort('title')}>
+                <Table.HeaderCell>
                   Title
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'location' ? direction : null}
-                                  onClick={this.handleSort('location')}>
+                <Table.HeaderCell>
                   Location
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'openings' ? direction : null}
-                                  onClick={this.handleSort('openings')}>
+                <Table.HeaderCell>
                   Openings
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'date' ? direction : null}
-                                  onClick={this.handleSort('date')}>
+                <Table.HeaderCell>
                   Date
                 </Table.HeaderCell>
-                <Table.HeaderCell width={5} sorted={column === 'description' ? direction : null}
-                                  onClick={this.handleSort('description')}>
+                <Table.HeaderCell width={5}>
                   Description
                 </Table.HeaderCell>
                 <Table.HeaderCell width={3}> Interests </Table.HeaderCell>
@@ -107,9 +149,14 @@ class StudentHome extends React.Component {
               </Table.Row>
             </Table.Header>
 
-            <Table.Body>
 
-              {this.state.data.map((position) => <PositionItemProfile key={position._id} position={position}/>)}
+            <Table.Body>
+              {this.state.positions.length === 0 ? (
+                  this.props.positions.map((position, index) => <PositionItemProfile key={index} position={position}/>)
+              ) : (
+                  this.state.positions.map((position, index) => <PositionItemProfile
+                      key={index} position={this.returnCompany(position._id)}/>))
+              }
 
             </Table.Body>
           </Table>
@@ -135,7 +182,15 @@ export default withTracker(() => {
   const subStudents = Meteor.subscribe('SelfStudent');
 
   return {
-    positions: Positions.find({}).fetch(),
+    positions: Positions.find({}).fetch().sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    }),
     students: Students.find({}).fetch(),
     ready: subPositions.ready() && subStudents.ready(),
   };
