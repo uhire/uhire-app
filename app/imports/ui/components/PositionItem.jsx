@@ -28,7 +28,7 @@ class PositionItem extends React.Component {
   }
 
   render() {
-    const modalPadding = { padding: '30px 30px 10px 10px' };
+    const modalPadding = { padding: '10px 10px 10px 10px' };
 
     return (
 
