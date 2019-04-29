@@ -66,7 +66,7 @@ export default class Signin extends React.Component {
               <Form onSubmit={this.handleSubmit}>
                 <Segment stacked>
                   <Form.Input
-                      label="Email"
+                      required label="Email"
                       icon="user"
                       iconPosition="left"
                       name="email"
@@ -75,7 +75,7 @@ export default class Signin extends React.Component {
                       onChange={this.handleChange}
                   />
                   <Form.Input
-                      label="Password"
+                      required label="Password"
                       icon="lock"
                       iconPosition="left"
                       name="password"

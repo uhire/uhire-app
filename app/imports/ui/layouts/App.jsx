@@ -40,7 +40,6 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/sucReg" component={SuccessfulRegistration}/>
               <ProtectedRoute path="/signout" component={Signout}/>
-
               <AdminProtectedRoute path="/admin" component={AdminHome}/>
               <CompanyProtectedRoute path="/coregis" component={CompanyRegistration}/>
               <CompanyProtectedRoute path="/browsestu" component={BrowseStudents}/>
@@ -77,7 +76,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
           const isLogged = Meteor.userId() !== null;
           return isLogged ?
               (<Component {...props} />) :
-              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              (<Redirect to={{ pathname: '/', state: { from: props.location } }}/>
               );
         }}
     />
@@ -96,7 +95,7 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
           const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
           return (isLogged && isAdmin) ?
               (<Component {...props} />) :
-              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              (<Redirect to={{ pathname: '/', state: { from: props.location } }}/>
               );
         }}
     />
@@ -115,7 +114,7 @@ const CompanyProtectedRoute = ({ component: Component, ...rest }) => (
           const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
           return (isLogged && (isCompany || isAdmin) ?
               (<Component {...props} />) :
-              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              (<Redirect to={{ pathname: '/', state: { from: props.location } }}/>
               ));
         }}
     />
@@ -134,7 +133,7 @@ const StudentProtectedRoute = ({ component: Component, ...rest }) => (
           const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
           return (isLogged && (isStudent || isAdmin) ?
               (<Component {...props} />) :
-              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              (<Redirect to={{ pathname: '/', state: { from: props.location } }}/>
               ));
         }}
     />
