@@ -115,7 +115,7 @@ class BrowseCompanies extends React.Component {
               <Button basic onClick={this.onClickClear}>Clear</Button>
             </Menu>
 
-            <Card.Group style={cardPadding}>
+            <Card.Group centered style={cardPadding}>
               {this.state.companies.length === 0 ? (
                   this.props.companies.map((company, index) => <CompanyCard key={index} company={company}/>)
               ) : (
