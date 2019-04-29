@@ -5,3 +5,4 @@ import './student.js';
 import './position.js';
 import './interests.js';
 import './visit.js';
+import './variables.js';
