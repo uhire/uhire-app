@@ -88,14 +88,16 @@ class CompanyDetails extends React.Component {
                       <HiddenField name='owner' value={this.props.company.owner}/>
                     </AutoForm>
                   </Modal>
-                  <Header.Content><a href="mailto: {this.props.company.contact}">
+                  <Header.Content><a href={`mailto: ${this.props.company.contact}`}>
                     {this.props.company.contact}</a></Header.Content>
                 </Header>
               </Grid.Column>
             </Grid.Row>
 
           </Grid>
+
         </Container>
+
 
     );
   }

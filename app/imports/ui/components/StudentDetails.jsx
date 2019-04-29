@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Modal, Icon, Header, Grid, Segment } from 'semantic-ui-react';
+import { Container, Modal, Icon, Header, Grid, Segment, Label} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Students, StudentSchema } from '/imports/api/stuff/student';
 import InterestItem from '/imports/ui/components/InterestItem';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -122,8 +122,8 @@ class StudentDetails extends React.Component {
                         </Segment>
                       </AutoForm>
                     </Modal>
-                    <Header.Content><a href="mailto: {this.props.student.contact}">
-                      {this.props.student.contact}</a></Header.Content>
+                    <Header.Content><a href={this.props.student.profile}>
+                      {this.props.student.profile}</a></Header.Content>
                   </div>
                 </Header>
               </Grid.Column>
@@ -151,8 +151,12 @@ class StudentDetails extends React.Component {
                         </Segment>
                       </AutoForm>
                     </Modal>
-                    <Header.Content>{this.props.student.interests.map((stuff, key) => <InterestItem
-                        key={key} interest={stuff}/>)}</Header.Content>
+                    <Header.Content>
+                      <Label.Group>
+                        {this.props.student.interests.map((stuff, key) => <InterestItem
+                        key={key} interest={stuff}/>)}
+                      </Label.Group>
+                      </Header.Content>
                   </div>
                 </Header>
               </Grid.Column>
@@ -160,6 +164,15 @@ class StudentDetails extends React.Component {
 
 
           </Grid>
+          <br/>
+          <div>
+            <Link to={`/editstu/${this.props.student._id}`}>
+              <div className="ui large label">
+                <i className="large address card outline icon"> Edit Student Profile</i>
+              </div>
+            </Link>
+          </div>
+
         </Container>
 
     );

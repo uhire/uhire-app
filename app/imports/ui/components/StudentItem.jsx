@@ -9,7 +9,7 @@ import { Meteor } from 'meteor/meteor';
 class StudentItem extends React.Component {
   render() {
     return (
-        <a href={`mailto:${this.props.student.owner}`}>
+
         <Card>
           <Image src={this.props.student.picture} />
           <Card.Content>
@@ -29,7 +29,7 @@ class StudentItem extends React.Component {
             <Icon name='home' />
             {this.props.student.city} {this.props.student.locationZip}
           </Card.Content>
-        </Card></a>
+        </Card>
     );
   }
 }

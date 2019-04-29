@@ -36,6 +36,7 @@ class PositionItemProfile extends React.Component {
                 {this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}
               </Label.Group>
             </Table.Cell>
+            <Table.Cell><Link to={`/apply/${this.props.position._id}`}>Apply</Link></Table.Cell>
           </Table.Row>
 
         }>

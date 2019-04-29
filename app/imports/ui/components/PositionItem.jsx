@@ -58,6 +58,7 @@ class PositionItem extends React.Component {
               <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
             </Table.Cell>
             <Table.Cell><Button basic onClick={this.onClick}>Delete</Button></Table.Cell>
+            <Table.Cell><Link to={`/phome/${this.props.position._id}`}>View Applicants</Link></Table.Cell>
           </Table.Row>
         }>
 
@@ -73,6 +74,7 @@ class PositionItem extends React.Component {
                 <Table.HeaderCell>Interests</Table.HeaderCell>
                 <Table.HeaderCell>Edit</Table.HeaderCell>
                 <Table.HeaderCell>Delete</Table.HeaderCell>
+                <Table.HeaderCell>View</Table.HeaderCell>
               </Table.Row>
 
             </Table.Header>
@@ -102,6 +104,7 @@ class PositionItem extends React.Component {
                   <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
                 </Table.Cell>
                 <Table.Cell><Button basic onClick={this.onClick}>Delete</Button></Table.Cell>
+                <Table.Cell><Link to={`/phome/${this.props.position._id}`}>View Applicants</Link></Table.Cell>
               </Table.Row>
             </Table.Body>
           </Table>

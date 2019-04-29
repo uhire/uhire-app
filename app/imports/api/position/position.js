@@ -24,6 +24,13 @@ const PositionSchema = new SimpleSchema({
     allowedValues: [ 'JavaScript', 'AI', 'Web Development', 'Project Management', 'Data Processing', 'Systems Analysis', 'Conservation', 'Circuit Design', 'Game Development', 'Machine Learning', 'Internet of Things', 'Cyber Security', 'Data Visualization', 'Virtual Reality', '3D Modeling', 'Information Technlogy', 'Systems Management', 'Augmented Reality', 'Algorithms' ],
   },
   owner: String,
+  applied: {
+    type: Array,
+    optional: true,
+  },
+  'applied.$': {
+    type: String,
+  },
   companyName: String,
 }, { tracker: Tracker });
 

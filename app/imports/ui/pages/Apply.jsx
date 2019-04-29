@@ -71,7 +71,20 @@ class Apply extends React.Component {
               // success!
             }
           });
+      var applied = this.state.position.applied;
+      applied.push(this.state.student._id);
+      console.log(applied);
+      this.state.position.applied = applied;
+      Positions.update(this.state.position._id, { $set: { applied } }, (error) => {
+        if (error) {
+          return Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` });
+        } else {
+          this.setState({ redirectToReferer: true });
+          return Bert.alert({ type: 'success', message: 'Update succeeded' });
+        }
+      });
       this.setState({ redirectToReferer: true });
+
     } else {
       alert('Please approve the sharing of information before you submit')
     }
@@ -107,27 +120,32 @@ class Apply extends React.Component {
       return <Redirect to='/studentHome'/>;
     }
     const { about, submittedAbout, check } = this.state
-    console.log(about);
-    console.log();
-    return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" inverted textAlign="center">Apply For Position</Header>
-            <Segment>
-              <Form onSubmit={this.submit}>
 
-                <Form.Field control={TextArea} label='About' placeholder='Tell us about yourself...' name='about'
-                            value={about} onChange={this.handleChange}/>
-                <Form.Field control={Checkbox} label='I agree to share my information with this company'
-                            onClick={this.handleClick}/>
+    if (!_.contains(this.state.position.applied, this.state.student._id)) {
+      return (
+          <Grid container centered>
+            <Grid.Column>
+              <Header as="h2" inverted textAlign="center">Apply For Position</Header>
+              <Segment>
+                <Form onSubmit={this.submit}>
+
+                  <Form.Field control={TextArea} label='About' placeholder='Tell us about yourself...' name='about'
+                              value={about} onChange={this.handleChange}/>
+                  <Form.Field control={Checkbox} label='I agree to share my information with this company'
+                              onClick={this.handleClick}/>
 
 
-                <Form.Field control={Button}>Submit</Form.Field>
-              </Form>
-            </Segment>
-          </Grid.Column>
-        </Grid>
-    );
+                  <Form.Field control={Button}>Submit</Form.Field>
+                </Form>
+              </Segment>
+            </Grid.Column>
+          </Grid>
+      );
+    } else {
+      return (
+          <Header as="h2" inverted textAlign="center">You have already applied for this positons. Please wait to hear back from {this.state.position.companyName}.</Header>
+      );
+    }
   }
 }
 

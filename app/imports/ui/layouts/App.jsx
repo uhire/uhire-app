@@ -26,6 +26,7 @@ import BrowseStudents from '../pages/BrowseStudents';
 import BrowseCompanies from '../pages/BrowseCompanies';
 import StudentAdd from '../pages/StudentAdd';
 import Apply from '../pages/Apply';
+import PositionHome from '../pages/PositionHome';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -45,6 +46,7 @@ class App extends React.Component {
               <CompanyProtectedRoute path="/browsestu" component={BrowseStudents}/>
               <CompanyProtectedRoute path="/addposition" component={AddPosition}/>
               <CompanyProtectedRoute path="/editposition/:_id" component={EditPosition}/>
+              <CompanyProtectedRoute path="/phome/:_id" component={PositionHome}/>
               <ProtectedRoute path="/companyprofile/:companyName" component={CompanyProfilePage}
                                      onClick={Meteor.call('visitCounter', '/list')}/>
               <CompanyProtectedRoute path="/add" component={CompanyAdd}/>

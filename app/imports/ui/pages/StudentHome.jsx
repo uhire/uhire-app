@@ -132,6 +132,7 @@ class StudentHome extends React.Component {
                   Description
                 </Table.HeaderCell>
                 <Table.HeaderCell width={3}> Interests </Table.HeaderCell>
+                <Table.HeaderCell width={3}> Apply </Table.HeaderCell>
 
               </Table.Row>
             </Table.Header>

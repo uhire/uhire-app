@@ -51,6 +51,7 @@ class AddPosition extends React.Component {
   /** On submit, insert the data. */
   submit(data) {
     const { companyName, title, location, openings, date, description, contact, interests } = data;
+    const applied = [''];
     const owner = Meteor.user().username;
     Positions.insert({
       companyName,
@@ -62,6 +63,7 @@ class AddPosition extends React.Component {
       contact,
       interests,
       owner,
+      applied,
     }, this.insertCallback);
   }
 
