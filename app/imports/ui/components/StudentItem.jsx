@@ -11,6 +11,8 @@ class StudentItem extends React.Component {
     return (
 
         <Card>
+          <a href={`mailto:${this.props.student.owner}`} target='_blank' rel='noreferrer noopener'>
+
           <Image src={this.props.student.picture} />
           <Card.Content>
             <Card.Header>{this.props.student.firstName} {this.props.student.lastName}</Card.Header>
@@ -29,6 +31,7 @@ class StudentItem extends React.Component {
             <Icon name='home' />
             {this.props.student.city} {this.props.student.locationZip}
           </Card.Content>
+          </a>
         </Card>
     );
   }

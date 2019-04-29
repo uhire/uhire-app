@@ -51,7 +51,7 @@ class App extends React.Component {
                                      onClick={Meteor.call('visitCounter', '/list')}/>
               <CompanyProtectedRoute path="/add" component={CompanyAdd}/>
               <CompanyProtectedRoute path="/cohome" component={CompanyHome}/>
-              { /**<ProtectedRoute path="/sprofile" component={StudentProfile}/> */}
+              <ProtectedRoute path="/sprofile" component={StudentProfile}/>
               <StudentProtectedRoute path="/browsecom" component={BrowseCompanies}/>
               <StudentProtectedRoute path="/studentHome" component={StudentHome}/>
               <StudentProtectedRoute path="/addStudent" component={StudentAdd}/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader, Grid, Container, Image, Table } from 'semantic-ui-react';
+import { Loader, Grid, Container, Image, Table, Header } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import Company from '/imports/ui/components/Company';
 import CompanyLogo from '/imports/ui/components/CompanyLogo';
@@ -67,7 +67,7 @@ class CompanyProfilePage extends React.Component {
             </Grid.Column>
           </Grid>
 
-
+          <Header as='h1' inverted textAlign='center'> {`Available Positions at ${this.props.companies[0].companyName}`}</Header>
           <Table sortable celled fixed singleLine>
             <Table.Header>
               <Table.Row>

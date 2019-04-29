@@ -23,7 +23,7 @@ class CompanyHomeLogo extends React.Component {
   render() {
     return (
         <div>
-          <Modal trigger={<Image src={this.props.company.image} size='medium'/>}>
+          <Modal trigger={<Image circular src={this.props.company.image} size='medium'/>}>
             <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
               <Segment>
                 <TextField name='image'/>

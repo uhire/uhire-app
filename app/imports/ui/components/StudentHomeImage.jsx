@@ -36,7 +36,7 @@ class StudentHomeImage extends React.Component {
   render() {
     return (
         <div>
-          <Modal trigger={<Image src={this.props.student.picture} size='medium'/>}>
+          <Modal trigger={<Image circular src={this.props.student.picture} size='medium'/>}>
             <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
               <Segment>
                 <TextField name='picture'/>

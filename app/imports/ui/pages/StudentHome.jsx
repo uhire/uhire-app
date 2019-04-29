@@ -107,7 +107,7 @@ class StudentHome extends React.Component {
 
           <br/>
           <br/>
-          <Header as='h1' inverted textAlign='center'>Your Interested Positions</Header>
+          <Header as='h1' inverted textAlign='center'>Positions of Interest</Header>
           <Table sortable celled selectable striped fixed>
             <Table.Header>
               <Table.Row>
