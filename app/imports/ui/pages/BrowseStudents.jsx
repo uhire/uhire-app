@@ -82,8 +82,7 @@ class BrowseStudents extends React.Component {
     this.setState({ students: students });
   }
 
-
-   handleInterestChange(event, data) {
+  handleInterestChange(event, data) {
     // eslint-disable-next-line
     const students = this.props.students.filter((x) => _.intersection(x.interests, data.value).length === data.value.length);
     this.setState({ students: students });
@@ -128,6 +127,7 @@ class BrowseStudents extends React.Component {
               )}
               <Button basic onClick={this.onClickClear}>Clear</Button>
             </Menu>
+
             <Card.Group style={cardPadding}>
               {this.state.students.length === 0 ? (
                   this.props.students.map((student, index) => <StudentItem key={index} student={student}/>)

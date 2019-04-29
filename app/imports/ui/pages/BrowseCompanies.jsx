@@ -52,7 +52,6 @@ class BrowseCompanies extends React.Component {
       { key: 1, value: 'companyName', text: 'Company Name' },
       { key: 2, value: 'location', text: 'Location' },
 
-
     ];
     /* eslint-disable-next-line */
     for (const category of this.searchBy) {
@@ -83,7 +82,6 @@ class BrowseCompanies extends React.Component {
     );
     this.setState({ companies: companies });
   }
-
 
   onClickClear() {
     this.setState({ companies: [] });
@@ -116,6 +114,7 @@ class BrowseCompanies extends React.Component {
               />
               <Button basic onClick={this.onClickClear}>Clear</Button>
             </Menu>
+
             <Card.Group style={cardPadding}>
               {this.state.companies.length === 0 ? (
                   this.props.companies.map((company, index) => <CompanyCard key={index} company={company}/>)
@@ -129,7 +128,6 @@ class BrowseCompanies extends React.Component {
     );
   }
 }
-
 
 /** Require an array of Stuff documents in the props. */
 BrowseCompanies.propTypes = {
