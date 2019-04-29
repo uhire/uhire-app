@@ -50,6 +50,7 @@ class Apply extends React.Component {
           ${this.state.student.firstName} ${this.state.student.lastName} is applying for ${this.state.position.title} listed on UHire.
           Professional Profile: ${this.state.student.profile}
           UHire Profile: N/A
+          Email: ${this.state.student.owner}
           Submission: ${about}`,
           }, (err, res) => {
             if (err) {
