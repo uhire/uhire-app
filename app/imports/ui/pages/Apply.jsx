@@ -1,10 +1,21 @@
 import React, { Component } from 'react'
-import { Grid, Loader, Header, Segment, Form, Button, Checkbox, Input, Radio, Select, TextArea } from 'semantic-ui-react';
+import {
+  Grid,
+  Loader,
+  Header,
+  Segment,
+  Form,
+  Button,
+  Checkbox,
+  Input,
+  Radio,
+  Select,
+  TextArea
+} from 'semantic-ui-react';
 import { Positions, PositionSchema } from '/imports/api/position/position';
 import { Students, StudentSchema } from '/imports/api/stuff/student';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Redirect } from 'react-router-dom';
-
 
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -12,10 +23,8 @@ import PropTypes from 'prop-types';
 import { Email } from "meteor/email";
 import { NULL } from 'graphql/language/kinds';
 
-
 /** Renders the Page for editing a single document. */
 class Apply extends React.Component {
-
 
   constructor(props) {
     super(props);
@@ -27,7 +36,8 @@ class Apply extends React.Component {
       student: NULL,
       about: '',
       submittedAbout: '',
-      check: false};
+      check: false,
+    };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.submit = this.submit.bind(this);
@@ -38,16 +48,18 @@ class Apply extends React.Component {
   /** On successful submit, insert the data. */
   submit() {
     const { about, check } = this.state;
-    if(check == true) {
+    if (check === true) {
       this.setState({ submittedAbout: about });
       Meteor.call(
           'sendEmail',
           {
             to: `${this.state.position.contact}`,
             from: 'uhirenoreply@gmail.com',
-            subject: `${this.state.student.firstName} ${this.state.student.lastName} is applying for ${this.state.position.title}`,
+            subject: `${this.state.student.firstName} ${this.state.student.lastName} is applying for 
+            ${this.state.position.title}`,
             text: `Aloha from UHire,\n
-          ${this.state.student.firstName} ${this.state.student.lastName} is applying for ${this.state.position.title} listed on UHire.
+          ${this.state.student.firstName} ${this.state.student.lastName} is applying for 
+          ${this.state.position.title} listed on UHire.
           Professional Profile: ${this.state.student.profile}
           UHire Profile: N/A
           Email: ${this.state.student.owner}
@@ -60,18 +72,18 @@ class Apply extends React.Component {
             }
           });
       this.setState({ redirectToReferer: true });
+    } else {
+      alert('Please approve the sharing of information before you submit')
     }
-    else {alert('Please approve the sharing of information before you submit')}
   }
 
   handleClick() {
     const { check } = this.state;
 
-    if(check == false) {
-      this.setState( {check: true} );
-    }
-    else {
-      this.setState( {check: false} );
+    if (check === false) {
+      this.setState({ check: true });
+    } else {
+      this.setState({ check: false });
     }
 
   };
@@ -85,14 +97,14 @@ class Apply extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
-    if (this.state.position == NULL) {
+    if (this.state.position === NULL) {
       this.state.position = this.props.doc;
     }
-    if (this.state.student == NULL) {
+    if (this.state.student === NULL) {
       this.state.student = this.props.student[0];
     }
     if (this.state.redirectToReferer) {
-      return <Redirect to='/studentHome' />;
+      return <Redirect to='/studentHome'/>;
     }
     const { about, submittedAbout, check } = this.state
     console.log(about);
@@ -101,16 +113,18 @@ class Apply extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Apply For Position</Header>
-           <Segment>
-            <Form onSubmit={this.submit}>
+            <Segment>
+              <Form onSubmit={this.submit}>
 
-              <Form.Field control={TextArea} label='About' placeholder='Tell us about yourself...' name='about' value={about} onChange={this.handleChange} />
-              <Form.Field control={Checkbox} label='I agree to share my information with this company' onClick={this.handleClick} />
+                <Form.Field control={TextArea} label='About' placeholder='Tell us about yourself...' name='about'
+                            value={about} onChange={this.handleChange}/>
+                <Form.Field control={Checkbox} label='I agree to share my information with this company'
+                            onClick={this.handleClick}/>
 
 
-            <Form.Field control={Button} >Submit</Form.Field>
-            </Form>
-           </Segment>
+                <Form.Field control={Button}>Submit</Form.Field>
+              </Form>
+            </Segment>
           </Grid.Column>
         </Grid>
     );
