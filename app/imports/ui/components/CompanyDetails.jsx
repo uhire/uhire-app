@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Modal, Icon, Header, Grid } from 'semantic-ui-react';
+import { Container, Modal, Icon, Header, Grid, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Companies, CompanySchema } from '/imports/api/company/company';
@@ -31,19 +31,19 @@ class CompanyDetails extends React.Component {
               <Grid.Column>
                 <Header>
                   <div className="hyper-link-font">
-                  <Modal trigger={<Icon color='green' disabled link name='building'/>}>
-                    <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
-                      <TextField name='companyName'/>
-                      <SubmitField value='Submit'/>
-                      <ErrorsField/>
-                      <HiddenField name='location' value={this.props.company.location}/>
-                      <HiddenField name='description' value={this.props.company.description}/>
-                      <HiddenField name='contact' value={this.props.company.contact}/>
-                      <HiddenField name='image' value={this.props.company.image}/>
-                      <HiddenField name='owner' value={this.props.company.owner}/>
-                    </AutoForm>
-                  </Modal>
-                  <Header.Content>{this.props.company.companyName}</Header.Content>
+                    <Modal trigger={<Icon color='green' disabled link name='building'/>}>
+                      <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
+                        <TextField name='companyName'/>
+                        <SubmitField value='Submit'/>
+                        <ErrorsField/>
+                        <HiddenField name='location' value={this.props.company.location}/>
+                        <HiddenField name='description' value={this.props.company.description}/>
+                        <HiddenField name='contact' value={this.props.company.contact}/>
+                        <HiddenField name='image' value={this.props.company.image}/>
+                        <HiddenField name='owner' value={this.props.company.owner}/>
+                      </AutoForm>
+                    </Modal>
+                    <Header.Content>{this.props.company.companyName}</Header.Content>
                   </div>
                 </Header>
               </Grid.Column>
@@ -54,19 +54,19 @@ class CompanyDetails extends React.Component {
               <Grid.Column>
                 <Header>
                   <div className="hyper-link-font">
-                  <Modal trigger={<Icon color='green' disabled link name='marker'/>}>
-                    <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
-                      <TextField name='location'/>
-                      <SubmitField value='Submit'/>
-                      <ErrorsField/>
-                      <HiddenField name='companyName' value={this.props.company.companyName}/>
-                      <HiddenField name='description' value={this.props.company.description}/>
-                      <HiddenField name='contact' value={this.props.company.contact}/>
-                      <HiddenField name='image' value={this.props.company.image}/>
-                      <HiddenField name='owner' value={this.props.company.owner}/>
-                    </AutoForm>
-                  </Modal>
-                  <Header.Content>{this.props.company.location}</Header.Content>
+                    <Modal trigger={<Icon color='green' disabled link name='marker'/>}>
+                      <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
+                        <TextField name='location'/>
+                        <SubmitField value='Submit'/>
+                        <ErrorsField/>
+                        <HiddenField name='companyName' value={this.props.company.companyName}/>
+                        <HiddenField name='description' value={this.props.company.description}/>
+                        <HiddenField name='contact' value={this.props.company.contact}/>
+                        <HiddenField name='image' value={this.props.company.image}/>
+                        <HiddenField name='owner' value={this.props.company.owner}/>
+                      </AutoForm>
+                    </Modal>
+                    <Header.Content>{this.props.company.location}</Header.Content>
                   </div>
                 </Header>
               </Grid.Column>
@@ -88,8 +88,11 @@ class CompanyDetails extends React.Component {
                       <HiddenField name='owner' value={this.props.company.owner}/>
                     </AutoForm>
                   </Modal>
-                  <Header.Content><a href="mailto: {this.props.company.contact}">
-                    {this.props.company.contact}</a></Header.Content>
+                  <Header.Content>
+                    <a target='_blank' rel='noopener noreferrer' href={`mailto:${this.props.company.owner}`}>
+                      {this.props.company.contact}
+                    </a>
+                  </Header.Content>
                 </Header>
               </Grid.Column>
             </Grid.Row>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Button } from 'semantic-ui-react';
+import { Segment, Button, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -28,7 +28,9 @@ class Company extends React.Component {
           </Segment>
           <Segment>
             Contact Info: <br/>
+            <a target='_blank' rel='noopener noreferrer' href={`mailto:${this.props.company.owner}`}>
             {this.props.company.contact}
+          </a>
 
           </Segment>
         </Segment.Group>
