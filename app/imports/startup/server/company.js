@@ -43,7 +43,7 @@ Meteor.publish('CompaniesStudent', function publish() {
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
 Meteor.publish('CompanyAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Companies.find({});
+    return Companies.find({ sort: { $natural: -1 } });
   }
   return this.ready();
 });

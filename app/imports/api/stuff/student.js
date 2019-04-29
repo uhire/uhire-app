@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
-import {Interests, InterestSchema} from './interests';
+// import {Interests, InterestSchema} from './interests';
 
 /** Create a Meteor collection. */
 const Students = new Mongo.Collection('Students');

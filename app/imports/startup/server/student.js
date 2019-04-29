@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Students } from '../../api/stuff/student.js';
-// import { Companies } from '../../api/company/company';
+import { Roles } from 'meteor/alanning:roles';
+
 
 /** Initialize the database with a default data document. */
 function addData(data, collection) {
@@ -36,6 +37,14 @@ Meteor.publish('SelfStudent', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Students.find({ owner: username });
+  }
+  return this.ready();
+});
+
+/** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
+Meteor.publish('StudentAdmin', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Students.find({ sort: { $natural: -1 } });
   }
   return this.ready();
 });
