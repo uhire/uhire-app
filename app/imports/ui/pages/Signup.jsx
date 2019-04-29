@@ -101,7 +101,7 @@ export default class Signup extends React.Component {
                 <Form name='Form' onSubmit={this.handleSubmit}>
                   <Segment stacked>
                     <Form.Input
-                        label="Email"
+                        required label="Email"
                         icon="user"
                         iconPosition="left"
                         name="email"
@@ -110,7 +110,7 @@ export default class Signup extends React.Component {
                         onChange={this.handleChange}
                     />
                     <Form.Input
-                        label="Password"
+                        required label="Password"
                         icon="lock"
                         iconPosition="left"
                         name="password"
@@ -118,18 +118,13 @@ export default class Signup extends React.Component {
                         type={this.state.inputType}
                         onChange={this.handleChange}
                     />
-                    <Form.Field control={Checkbox} label='Show password' onClick={this.handleClick} />
+                    <Form.Field control={Checkbox} label='Show password' onClick={this.handleClick}/>
                     <br/>
-                    <Dropdown required
-                              placeholder='Choose a Profession'
-                              fluid
-                              selection
-                              options={profession}
-                              name={'role'}
-                              onChange={this.handleChange}
-                    />
+                    <Form.Field required control={Dropdown} label='Choose a Profession' onChange={this.handleChange}
+                                fluid selection options={profession} name={'role'}/>
                     <br/>
-                    <Form.Field control={Checkbox} label='By checking this box, I agree to share my information'
+                    <Form.Field required control={Checkbox}
+                                label='By checking this box, I agree to share my information'
                                 onClick={this.handleCheck}/>
                     <br/>
                     <Form.Button color="green" content="Submit"/>
