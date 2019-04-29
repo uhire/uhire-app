@@ -27,7 +27,7 @@ class AdminHome extends React.Component {
           <Grid columns={2} centered verticalAlign='middle' textAlign='center'>
 
             <Grid.Column>
-              <Table sortable celled unstackable fixed>
+              <Table sortable celled unstackable fixed selectable>
                 <Table.Header>
                   <Table.Row>
                     <Table.HeaderCell>
@@ -53,7 +53,7 @@ class AdminHome extends React.Component {
             </Grid.Column>
 
           <Grid.Column>
-          <Table sortable celled unstackable fixed>
+          <Table sortable celled unstackable fixed selectable>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>
