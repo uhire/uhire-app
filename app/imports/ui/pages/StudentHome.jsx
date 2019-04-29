@@ -51,19 +51,19 @@ class StudentHome extends React.Component {
       return <Redirect to={'/addStudent'}/>;
     }
 
-    var test1 = function(string, array){
+    let test1 = function(string, array){
       return _.contains(array, string);
     };
 
     const interests2 = this.props.students[0].interests;
 
-    var test2 = function (array1, array2){
-      var bool1 = false;
+    let test2 = function (array1, array2){
+      let bool1 = false;
 
       array1.forEach(function(element){
 
         bool1 = bool1 || test1(element, array2);
-        if (bool1 == true) {
+        if (bool1 === true) {
           console.log(bool1);
           return bool1;
         }
