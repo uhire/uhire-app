@@ -118,14 +118,8 @@ export default class Signup extends React.Component {
                         type={this.state.inputType}
                         onChange={this.handleChange}
                     />
-                    <Form.Input
-                        label="Show Password"
-                        name="showPassword"
-                        position="left"
-                        placeholder="showpassword"
-                        type="checkbox"
-                        onClick={this.handleClick}
-                    />
+                    <Form.Field control={Checkbox} label='Show password' onClick={this.handleClick} />
+                    <br/>
                     <Dropdown required
                               placeholder='Choose a Profession'
                               fluid
