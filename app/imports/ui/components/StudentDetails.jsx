@@ -192,13 +192,7 @@ class StudentDetails extends React.Component {
 
           </Grid>
           <br/>
-          <div>
-            <Link to={`/editstu/${this.props.student._id}`}>
-              <div className="ui large label">
-                <i className="large address card outline icon"> Edit Student Profile</i>
-              </div>
-            </Link>
-          </div>
+         
 
         </Container>
 

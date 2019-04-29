@@ -56,10 +56,10 @@ class NavBar extends React.Component {
                           key='studentHome'>
                 <Header color='green' as='h3'>Student Home Page</Header>
               </Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/sprofile"
+             /*   <Menu.Item as={NavLink} activeClassName="active" exact to="/sprofile"
                            key='sprofile'>
                   <Header color='green'>Student Profile Page</Header>
-                </Menu.Item>,
+                </Menu.Item>, */
                 <Menu.Item as={NavLink} activeClassName="active" exact to="/browsecom"
                            key='browsecom'>
                   <Header color='green'>Browse Companies Page</Header>
