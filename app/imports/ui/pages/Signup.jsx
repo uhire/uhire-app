@@ -11,7 +11,7 @@ export default class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '', password: '', role: '', error: '', inputType: 'password',
+      email: '', password: '', role: '', error: '', inputType: 'password', verifyPassword: '',
       redirectToReferer: false, check: false,
     };
     // Ensure that 'this' is bound to this component in these two functions.
@@ -20,11 +20,20 @@ export default class Signup extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
   }
 
   /** Update the form controls each time the user interacts with them. */
   handleChange(e, { name, value }) {
     this.setState({ [name]: value });
+  }
+
+  handleKeyUp() {
+    if (this.state.password === this.state.verifyPassword) {
+      this.setState({ error: '' });
+    } else {
+      this.setState({ error: 'Passwords do not match' });
+    }
   }
 
   handleClick() {
@@ -118,6 +127,16 @@ export default class Signup extends React.Component {
                         type={this.state.inputType}
                         onChange={this.handleChange}
                     />
+                    <Form.Input
+                        required label="Verify Password"
+                        icon="lock"
+                        iconPosition="left"
+                        name="verifyPassword"
+                        placeholder="Password"
+                        type={this.state.inputType}
+                        onKeyUp ={this.handleKeyUp}
+                        onChange ={this.handleChange}
+                    />
                     <Form.Field control={Checkbox} label='Show password' onClick={this.handleClick}/>
                     <br/>
                     <Form.Field required control={Dropdown} label='Choose a Profession' onChange={this.handleChange}
@@ -127,7 +146,7 @@ export default class Signup extends React.Component {
                                 label='By checking this box, I agree to share my information'
                                 onClick={this.handleCheck}/>
                     <br/>
-                    <Form.Button color="green" content="Submit"/>
+                    <Form.Button name = "submit" color="green" content="Submit"/>
                   </Segment>
                 </Form>
                 <Message>
