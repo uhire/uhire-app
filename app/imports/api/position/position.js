@@ -12,12 +12,16 @@ const PositionSchema = new SimpleSchema({
   openings: Number,
   date: Date,
   description: String,
+  contact: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Email,
+  },
   interests: {
     type: Array,
   },
   'interests.$': {
     type: String,
-    allowedValues: ['JavaScript', 'AI', 'Web Development', 'Project Management'],
+    allowedValues: [ 'JavaScript', 'AI', 'Web Development', 'Project Management', 'Data Processing', 'Systems Analysis', 'Conservation', 'Circuit Design', 'Game Development', 'Machine Learning', 'Internet of Things', 'Cyber Security', 'Data Visualization', 'Virtual Reality', '3D Modeling', 'Information Technlogy', 'Systems Management', 'Augmented Reality', 'Algorithms' ],
   },
   owner: String,
   companyName: String,

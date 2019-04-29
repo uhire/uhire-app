@@ -1,18 +1,15 @@
 import React from 'react';
-import { Table, Container, Image, Card, Icon, Label } from 'semantic-ui-react';
+import { Image, Card, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link, NavLink } from 'react-router-dom';
-
+import { withRouter, Link } from 'react-router-dom';
 import InterestItem from '/imports/ui/components/InterestItem';
-import { Meteor } from "meteor/meteor";
-import { Menu } from 'semantic-ui-react/dist/commonjs/collections/Menu';
-import { Dropdown } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import { Meteor } from 'meteor/meteor';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudentItem extends React.Component {
   render() {
     return (
-
+        <a href={`mailto:${this.props.student.owner}`}>
         <Card>
           <Image src={this.props.student.picture} />
           <Card.Content>
@@ -25,16 +22,14 @@ class StudentItem extends React.Component {
           <Card.Content>
             <Card.Header>Interests</Card.Header>
             <Card.Description>
-              {this.props.student.interests.map((stuff) => <InterestItem interest={stuff} />)}
+              {this.props.student.interests.map((stuff, index) => <InterestItem key={index} interest={stuff} />)}
             </Card.Description>
           </Card.Content>
-          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (<Link to={`/editstu/${this.props.student._id}`}>Edit</Link>)
-                  : ''}
           <Card.Content extra>
             <Icon name='home' />
             {this.props.student.city} {this.props.student.locationZip}
           </Card.Content>
-        </Card>
+        </Card></a>
     );
   }
 }

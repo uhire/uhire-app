@@ -92,7 +92,7 @@ class CompanyHome extends React.Component {
             </div>
           </Header>
 
-          <Table sortable celled fixed singleLine>
+          <Table sortable celled selectable striped fixed>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell sorted={column === 'title' ? direction : null}
@@ -111,12 +111,12 @@ class CompanyHome extends React.Component {
                                   onClick={this.handleSort('date')}>
                   Date
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'description' ? direction : null}
+                <Table.HeaderCell width={5} sorted={column === 'description' ? direction : null}
                                   onClick={this.handleSort('description')}>
                   Description
                 </Table.HeaderCell>
-                <Table.HeaderCell> Interests </Table.HeaderCell>
-                <Table.HeaderCell> Edit </Table.HeaderCell>
+                <Table.HeaderCell width={3}> Interests </Table.HeaderCell>
+                <Table.HeaderCell width={1}> Edit </Table.HeaderCell>
                 <Table.HeaderCell> Delete </Table.HeaderCell>
               </Table.Row>
             </Table.Header>

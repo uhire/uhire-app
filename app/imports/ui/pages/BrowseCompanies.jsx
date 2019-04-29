@@ -50,6 +50,9 @@ class BrowseCompanies extends React.Component {
     // this.searchBy = searchByList.map((value, index) => ({ key: index, value: value, text: value }));
     this.searchBy = [
       { key: 1, value: 'companyName', text: 'Company Name' },
+      { key: 2, value: 'location', text: 'Location' },
+
+
     ];
     /* eslint-disable-next-line */
     for (const category of this.searchBy) {

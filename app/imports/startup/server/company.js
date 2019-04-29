@@ -27,7 +27,7 @@ if (Companies.find().count() === 0) {
 Meteor.publish('Companies', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'company')) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Companies.find({ owner: username });
+    return Companies.find({ owner: username }, { limit: 1 });
   }
   return this.ready();
 });

@@ -5,12 +5,8 @@ import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Positions } from '/imports/api/position/position.js';
-import PositionItem from '/imports/ui/components/PositionItem';
-import { Companies } from '/imports/api/company/company.js';
-import CompanyDetails from '/imports/ui/components/CompanyDetails';
-import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
+import PositionItemProfile from '/imports/ui/components/PositionItemProfile';
 import { Students } from '/imports/api/stuff/student';
-import StudentItem from '/imports/ui/components/StudentItem';
 import StudentDetails from '/imports/ui/components/StudentDetails';
 import StudentHomeImage from '/imports/ui/components/StudentHomeImage';
 import { Redirect } from 'react-router-dom';
@@ -45,16 +41,45 @@ class StudentHome extends React.Component {
 
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+
   }
+
+
 
   renderPage() {
     if (this.props.students.length === 0) {
       return <Redirect to={'/addStudent'}/>;
     }
-    console.log(this.props.students);
+
+    var test1 = function(string, array){
+      return _.contains(array, string);
+    };
+
+    const interests2 = this.props.students[0].interests;
+
+    var test2 = function (array1, array2){
+      var bool1 = false;
+
+      array1.forEach(function(element){
+
+        bool1 = bool1 || test1(element, array2);
+        if (bool1 == true) {
+          console.log(bool1);
+          return bool1;
+        }
+      });
+      console.log(bool1);
+      return bool1;
+
+    };
+
     if (this.state.data == null) {
       this.state.data = this.props.positions;
+      const data2 = this.state.data.filter( position => test2(position.interests, interests2));
+      this.state.data = data2;
     }
+
+
     console.log(this.props);
     const { column, direction } = this.state;
     return (
@@ -83,7 +108,7 @@ class StudentHome extends React.Component {
           <br/>
           <br/>
           <Header as='h1' inverted textAlign='center'>Available Positions</Header>
-          <Table sortable celled fixed>
+          <Table sortable celled selectable striped fixed>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell sorted={column === 'title' ? direction : null}
@@ -102,19 +127,18 @@ class StudentHome extends React.Component {
                                   onClick={this.handleSort('date')}>
                   Date
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'description' ? direction : null}
+                <Table.HeaderCell width={5} sorted={column === 'description' ? direction : null}
                                   onClick={this.handleSort('description')}>
                   Description
                 </Table.HeaderCell>
-                <Table.HeaderCell> Interests </Table.HeaderCell>
-                <Table.HeaderCell> Edit </Table.HeaderCell>
-                <Table.HeaderCell> Delete </Table.HeaderCell>
+                <Table.HeaderCell width={3}> Interests </Table.HeaderCell>
+
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
 
-              {this.state.data.map((position) => <PositionItem key={position._id} position={position}/>)}
+              {this.state.data.map((position) => <PositionItemProfile key={position._id} position={position}/>)}
 
             </Table.Body>
           </Table>
@@ -138,7 +162,6 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subPositions = Meteor.subscribe('PositionStudent');
   const subStudents = Meteor.subscribe('SelfStudent');
-  const subCompanies = Meteor.subscribe('Companies');
 
   return {
     positions: Positions.find({}).fetch(),

@@ -91,6 +91,8 @@ class CompanyProfilePage extends React.Component {
                                   onClick={this.handleSort('description')}>
                   Description
                 </Table.HeaderCell>
+                <Table.HeaderCell>Interests</Table.HeaderCell>
+                <Table.HeaderCell>Apply</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 

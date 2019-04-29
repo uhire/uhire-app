@@ -10,16 +10,21 @@ export default class Signup extends React.Component {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', role: '', error: '', redirectToReferer: false };
+    this.state = { email: '', password: '', role: '', error: '', inputType: 'password', redirectToReferer: false };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   /** Update the form controls each time the user interacts with them. */
   handleChange(e, { name, value }) {
     this.setState({ [name]: value });
+  }
+
+  handleClick() {
+    this.setState({ inputType: this.state.inputType === 'password' ? 'text' : 'password' });
   }
 
   /** Handle Signup submission using Meteor's account mechanism. */
@@ -35,7 +40,6 @@ export default class Signup extends React.Component {
 
   /** Display the signup form. */
   render() {
-
     // Profession added as role indicator
     const profession = [
       {
@@ -57,7 +61,6 @@ export default class Signup extends React.Component {
         icon: 'user',
       }, */
     ];
-
     // Added a redirectToReferer to redirect to home pages
     if (this.state.redirectToReferer) {
       return <Redirect to={'/sucReg/'}/>;
@@ -80,7 +83,8 @@ export default class Signup extends React.Component {
               <Header as="h2" textAlign="center" inverted>
                 Register your account
               </Header>
-              <Form onSubmit={this.handleSubmit}>
+
+              <Form name = 'Form' onSubmit={this.handleSubmit}>
                 <Segment stacked>
                   <Form.Input
                       label="Email"
@@ -97,8 +101,16 @@ export default class Signup extends React.Component {
                       iconPosition="left"
                       name="password"
                       placeholder="Password"
-                      type="password"
+                      type={this.state.inputType}
                       onChange={this.handleChange}
+                  />
+                  <Form.Input
+                     label="Show Password"
+                     name="showPassword"
+                     position = "left"
+                     placeholder="showpassword"
+                     type="checkbox"
+                     onClick={this.handleClick}
                   />
                   <Dropdown required
                       placeholder='Choose a Profession'
