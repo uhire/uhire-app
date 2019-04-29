@@ -32,8 +32,8 @@ class EditPosition extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { title, location, openings, date, description, interests, _id } = data;
-    Positions.update(_id, { $set: { title, location, openings, date, description, interests } }, (error) => {
+    const { title, location, openings, date, description, interests, contact, _id } = data;
+    Positions.update(_id, { $set: { title, location, openings, date, description, contact, interests } }, (error) => {
       if (error) {
         return Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` });
       } else {
@@ -67,6 +67,7 @@ class EditPosition extends React.Component {
                 <NumField name='openings' decimal={false}/>
                 <HiddenField name='date'/>
                 <LongTextField name='description'/>
+                <AutoField name='contact'/>
                 <AutoField name='interests'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>

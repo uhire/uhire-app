@@ -56,7 +56,7 @@ class CompanyAdd extends React.Component {
               <Segment>
                 <TextField name='companyName'/>
                 <TextField name='location'/>
-                <TextField name='image'/>
+                <TextField name='image' value = 'http://i.imgur.com/AItCxSs.jpg'/>
                 <LongTextField name='description'/>
                 <TextField name='contact'/>
                 <SubmitField value='Submit'/>

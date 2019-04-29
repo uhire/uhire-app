@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
+import AutoFields from 'uniforms-semantic/AutoFields';
 import AutoField from 'uniforms-semantic/AutoField';
 import NumField from 'uniforms-semantic/NumField';
 import HiddenField from 'uniforms-semantic/HiddenField';
@@ -49,7 +50,7 @@ class AddPosition extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { companyName, title, location, openings, date, description, interests } = data;
+    const { companyName, title, location, openings, date, description, contact, interests } = data;
     const owner = Meteor.user().username;
     Positions.insert({
       companyName,
@@ -58,6 +59,7 @@ class AddPosition extends React.Component {
       openings,
       date,
       description,
+      contact,
       interests,
       owner,
     }, this.insertCallback);
@@ -81,6 +83,7 @@ class AddPosition extends React.Component {
                 <TextField name='location'/>
                 <NumField name='openings' decimal={false}/>
                 <LongTextField name='description'/>
+                <AutoField name='contact' value={this.props.companies[0].contact}/>
                 <AutoField name='interests'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>

@@ -25,6 +25,7 @@ import EditStudent from '../pages/EditStudent';
 import BrowseStudents from '../pages/BrowseStudents';
 import BrowseCompanies from '../pages/BrowseCompanies';
 import StudentAdd from '../pages/StudentAdd';
+import Apply from '../pages/Apply';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -54,6 +55,7 @@ class App extends React.Component {
               <StudentProtectedRoute path="/studentHome" component={StudentHome}/>
               <StudentProtectedRoute path="/addStudent" component={StudentAdd}/>
               <StudentProtectedRoute path="/editstu/:_id" component={EditStudent}/>
+              <StudentProtectedRoute path="/apply/:_id" component={Apply}/>
               <Route component={NotFound}/>
             </Switch>
             <Footer/>
