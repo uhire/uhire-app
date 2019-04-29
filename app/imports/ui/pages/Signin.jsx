@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Checkbox, Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /**
@@ -83,14 +83,7 @@ export default class Signin extends React.Component {
                       type={this.state.inputType}
                       onChange={this.handleChange}
                   />
-                  <Form.Input
-                      label="Show Password"
-                      name="showPassword"
-                      position = "left"
-                      placeholder="showpassword"
-                      type="checkbox"
-                      onClick={this.handleClick}
-                  />
+                  <Form.Field control={Checkbox} label='Show password' onClick={this.handleClick} />
                   <Form.Button content="Submit"/>
                 </Segment>
               </Form>
