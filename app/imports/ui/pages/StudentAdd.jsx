@@ -68,12 +68,12 @@ class StudentAdd extends React.Component {
             <Header as="h2" textAlign="center" inverted>Add Student</Header>
             <AutoForm ref={(ref) => { this.formRef = ref; }} schema={StudentSchema} onSubmit={this.submit}>
               <Segment>
-                <TextField name='firstName'/>
+                <TextField name='firstName' />
                 <TextField name='lastName'/>
                 <LongTextField name='description'/>
                 <TextField name='city'/>
                 <NumField name='locationZip' decimal={false}/>
-                <TextField name='profile'/>
+                <TextField name='profile' placeholder='https://...'/>
                 <TextField name='picture' />
                 <AutoField name='interests'/>
                 <RadioField name='grade'/>
