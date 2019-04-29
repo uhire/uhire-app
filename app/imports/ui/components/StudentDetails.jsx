@@ -107,7 +107,7 @@ class StudentDetails extends React.Component {
                       <Modal trigger={<Icon color='green' disabled link name='world'/>}>
                         <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                           <Segment>
-                            <TextField name='profile'/>
+                            <TextField name='profile' placeholder='https://...'/>
                             <SubmitField value='Submit'/>
                             <ErrorsField/>
                             <HiddenField name='firstName' value={this.props.student.firstName}/>
