@@ -17,6 +17,7 @@ class AdminHome extends React.Component {
 
   render() {
 
+    console.log(this.props);
 
     return (
         <Container>
@@ -85,7 +86,6 @@ class AdminHome extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 AdminHome.propTypes = {
-  positions: PropTypes.array.isRequired,
   students: PropTypes.array.isRequired,
   companies: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
