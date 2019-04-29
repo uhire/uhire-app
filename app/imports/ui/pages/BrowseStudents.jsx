@@ -128,7 +128,7 @@ class BrowseStudents extends React.Component {
               <Button basic onClick={this.onClickClear}>Clear</Button>
             </Menu>
 
-            <Card.Group style={cardPadding}>
+            <Card.Group centered style={cardPadding}>
               {this.state.students.length === 0 ? (
                   this.props.students.map((student, index) => <StudentItem key={index} student={student}/>)
               ) : (
