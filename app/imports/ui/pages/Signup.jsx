@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment, Dropdown } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, Dropdown, checkbox } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 
 /**
@@ -108,6 +108,8 @@ export default class Signup extends React.Component {
                       name={'role'}
                       onChange={this.handleChange}
                   />
+                  <Form.Field control={Checkbox} label='By checking this box, I agree to share my information'
+                              onClick={this.handleClick}/>
                   <br/>
                   <Form.Button color="green" content="Submit"/>
                 </Segment>
