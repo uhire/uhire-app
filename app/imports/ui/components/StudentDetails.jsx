@@ -122,8 +122,11 @@ class StudentDetails extends React.Component {
                           </Segment>
                         </AutoForm>
                       </Modal>
-                      <Header.Content><a href="mailto: {this.props.student.contact}">
-                        {this.props.student.contact}</a></Header.Content>
+                      <Header.Content>
+                        <a target='_blank' rel='noopener noreferrer' href={`mailto:${this.props.student.contact}`}>
+                        {this.props.student.contact}
+                        </a>
+                      </Header.Content>
                     </div>
                   </Header>
                 </Grid.Column>
