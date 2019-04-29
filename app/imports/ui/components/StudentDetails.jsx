@@ -43,160 +43,133 @@ class StudentDetails extends React.Component {
 
         <Container>
           <Grid>
-            <Grid.Column width={8}>
-              <Grid.Row>
-                <Grid.Column>
-                  <Header>
-                    <div className="hyper-link-font">
-                      <Modal trigger={<Icon color='green' disabled link name='user'/>}>
-                        <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
-                          <Segment>
-                            <TextField name='firstName'/>
-                            <TextField name='lastName'/>
-                            <SubmitField value='Submit'/>
-                            <ErrorsField/>
-                            <HiddenField name='city' value={this.props.student.city}/>
-                            <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                            <HiddenField name='description' value={this.props.student.description}/>
-                            <HiddenField name='profile' value={this.props.student.profile}/>
-                            <HiddenField name='picture' value={this.props.student.picture}/>
-                            <HiddenField name='interests' value={this.props.student.interests}/>
-                            <HiddenField name='grade' value={this.props.student.grade}/>
-                            <HiddenField name='owner' value={this.props.student.owner}/>
-                          </Segment>
-                        </AutoForm>
-                      </Modal>
-                      <Header.Content>{this.props.student.firstName} {this.props.student.lastName}</Header.Content>
-                    </div>
-                  </Header>
-                </Grid.Column>
-              </Grid.Row>
-              <br/>
-              <Grid.Row>
-                <Grid.Column>
-                  <Header>
-                    <div className="hyper-link-font">
-                      <Modal trigger={<Icon color='green' disabled link name='building'/>}>
-                        <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
-                          <Segment>
-                            <TextField name='city'/>
-                            <TextField name='locationZip'/>
-                            <SubmitField value='Submit'/>
-                            <ErrorsField/>
-                            <HiddenField name='firstName' value={this.props.student.firstName}/>
-                            <HiddenField name='lastName' value={this.props.student.lastName}/>
-                            <HiddenField name='description' value={this.props.student.description}/>
-                            <HiddenField name='profile' value={this.props.student.profile}/>
-                            <HiddenField name='picture' value={this.props.student.picture}/>
-                            <HiddenField name='interests' value={this.props.student.interests}/>
-                            <HiddenField name='grade' value={this.props.student.grade}/>
-                            <HiddenField name='owner' value={this.props.student.owner}/>
-                          </Segment>
-                        </AutoForm>
-                      </Modal>
-                      <Header.Content>{this.props.student.city} {this.props.student.locationZip}</Header.Content>
-                    </div>
-                  </Header>
-                </Grid.Column>
-              </Grid.Row>
-              <br/>
-              <Grid.Row>
-                <Grid.Column>
-                  <Header>
-                    <div className="hyper-link-font">
-                      <Modal trigger={<Icon color='green' disabled link name='world'/>}>
-                        <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
-                          <Segment>
-                            <TextField name='profile'/>
-                            <SubmitField value='Submit'/>
-                            <ErrorsField/>
-                            <HiddenField name='firstName' value={this.props.student.firstName}/>
-                            <HiddenField name='lastName' value={this.props.student.lastName}/>
-                            <HiddenField name='city' value={this.props.student.city}/>
-                            <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                            <HiddenField name='description' value={this.props.student.description}/>
-                            <HiddenField name='picture' value={this.props.student.picture}/>
-                            <HiddenField name='interests' value={this.props.student.interests}/>
-                            <HiddenField name='grade' value={this.props.student.grade}/>
-                            <HiddenField name='owner' value={this.props.student.owner}/>
-                          </Segment>
-                        </AutoForm>
-                      </Modal>
-                      <Header.Content><a href="mailto: {this.props.student.contact}">
-                        {this.props.student.contact}</a></Header.Content>
-                    </div>
-                  </Header>
-                </Grid.Column>
-              </Grid.Row>
-              <br/>
 
-              <Grid.Row>
-                <Grid.Column>
-                  <Header>
-                    <div className="hyper-link-font">
-                      <Modal trigger={<Icon color='green' disabled link name='tag'/>}>
-                        <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
-                          <Segment>
-                            <AutoField name='interests'/>
-                            <SubmitField value='Submit'/>
-                            <ErrorsField/>
-                            <HiddenField name='firstName' value={this.props.student.firstName}/>
-                            <HiddenField name='lastName' value={this.props.student.lastName}/>
-                            <HiddenField name='city' value={this.props.student.city}/>
-                            <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                            <HiddenField name='description' value={this.props.student.description}/>
-                            <HiddenField name='profile' value={this.props.student.profile}/>
-                            <HiddenField name='picture' value={this.props.student.picture}/>
-                            <HiddenField name='grade' value={this.props.student.grade}/>
-                            <HiddenField name='owner' value={this.props.student.owner}/>
-                          </Segment>
-                        </AutoForm>
-                      </Modal>
-                      <Header.Content>{this.props.student.interests.map((stuff, key) => <InterestItem
-                          key={key} interest={stuff}/>)}</Header.Content>
-                    </div>
-                  </Header>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid.Column>
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <Header>
+                  <div className="hyper-link-font">
+                    <Modal trigger={<Icon color='green' disabled link name='user'/>}>
+                      <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
+                        <Segment>
+                          <TextField name='firstName'/>
+                          <TextField name='lastName'/>
+                          <SubmitField value='Submit'/>
+                          <ErrorsField/>
+                          <HiddenField name='city' value={this.props.student.city}/>
+                          <HiddenField name='locationZip' value={this.props.student.locationZip}/>
+                          <HiddenField name='description' value={this.props.student.description}/>
+                          <HiddenField name='profile' value={this.props.student.profile}/>
+                          <HiddenField name='picture' value={this.props.student.picture}/>
+                          <HiddenField name='interests' value={this.props.student.interests}/>
+                          <HiddenField name='grade' value={this.props.student.grade}/>
+                          <HiddenField name='owner' value={this.props.student.owner}/>
+                        </Segment>
+                      </AutoForm>
+                    </Modal>
+                    <Header.Content>{this.props.student.firstName} {this.props.student.lastName}</Header.Content>
+                  </div>
+                </Header>
+              </Grid.Column>
+            </Grid.Row>
 
-            <Grid.Column>
-              <Header>
-                <div className="hyper-link-font">
-                  <Modal trigger={<Icon color='green' disabled link name='pencil'/>}>
-                    <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
-                      <Segment>
-                        <AutoField name='description' value={this.props.student.description}/>
-                        <SubmitField value='Submit'/>
-                        <ErrorsField/>
-                        <HiddenField name='firstName' value={this.props.student.firstName}/>
-                        <HiddenField name='lastName' value={this.props.student.lastName}/>
-                        <HiddenField name='city' value={this.props.student.city}/>
-                        <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                        <HiddenField name='interests' value={this.props.student.interests}/>
-                        <HiddenField name='profile' value={this.props.student.profile}/>
-                        <HiddenField name='picture' value={this.props.student.picture}/>
-                        <HiddenField name='grade' value={this.props.student.grade}/>
-                        <HiddenField name='owner' value={this.props.student.owner}/>
-                      </Segment>
-                    </AutoForm>
-                  </Modal>
-                  <Header.Content>{this.props.student.description}</Header.Content>
-                </div>
-              </Header>
-            </Grid.Column>
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <Header>
+                  <div className="hyper-link-font">
+                    <Modal trigger={<Icon color='green' disabled link name='building'/>}>
+                      <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
+                        <Segment>
+                          <TextField name='city'/>
+                          <TextField name='locationZip'/>
+                          <SubmitField value='Submit'/>
+                          <ErrorsField/>
+                          <HiddenField name='firstName' value={this.props.student.firstName}/>
+                          <HiddenField name='lastName' value={this.props.student.lastName}/>
+                          <HiddenField name='description' value={this.props.student.description}/>
+                          <HiddenField name='profile' value={this.props.student.profile}/>
+                          <HiddenField name='picture' value={this.props.student.picture}/>
+                          <HiddenField name='interests' value={this.props.student.interests}/>
+                          <HiddenField name='grade' value={this.props.student.grade}/>
+                          <HiddenField name='owner' value={this.props.student.owner}/>
+                        </Segment>
+                      </AutoForm>
+                    </Modal>
+                    <Header.Content>{this.props.student.city} {this.props.student.locationZip}</Header.Content>
+                  </div>
+                </Header>
+              </Grid.Column>
+            </Grid.Row>
+
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <Header>
+                  <div className="hyper-link-font">
+                    <Modal trigger={<Icon color='green' disabled link name='world'/>}>
+                      <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
+                        <Segment>
+                          <TextField name='profile'/>
+                          <SubmitField value='Submit'/>
+                          <ErrorsField/>
+                          <HiddenField name='firstName' value={this.props.student.firstName}/>
+                          <HiddenField name='lastName' value={this.props.student.lastName}/>
+                          <HiddenField name='city' value={this.props.student.city}/>
+                          <HiddenField name='locationZip' value={this.props.student.locationZip}/>
+                          <HiddenField name='description' value={this.props.student.description}/>
+                          <HiddenField name='picture' value={this.props.student.picture}/>
+                          <HiddenField name='interests' value={this.props.student.interests}/>
+                          <HiddenField name='grade' value={this.props.student.grade}/>
+                          <HiddenField name='owner' value={this.props.student.owner}/>
+                        </Segment>
+                      </AutoForm>
+                    </Modal>
+                    <Header.Content><a href="mailto: {this.props.student.contact}">
+                      {this.props.student.contact}</a></Header.Content>
+                  </div>
+                </Header>
+              </Grid.Column>
+            </Grid.Row>
+
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <Header>
+                  <div className="hyper-link-font">
+                    <Modal trigger={<Icon color='green' disabled link name='tag'/>}>
+                      <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
+                        <Segment>
+                          <AutoField name='interests'/>
+                          <SubmitField value='Submit'/>
+                          <ErrorsField/>
+                          <HiddenField name='firstName' value={this.props.student.firstName}/>
+                          <HiddenField name='lastName' value={this.props.student.lastName}/>
+                          <HiddenField name='city' value={this.props.student.city}/>
+                          <HiddenField name='locationZip' value={this.props.student.locationZip}/>
+                          <HiddenField name='description' value={this.props.student.description}/>
+                          <HiddenField name='profile' value={this.props.student.profile}/>
+                          <HiddenField name='picture' value={this.props.student.picture}/>
+                          <HiddenField name='grade' value={this.props.student.grade}/>
+                          <HiddenField name='owner' value={this.props.student.owner}/>
+                        </Segment>
+                      </AutoForm>
+                    </Modal>
+                    <Header.Content>{this.props.student.interests.map((stuff, key) => <InterestItem
+                        key={key} interest={stuff}/>)}</Header.Content>
+                  </div>
+                </Header>
+              </Grid.Column>
+            </Grid.Row>
+
 
           </Grid>
         </Container>
 
-  );
+    );
   }
-  }
+}
 
-    /** Require a document to be passed to this component. */
-  StudentDetails.propTypes = {
-    student: PropTypes.object.isRequired,
-  };
+/** Require a document to be passed to this component. */
+StudentDetails.propTypes = {
+  student: PropTypes.object.isRequired,
+};
 
-    /** Wrap this component in withRouter since we use the <Link> React Router element. */
-  export default withRouter(StudentDetails);
+/** Wrap this component in withRouter since we use the <Link> React Router element. */
+export default withRouter(StudentDetails);
