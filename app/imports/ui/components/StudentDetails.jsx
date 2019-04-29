@@ -124,7 +124,7 @@ class StudentDetails extends React.Component {
                       </Modal>
                       <Header.Content>
                         <a target='_blank' rel='noopener noreferrer' href={`mailto:${this.props.student.contact}`}>
-                        {this.props.student.contact}
+                          {this.props.student.contact}
                         </a>
                       </Header.Content>
                     </div>
@@ -192,14 +192,14 @@ class StudentDetails extends React.Component {
           </Grid>
         </Container>
 
-  );
+    );
   }
-  }
+}
 
-    /** Require a document to be passed to this component. */
-  StudentDetails.propTypes = {
-    student: PropTypes.object.isRequired,
-  };
+/** Require a document to be passed to this component. */
+StudentDetails.propTypes = {
+  student: PropTypes.object.isRequired,
+};
 
-    /** Wrap this component in withRouter since we use the <Link> React Router element. */
-  export default withRouter(StudentDetails);
+/** Wrap this component in withRouter since we use the <Link> React Router element. */
+export default withRouter(StudentDetails);
