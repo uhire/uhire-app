@@ -123,8 +123,8 @@ class StudentDetails extends React.Component {
                         </AutoForm>
                       </Modal>
                       <Header.Content>
-                        <a target='_blank' rel='noopener noreferrer' href={`mailto:${this.props.student.contact}`}>
-                          {this.props.student.contact}
+                        <a target='_blank' rel='noopener noreferrer' href={`https://${this.props.student.profile}`} >
+                          {this.props.student.profile}
                         </a>
                       </Header.Content>
                     </div>
