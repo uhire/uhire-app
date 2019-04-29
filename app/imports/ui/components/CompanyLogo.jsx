@@ -19,7 +19,7 @@ class Company extends React.Component {
   render() {
     return (
         <div>
-          <Image src={this.props.company.image} size='medium' floated='right'/>
+          <Image src={this.props.company.image} size='large' floated='right'/>
         </div>
     );
   }
