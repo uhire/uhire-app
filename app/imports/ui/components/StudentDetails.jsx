@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Modal, Icon, Header, Grid, Segment, Label} from 'semantic-ui-react';
+import { Container, Modal, Icon, Header, Grid, Segment, Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { Students, StudentSchema } from '/imports/api/stuff/student';
@@ -126,7 +126,7 @@ class StudentDetails extends React.Component {
                         </AutoForm>
                       </Modal>
                       <Header.Content>
-                        <a target='_blank' rel='noopener noreferrer' href={`https://${this.props.student.profile}`} >
+                        <a target='_blank' rel='noopener noreferrer' href={`https://${this.props.student.profile}`}>
                           {this.props.student.profile}
                         </a>
                       </Header.Content>
@@ -140,17 +140,17 @@ class StudentDetails extends React.Component {
                 <Grid.Column>
                   <Header>
                     <div className="hyper-link-font">
-                      <Modal style={modalPadding} trigger={<Icon color='green' disabled link name='tag'/>}>
+                      <Modal style={modalPadding} trigger={<Icon color='green' disabled link name='pencil'/>}>
                         <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                           <Segment>
-                            <AutoField name='interests'/>
+                            <AutoField name='description' value={this.props.student.description}/>
                             <SubmitField value='Submit'/>
                             <ErrorsField/>
                             <HiddenField name='firstName' value={this.props.student.firstName}/>
                             <HiddenField name='lastName' value={this.props.student.lastName}/>
                             <HiddenField name='city' value={this.props.student.city}/>
                             <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                            <HiddenField name='description' value={this.props.student.description}/>
+                            <HiddenField name='interests' value={this.props.student.interests}/>
                             <HiddenField name='profile' value={this.props.student.profile}/>
                             <HiddenField name='picture' value={this.props.student.picture}/>
                             <HiddenField name='grade' value={this.props.student.grade}/>
@@ -158,29 +158,27 @@ class StudentDetails extends React.Component {
                           </Segment>
                         </AutoForm>
                       </Modal>
-                      <Header.Content>{this.props.student.interests.map((stuff, key) => <InterestItem
-                          key={key} interest={stuff}/>)}</Header.Content>
+                      <Header.Content>{this.props.student.description}</Header.Content>
                     </div>
                   </Header>
                 </Grid.Column>
               </Grid.Row>
             </Grid.Column>
 
-
-            <Grid.Column>
+            <Grid.Column width={8}>
               <Header>
                 <div className="hyper-link-font">
-                  <Modal style={modalPadding} trigger={<Icon color='green' disabled link name='pencil'/>}>
+                  <Modal style={modalPadding} trigger={<Icon color='green' disabled link name='tag'/>}>
                     <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                       <Segment>
-                        <AutoField name='description' value={this.props.student.description}/>
+                        <AutoField name='interests'/>
                         <SubmitField value='Submit'/>
                         <ErrorsField/>
                         <HiddenField name='firstName' value={this.props.student.firstName}/>
                         <HiddenField name='lastName' value={this.props.student.lastName}/>
                         <HiddenField name='city' value={this.props.student.city}/>
                         <HiddenField name='locationZip' value={this.props.student.locationZip}/>
-                        <HiddenField name='interests' value={this.props.student.interests}/>
+                        <HiddenField name='description' value={this.props.student.description}/>
                         <HiddenField name='profile' value={this.props.student.profile}/>
                         <HiddenField name='picture' value={this.props.student.picture}/>
                         <HiddenField name='grade' value={this.props.student.grade}/>
@@ -188,15 +186,14 @@ class StudentDetails extends React.Component {
                       </Segment>
                     </AutoForm>
                   </Modal>
-                  <Header.Content>{this.props.student.description}</Header.Content>
+                  <Header.Content>{this.props.student.interests.map((stuff, key) => <InterestItem
+                      key={key} interest={stuff}/>)}</Header.Content>
                 </div>
               </Header>
             </Grid.Column>
 
           </Grid>
           <br/>
-         
-
         </Container>
 
     );

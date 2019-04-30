@@ -44,26 +44,24 @@ class StudentHome extends React.Component {
 
   }
 
-
-
   renderPage() {
     if (this.props.students.length === 0) {
       return <Redirect to={'/addStudent'}/>;
     }
 
-    var test1 = function(string, array){
+    let test1 = function (string, array) {
       return _.contains(array, string);
     };
 
     const interests2 = this.props.students[0].interests;
 
-    var test2 = function (array1, array2){
-      var bool1 = false;
+    let test2 = function (array1, array2) {
+      let bool1 = false;
 
-      array1.forEach(function(element){
+      array1.forEach(function(element) {
 
         bool1 = bool1 || test1(element, array2);
-        if (bool1 == true) {
+        if (bool1 === true) {
           console.log(bool1);
           return bool1;
         }
@@ -75,7 +73,7 @@ class StudentHome extends React.Component {
 
     if (this.state.data == null) {
       this.state.data = this.props.positions;
-      const data2 = this.state.data.filter( position => test2(position.interests, interests2));
+      const data2 = this.state.data.filter(position => test2(position.interests, interests2));
       this.state.data = data2;
     }
 
@@ -89,20 +87,14 @@ class StudentHome extends React.Component {
           <br/>
 
           <Grid columns={3} centered verticalAlign='middle' textAlign='center'>
-
             <Grid.Column>
               {this.props.students.map((student, index) => <StudentHomeImage key={index} student={student}/>)}
-
             </Grid.Column>
             <Grid.Column width={9}>
               {this.props.students.map((student, index) => <StudentDetails key={index} student={student}/>)}
-
             </Grid.Column>
-
             <Grid.Column floated='right'>
-
             </Grid.Column>
-
           </Grid>
 
           <br/>
