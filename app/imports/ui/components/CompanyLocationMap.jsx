@@ -48,7 +48,8 @@ class CompanyLocationMap extends React.Component {
               <div className="visible content">Show on Map</div>
               <div className="hidden content">
                 <i className="map marker alternate icon"> </i>
-                <a onClick={this.handleClick}> </a>
+                <div onClick={this.handleClick}>
+                </div>
               </div>
             </div>
           </Header>}>
