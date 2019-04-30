@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
-import AutoFields from 'uniforms-semantic/AutoFields';
+// import AutoFields from 'uniforms-semantic/AutoFields';
 import AutoField from 'uniforms-semantic/AutoField';
 import NumField from 'uniforms-semantic/NumField';
 import HiddenField from 'uniforms-semantic/HiddenField';
@@ -81,11 +81,11 @@ class AddPosition extends React.Component {
               this.formRef = ref;
             }} schema={PositionSchema} onSubmit={this.submit}>
               <Segment>
-                <TextField name='title'/>
-                <TextField name='location'/>
-                <NumField name='openings' decimal={false}/>
-                <LongTextField name='description'/>
-                <AutoField name='contact' value={this.props.companies[0].contact}/>
+                <TextField placeholder='Enter Position Title' name='title'/>
+                <TextField placeholder='123 Company St., Honolulu, HI., 96822'name='location'/>
+                <NumField placeholder='# of openings'name='openings' decimal={false}/>
+                <LongTextField placeholder='Brief Position Description'name='description'/>
+                <AutoField placeholder='Enter Contact Email'name='contact' value={this.props.companies[0].contact}/>
                 <AutoField name='interests'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
