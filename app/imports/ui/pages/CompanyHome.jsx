@@ -50,11 +50,10 @@ class CompanyHome extends React.Component {
     if ((this.props.companies.length === 0) && (Roles.userIsInRole(Meteor.userId(), 'company'))) {
       return <Redirect to={'/add'}/>;
     }
-    console.log(this.props.companies);
     if (this.state.data == null) {
       this.state.data = this.props.positions;
     }
-    console.log(this.props);
+
     const { column, direction } = this.state;
     return (
         <Container>

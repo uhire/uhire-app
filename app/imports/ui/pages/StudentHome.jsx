@@ -58,15 +58,14 @@ class StudentHome extends React.Component {
     let test2 = function (array1, array2) {
       let bool1 = false;
 
-      array1.forEach(function(element) {
+      array1.forEach(function (element) {
 
         bool1 = bool1 || test1(element, array2);
         if (bool1 === true) {
-          console.log(bool1);
           return bool1;
         }
       });
-      console.log(bool1);
+
       return bool1;
 
     };
@@ -77,8 +76,6 @@ class StudentHome extends React.Component {
       this.state.data = data2;
     }
 
-
-    console.log(this.props);
     const { column, direction } = this.state;
     return (
         <Container>
