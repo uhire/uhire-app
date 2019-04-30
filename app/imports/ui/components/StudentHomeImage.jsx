@@ -34,9 +34,12 @@ class StudentHomeImage extends React.Component {
   }
 
   render() {
+    const modalPadding = { padding: '20px 20px 20px 20px' };
+
+
     return (
         <div>
-          <Modal trigger={<Image circular src={this.props.student.picture} size='medium'/>}>
+          <Modal style={modalPadding} trigger={<Image circular src={this.props.student.picture} size='medium'/>}>
             <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
               <Segment>
                 <TextField name='picture'/>

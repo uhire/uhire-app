@@ -39,6 +39,9 @@ class StudentDetails extends React.Component {
   }
 
   render() {
+
+    const modalPadding = { padding: '20px 20px 20px 20px' };
+
     return (
 
         <Container>
@@ -48,7 +51,7 @@ class StudentDetails extends React.Component {
                 <Grid.Column>
                   <Header>
                     <div className="hyper-link-font">
-                      <Modal trigger={<Icon color='green' disabled link name='user'/>}>
+                      <Modal style={modalPadding} trigger={<Icon color='green' disabled link name='user'/>}>
                         <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                           <Segment>
                             <TextField name='firstName'/>
@@ -76,7 +79,7 @@ class StudentDetails extends React.Component {
                 <Grid.Column>
                   <Header>
                     <div className="hyper-link-font">
-                      <Modal trigger={<Icon color='green' disabled link name='building'/>}>
+                      <Modal style={modalPadding} trigger={<Icon color='green' disabled link name='building'/>}>
                         <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                           <Segment>
                             <TextField name='city'/>
@@ -104,7 +107,7 @@ class StudentDetails extends React.Component {
                 <Grid.Column>
                   <Header>
                     <div className="hyper-link-font">
-                      <Modal trigger={<Icon color='green' disabled link name='world'/>}>
+                      <Modal style={modalPadding} trigger={<Icon color='green' disabled link name='world'/>}>
                         <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                           <Segment>
                             <TextField name='profile' placeholder='https://...'/>
@@ -137,7 +140,7 @@ class StudentDetails extends React.Component {
                 <Grid.Column>
                   <Header>
                     <div className="hyper-link-font">
-                      <Modal trigger={<Icon color='green' disabled link name='tag'/>}>
+                      <Modal style={modalPadding} trigger={<Icon color='green' disabled link name='tag'/>}>
                         <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                           <Segment>
                             <AutoField name='interests'/>
@@ -167,7 +170,7 @@ class StudentDetails extends React.Component {
             <Grid.Column>
               <Header>
                 <div className="hyper-link-font">
-                  <Modal trigger={<Icon color='green' disabled link name='pencil'/>}>
+                  <Modal style={modalPadding} trigger={<Icon color='green' disabled link name='pencil'/>}>
                     <AutoForm schema={StudentSchema} onSubmit={this.submit} model={this.props.student}>
                       <Segment>
                         <AutoField name='description' value={this.props.student.description}/>
