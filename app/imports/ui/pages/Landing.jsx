@@ -30,7 +30,7 @@ class Landing extends React.Component {
             </Grid.Column>
             <Grid.Column width={5}>
               <Container textAlign='center'>
-                <div className="landing-font">Students can create a profile with interest topics and location queries
+                <div className="landing-font">Students can create profiles with interest topics and location queries
                   to help find the right job at the right location.
                 </div>
                 <br/>
