@@ -4,7 +4,7 @@ import { Modal } from 'semantic-ui-react';
 import fetch from 'isomorphic-fetch';
 import PropTypes from 'prop-types';
 
-const Balloon = () => <img alt="Picture of a balloon indicator" width="25" src='/images/Logo.jpg'/>;
+const Balloon = () => <img alt="Picture of company logo" width="25" src='/images/Logo.jpg'/>;
 /** const Balloon = () => <img alt="Picture of a balloon indicator" width="25"
                            src='http://speedwaymiracletournament.com/Images/cmnh-logo-no-text.png'/>; */
 
