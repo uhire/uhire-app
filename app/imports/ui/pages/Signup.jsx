@@ -3,9 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment, Dropdown, Checkbox } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 
-/**
- * Signup component is similar to signin component, but we attempt to create a new user instead.
- */
+/** Signup component is similar to signin component, but we attempt to create a new user instead. */
 export default class Signup extends React.Component {
   /** Initialize state fields. */
   constructor(props) {
@@ -28,6 +26,7 @@ export default class Signup extends React.Component {
     this.setState({ [name]: value });
   }
 
+  /** Function to verify password matches */
   handleKeyUp() {
     if (this.state.password === this.state.verifyPassword) {
       this.setState({ error: '' });
@@ -36,13 +35,14 @@ export default class Signup extends React.Component {
     }
   }
 
+  /** Function to verify password input */
   handleClick() {
     this.setState({ inputType: this.state.inputType === 'password' ? 'text' : 'password' });
   }
 
+  /** Disclaimer function to ensure that it is acknowledged */
   handleCheck() {
     const { check } = this.state;
-
     if (check === false) {
       this.setState({ check: true });
     } else {
@@ -77,26 +77,18 @@ export default class Signup extends React.Component {
         value: 'student',
         icon: 'student',
       },
-      /** {
+      /** Used in case of administering admin rights to a new user
+       {
         key: 'Admin',
         text: 'Admin',
         value: 'admin',
         icon: 'user',
       }, */
     ];
-    // Added a redirectToReferer to redirect to home pages
+    // Added a redirectToReferer to redirect to successful registration
     if (this.state.redirectToReferer) {
       return <Redirect to={'/sucReg/'}/>;
     }
-    /** if (this.state.redirectToReferer && this.state.role === 'student') {
-      return <Redirect to={'/studentHome/'}/>;
-    }
-     if (this.state.redirectToReferer && this.state.role === 'company') {
-      return <Redirect to={'/add/'}/>;
-    }
-     if (this.state.redirectToReferer && this.state.role === 'admin') {
-      return <Redirect to={'/admin/'}/>;
-    } */
 
     return (
         <div className="page-filler">
@@ -134,8 +126,8 @@ export default class Signup extends React.Component {
                         name="verifyPassword"
                         placeholder="Password"
                         type={this.state.inputType}
-                        onKeyUp ={this.handleKeyUp}
-                        onChange ={this.handleChange}
+                        onKeyUp={this.handleKeyUp}
+                        onChange={this.handleChange}
                     />
                     <Form.Field control={Checkbox} label='Show password' onClick={this.handleClick}/>
                     <br/>
@@ -146,7 +138,7 @@ export default class Signup extends React.Component {
                                 label='By checking this box, I agree to share my information'
                                 onClick={this.handleCheck}/>
                     <br/>
-                    <Form.Button name = "submit" color="green" content="Submit"/>
+                    <Form.Button name="submit" color="green" content="Submit"/>
                   </Segment>
                 </Form>
                 <Message>
