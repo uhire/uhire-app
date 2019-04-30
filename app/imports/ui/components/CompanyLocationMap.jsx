@@ -4,9 +4,9 @@ import { Modal } from 'semantic-ui-react';
 import fetch from 'isomorphic-fetch';
 import PropTypes from 'prop-types';
 
-// const Balloon = () => <img alt="Picture of a balloon indicator" width="25" src='/images/meteor-logo.png'/>;
-const Balloon = () => <img alt="Picture of a balloon indicator" width="25"
-                           src='http://speedwaymiracletournament.com/Images/cmnh-logo-no-text.png'/>;
+const Balloon = () => <img alt="Picture of a balloon indicator" width="25" src='/images/Logo.jpg'/>;
+/** const Balloon = () => <img alt="Picture of a balloon indicator" width="25"
+                           src='http://speedwaymiracletournament.com/Images/cmnh-logo-no-text.png'/>; */
 
 class CompanyLocationMap extends React.Component {
   constructor(props) {
