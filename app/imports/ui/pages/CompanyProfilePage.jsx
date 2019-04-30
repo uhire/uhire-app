@@ -10,10 +10,10 @@ import { Visits } from '/imports/api/visit/visit.js';
 import PositionItemProfile from '/imports/ui/components/PositionItemProfile';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
+// import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
 import { Roles } from 'meteor/alanning:roles';
 import { Redirect } from 'react-router-dom';
-
+import CompanyLocationMap from '/imports/ui/components/CompanyLocationMap';
 /** Renders the Page for adding a document. */
 class CompanyProfilePage extends React.Component {
 
@@ -63,6 +63,9 @@ class CompanyProfilePage extends React.Component {
             </Grid.Column>
             <Grid.Column width={3}>
               {this.props.companies.map((company, index) => <CompanyLogo key={index} company={company}/>)}
+              <CompanyLocationMap centered location={this.props.companies[0].location}/>
+              <br/>
+              <br/>
               <Counter count={this.props.visits[0].visitCount}/>
             </Grid.Column>
           </Grid>

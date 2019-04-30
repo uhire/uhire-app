@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
-import { Modal } from 'semantic-ui-react';
+import { Header, Modal } from 'semantic-ui-react';
 import fetch from 'isomorphic-fetch';
 import PropTypes from 'prop-types';
 
@@ -40,15 +40,24 @@ class CompanyLocationMap extends React.Component {
   render() {
     const { lat, lng } = this.state;
     const modalPadding = { padding: '10px 10px 10px 10px' };
-
     return (
         /** <Modal style={modalPadding} trigger={<button onClick={this.handleClick}>{this.props.location}</button>}> */
-        <Modal style={modalPadding} trigger={<button onClick={this.handleClick}>Show On Map</button>}>
+        <Modal style={modalPadding} trigger={
+          <Header as='h1' textAlign='center'>
+            <div className="ui medium inverted animated green button" tabIndex="8">
+              <div className="visible content">Show on Map</div>
+              <div className="hidden content">
+                <i className="map marker alternate icon"> </i>
+                <a onClick={this.handleClick}> </a>
+              </div>
+            </div>
+          </Header>}>
+          {/** <button onClick={this.handleClick}>Show On Map</button>}> */}
           <div style={{ height: '100vh', width: '100%' }}>
             {/** <button onClick={this.handleClick}>{this.props.location}</button> */}
 
             <GoogleMapReact
-                bootstrapURLKeys={{ key: 'AIzaSyBLEB26Wt06KyRxHQWL7Cuq_gH9ZV0I3dIp' }}
+                bootstrapURLKeys={{ key: 'AIzaSyBLEB26Wt06KyRxHQWL7Cuq_gH9ZV0I3dI' }}
                 defaultCenter={{ lat: 21.4634324, lng: -157.9391567 }}
                 defaultZoom={11}
             >
