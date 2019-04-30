@@ -54,7 +54,7 @@ class CompanyAdd extends React.Component {
             <Header as="h2" textAlign="center" inverted>Add Company</Header>
             <AutoForm ref={(ref) => { this.formRef = ref; }} schema={CompanySchema} onSubmit={this.submit}>
               <Segment>
-                <TextField placeholder='Enter Name' name='companyName'/>
+                <TextField placeholder='Enter Company Name' name='companyName'/>
                 <TextField placeholder='123 Company St., Honolulu, HI., 96822'name='location'/>
                 <TextField placeholder='Enter Image URL'name='image'/>
                 <LongTextField placeholder='Describe Your Company'name='description'/>
