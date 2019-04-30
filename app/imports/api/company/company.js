@@ -9,7 +9,10 @@ const Companies = new Mongo.Collection('Companies');
 const CompanySchema = new SimpleSchema({
   companyName: String,
   location: String,
-  image: String,
+  image: {
+    type: String,
+    defaultValue: 'http://i.imgur.com/AItCxSs.jpg',
+  },
   description: String,
   contact: String,
   owner: String,
