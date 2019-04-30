@@ -67,7 +67,8 @@ class CompanyProfilePage extends React.Component {
             </Grid.Column>
           </Grid>
 
-          <Header as='h1' inverted textAlign='center'> {`Available Positions at ${this.props.companies[0].companyName}`}</Header>
+          <Header as='h1' inverted textAlign='center'>
+            {`Available Positions at ${this.props.companies[0].companyName}`}</Header>
           <Table sortable celled fixed singleLine>
             <Table.Header>
               <Table.Row>
