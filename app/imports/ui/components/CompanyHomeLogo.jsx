@@ -21,9 +21,12 @@ class CompanyHomeLogo extends React.Component {
   }
 
   render() {
+    const modalPadding = { padding: '20px 20px 20px 20px' };
+
+
     return (
         <div>
-          <Modal trigger={<Image circular src={this.props.company.image} size='medium'/>}>
+          <Modal style={modalPadding} trigger={<Image circular src={this.props.company.image} size='medium'/>}>
             <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.company}>
               <Segment>
                 <TextField name='image'/>
