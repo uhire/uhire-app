@@ -63,8 +63,10 @@ class CompanyProfilePage extends React.Component {
             </Grid.Column>
             <Grid.Column width={3}>
               {this.props.companies.map((company, index) => <CompanyLogo key={index} company={company}/>)}
-              <CompanyLocationMap centered location={this.props.companies[0].location}/>
               <br/>
+              <div className="map-button">
+              <CompanyLocationMap location={this.props.companies[0].location}/>
+              </div>
               <br/>
               <Counter count={this.props.visits[0].visitCount}/>
             </Grid.Column>
