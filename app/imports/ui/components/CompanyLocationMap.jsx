@@ -59,7 +59,7 @@ class CompanyLocationMap extends React.Component {
             {/** <button onClick={this.handleClick}>{this.props.location}</button> */}
 
             <GoogleMapReact
-                bootstrapURLKeys={{ key: 'AIzaSyBLEB26Wt06KyRxHQWL7Cuq_gH9ZV0I3dI-REMOVE ME-' }}
+                bootstrapURLKeys={{ key: 'AIzaSyBLEB26Wt06KyRxHQWL7Cuq_gH9ZV0I3dI' }}
                 defaultCenter={{ lat: 21.4634324, lng: -157.9391567 }}
                 defaultZoom={11}
             >
