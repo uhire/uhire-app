@@ -10,41 +10,39 @@ class Landing extends React.Component {
           <br/>
           <Grid>
             <Grid.Column width={9}>
-                  <Container>
-                    <Image centered src='images/Business2.jpg' size='big' rounded />
-                  </Container>
+              <Container>
+                <Image centered src='images/Business2.jpg' size='big' rounded/>
+              </Container>
             </Grid.Column>
 
             <Grid.Column width={5}>
-                  <Container textAlign='center'>
-                    <div className="landing-font">Businesses now have a
-                      centralized location to advertise positions to potential employees.<br/>
-                      UHire is a new way for local and non-local companies
-                      to recruit students from the University of Hawaii, to make their (potential)
-                      opportunities known.</div><br/>
-                  </Container>
+              <Container textAlign='center'>
+                <div className="landing-font">Businesses can create profiles and build a position advertisement
+                  as a way of finding the perfect match to qualified students.
+                </div>
+                <br/>
+              </Container>
             </Grid.Column>
           </Grid>
 
           <Grid>
             <Grid.Column width={2}>
             </Grid.Column>
-          <Grid.Column width={5}>
-            <Container textAlign='center'>
-              <div className="landing-font">Students that want to learn about internships
-                and job opportunities no longer have to wait until a company decides to
-                visit the campus or send out some sort of announcement.<br/>
-                UHire allows students to create profiles with their interests which can
-                be matched with employers.</div><br/>
-            </Container>
-          </Grid.Column>
+            <Grid.Column width={5}>
+              <Container textAlign='center'>
+                <div className="landing-font">Students can create a profile with interest topics and location queries
+                  to help find the right job at the right location.
+                </div>
+                <br/>
+              </Container>
+            </Grid.Column>
 
-          <Grid.Column width={9}>
-            <Container>
-              <Image centered src='images/Students.jpg' size='big' rounded />
-            </Container>
-          </Grid.Column>
-        </Grid>
+            <Grid.Column width={9}>
+              <Container>
+                <Image centered src='images/Students.jpg' size='big' rounded/>
+              </Container>
+            </Grid.Column>
+          </Grid>
 
           <Grid container centered stackable columns={3}>
 
@@ -52,14 +50,15 @@ class Landing extends React.Component {
               <Icon name="users" size='huge' inverted/>
               <Header as='h1' inverted>Multiple Users</Header>
               <Header as='h3' inverted>This application allows multiple companies and/or students to
-                save their profiles.  Students can view a listing of all the companies that are advertising
+                save their profiles. Students can view a listing of all the companies that are advertising
                 positions.</Header>
             </Grid.Column>
 
             <Grid.Column textAlign='center'>
               <Icon name="location arrow" size='huge' inverted/>
               <Header as='h1' inverted>Location Based Searches</Header>
-              <Header as='h3' inverted>Students can customize queries based on desired employment locations.</Header>
+              <Header as='h3' inverted>Students can customize queries based on desired employment locations.  Embedded
+              map feature allows quick viewing of unfamiliar area.</Header>
             </Grid.Column>
 
             <Grid.Column textAlign='center'>

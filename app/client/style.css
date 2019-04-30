@@ -15,8 +15,9 @@
 .landing-font {
   font-family: 'Roboto', serif;
   font-weight: bold;
-  font-size: x-large;
-  color: lightgrey;
+  font-size: xx-large;
+  line-height: 100%;
+  color: white;
   vertical-align: middle;
   padding-top: 30px;
 }
