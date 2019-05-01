@@ -9,8 +9,8 @@ const Companies = new Mongo.Collection('Companies');
 const CompanySchema = new SimpleSchema({
   companyName: {
     type: String,
-    index: 'true',
-    unique: 'true',
+    index: true,
+    unique: true,
   },
   location: String,
   image: {
