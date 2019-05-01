@@ -9,6 +9,27 @@ import StudentItem from '/imports/ui/components/StudentItem';
 
 /** A simple static component to render some text for the landing page. */
 class BrowseStudents extends React.Component {
+  /**
+   render() {
+    return (
+          <Container>
+            <Menu.Item position="right">
+              <Input icon='search' placeholder='Search...'/>
+            </Menu.Item>
+            <br/>
+            <Grid centered columns={3} padded='vertically'>
+              <Card.Group>
+                {this.props.students.map((stuff) => <StudentItem key={stuff._id} student={stuff}/>)}
+              </Card.Group>
+            </Grid>
+            <br/>
+          </Container>
+    );
+  } */
+
+  /** search functionality adapted from ClUHbs: https://github.com/cluhbs */
+
+
   state = {
     students: [],
     searchBy: 'interests',
