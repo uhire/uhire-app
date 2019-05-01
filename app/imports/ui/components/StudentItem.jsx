@@ -17,7 +17,7 @@ class StudentItem extends React.Component {
             <Card.Content>
               <Card.Header>{this.props.student.firstName} {this.props.student.lastName}      </Card.Header>
               <Card.Meta>
-                <a href={`mailto:${this.props.student.owner}`} target='_blank' rel='noreferrer noopener'>
+                <a href={`mailto: ${this.props.student.owner}`}>
                   {this.props.student.owner}
                 </a>
               </Card.Meta>
