@@ -5,7 +5,6 @@ import 'semantic-ui-css/semantic.css';
 import { Roles } from 'meteor/alanning:roles';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import CompanyAdd from '../pages/CompanyAdd';
 import CompanyProfilePage from '../pages/CompanyProfilePage';
@@ -49,8 +48,7 @@ class App extends React.Component {
               <CompanyProtectedRoute path="/addposition" component={AddPosition}/>
               <CompanyProtectedRoute path="/editposition/:_id" component={EditPosition}/>
               <CompanyProtectedRoute path="/phome/:_id" component={PositionHome}/>
-              <ProtectedRoute path="/companyprofile/:companyName" component={CompanyProfilePage}
-                                     onClick={Meteor.call('visitCounter', '/list')}/>
+              <ProtectedRoute path="/companyprofile/:companyName" component={CompanyProfilePage}/>
               <CompanyProtectedRoute path="/add" component={CompanyAdd}/>
               <CompanyProtectedRoute path="/cohome" component={CompanyHome}/>
               <ProtectedRoute path="/sprofile" component={StudentProfile}/>
@@ -61,7 +59,6 @@ class App extends React.Component {
               <StudentProtectedRoute path="/apply/:_id" component={Apply}/>
               <Route component={NotFound}/>
             </Switch>
-            <Footer/>
           </div>
         </Router>
     );
