@@ -3,7 +3,7 @@
   width: 800px;
 }
 .uhire-landing-background {
-  background: url('images/Background4CD.jpg') no-repeat center center fixed;
+  background: url('/images/Background4CD.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 1500px;
   color: white;
