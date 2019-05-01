@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import { Companies } from '/imports/api/company/company';
 import { Bert } from 'meteor/themeteorchef:bert';
 
-
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Company extends React.Component {
 

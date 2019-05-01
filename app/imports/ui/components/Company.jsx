@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Company extends React.Component {
 
-
   render() {
     return (
         <Segment.Group>
@@ -29,7 +28,7 @@ class Company extends React.Component {
             Contact Info: <br/>
             <a href={`mailto:${this.props.company.contact}`} target='_blank' rel='noreferrer noopener'>
 
-            {this.props.company.contact}
+              {this.props.company.contact}
             </a>
           </Segment>
         </Segment.Group>

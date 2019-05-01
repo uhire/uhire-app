@@ -7,14 +7,10 @@ import InterestItem from '/imports/ui/components/InterestItem';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import AutoField from 'uniforms-semantic/AutoField';
-// import RadioField from 'uniforms-semantic/RadioField';
-// import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
-// import NumField from 'uniforms-semantic/NumField';
-// import LongTextField from 'uniforms-semantic/LongTextField';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudentDetails extends React.Component {
@@ -191,11 +187,9 @@ class StudentDetails extends React.Component {
                 </div>
               </Header>
             </Grid.Column>
-
           </Grid>
           <br/>
         </Container>
-
     );
   }
 }

@@ -29,22 +29,19 @@ class PositionItem extends React.Component {
 
   render() {
     const modalPadding = { padding: '10px 10px 10px 10px' };
-
     return (
 
         <Modal style={modalPadding} trigger={
           <Table.Row>
-            <Table.Cell >{this.props.position.title}</Table.Cell>
+            <Table.Cell>{this.props.position.title}</Table.Cell>
             <Table.Cell>{this.props.position.location}</Table.Cell>
             <Table.Cell>{this.props.position.openings}</Table.Cell>
             <Table.Cell>
-
               <Feed.Event>
                 <Feed.Content>
                   <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')}/>
                 </Feed.Content>
               </Feed.Event>
-
             </Table.Cell>
             <Table.Cell width={5} singleLine>
               {this.props.position.description}
@@ -54,7 +51,7 @@ class PositionItem extends React.Component {
                 {this.props.position.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}
               </Label.Group>
             </Table.Cell>
-            <Table.Cell width={1} >
+            <Table.Cell width={1}>
               <Link to={`/editposition/${this.props.position._id}`}>Edit</Link>
             </Table.Cell>
             <Table.Cell><Button basic onClick={this.onClick}>Delete</Button></Table.Cell>
@@ -65,7 +62,6 @@ class PositionItem extends React.Component {
           <Table celled selectable>
             <Table.Header>
               <Table.Row>
-
                 <Table.HeaderCell>Title</Table.HeaderCell>
                 <Table.HeaderCell>Location</Table.HeaderCell>
                 <Table.HeaderCell># of Openings</Table.HeaderCell>
@@ -84,13 +80,11 @@ class PositionItem extends React.Component {
                 <Table.Cell>{this.props.position.location}</Table.Cell>
                 <Table.Cell>{this.props.position.openings}</Table.Cell>
                 <Table.Cell>
-
                   <Feed.Event>
                     <Feed.Content>
                       <Feed.Date content={this.props.position.date.toLocaleDateString('en-US')}/>
                     </Feed.Content>
                   </Feed.Event>
-
                 </Table.Cell>
                 <Table.Cell>
                   {this.props.position.description}

@@ -10,14 +10,13 @@ import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 
-
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudentHomeImage extends React.Component {
 
-
   submit(data) {
     const { firstName, lastName, description, city, locationZip, profile, picture, interests, grade, _id } = data;
-    Students.update(_id, { $set: {
+    Students.update(_id, {
+      $set: {
         firstName,
         lastName,
         description,
@@ -35,7 +34,6 @@ class StudentHomeImage extends React.Component {
 
   render() {
     const modalPadding = { padding: '20px 20px 20px 20px' };
-
 
     return (
         <div>

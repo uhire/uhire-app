@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import { Companies, CompanySchema } from '/imports/api/company/company';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
-// import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
@@ -96,12 +95,8 @@ class CompanyDetails extends React.Component {
                 </Header>
               </Grid.Column>
             </Grid.Row>
-
           </Grid>
-
         </Container>
-
-
     );
   }
 }
