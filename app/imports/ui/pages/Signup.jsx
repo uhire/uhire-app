@@ -19,6 +19,8 @@ export default class Signup extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.handleEmailValidation = this.handleEmailValidation.bind(this);
+    this.handlePasswordValidation = this.handlePasswordValidation.bind(this);
   }
 
   /** Update the form controls each time the user interacts with them. */
@@ -31,7 +33,48 @@ export default class Signup extends React.Component {
     if (this.state.password === this.state.verifyPassword) {
       this.setState({ error: '' });
     } else {
-      this.setState({ error: 'Passwords do not match' });
+      this.setState({ error: 'Passwords do not match.' });
+    }
+  }
+
+  /** Email Validation */
+  handleEmailValidation() {
+    const comRegex = /.+.com$/;
+    const atSymbolRegex = /.+@/;
+
+    if (!comRegex.test(this.state.email) && !atSymbolRegex.test(this.state.email)) {
+      this.setState({ error: 'Current email is not an email. Please include "@ and .com". ' });
+    } else if (!comRegex.test(this.state.email)) {
+        this.setState({ error: 'Current email is not an email. Please include ".com". ' });
+      } else if (!atSymbolRegex.test(this.state.email)) {
+        this.setState({ error: 'Current email is not an email. Please include "@". ' });
+      } else {
+      this.setState({ error: '' });
+    }
+  }
+
+  /** Password Validation to include certain characters */
+  handlePasswordValidation() {
+    const capitalLetterRegex = /.*[A-Z]+.*/;
+    const numberRegex = /\d+/;
+    const specialCharacterRegex = /\W+/;
+
+    if (!capitalLetterRegex.test(this.state.password) && !numberRegex.test(this.state.password) && !specialCharacterRegex.test(this.state.password)) {
+      this.setState({ error: 'Password must include at least 1 number, 1 Capital Letter, and 1 Special Character.' });
+    } else if (!capitalLetterRegex.test(this.state.password) && !numberRegex.test(this.state.password)) {
+      this.setState({ error: 'Password must include at least 1 number, and 1 Capital Letter.' });
+    } else if (!capitalLetterRegex.test(this.state.password) && !specialCharacterRegex.test(this.state.password)) {
+      this.setState({ error: 'Password must include at least 1 Special Character, and 1 Capital Letter.' });
+      } else if (!numberRegex.test(this.state.password) && !specialCharacterRegex.test(this.state.password)) {
+      this.setState({ error: 'Password must include at least 1 Special Character, and 1 number.' });
+    } else if (!capitalLetterRegex.test(this.state.password)) {
+      this.setState({ error: 'Password must include at least 1 Capital Letter.' });
+    } else if (!specialCharacterRegex.test(this.state.password)) {
+      this.setState({ error: 'Password must include at least 1 Special Character.' });
+    } else if (!numberRegex.test(this.state.password)) {
+      this.setState({ error: 'Password must include at least 1 number.' });
+    } else {
+      this.setState({ error: '' });
     }
   }
 
@@ -54,8 +97,8 @@ export default class Signup extends React.Component {
   handleSubmit() {
     const { email, password, role, check } = this.state;
     if ((!role || !password) || check === false) {
-      this.setState({ error: 'Fields Can Not Be Blank' });
-      throw new Meteor.Error('Fields Can Not Be Blank');
+      this.setState({ error: 'Fields Can Not Be Blank.' });
+      throw new Meteor.Error('Fields Can Not Be Blank.');
     }
     Meteor.call('createNewUser', email, password, role);
     this.setState({ error: '', redirectToReferer: true });
@@ -109,6 +152,7 @@ export default class Signup extends React.Component {
                         type="email"
                         placeholder="E-mail address"
                         onChange={this.handleChange}
+                        onKeyUp ={this.handleEmailValidation}
                     />
                     <Form.Input
                         required label="Password"
@@ -118,6 +162,7 @@ export default class Signup extends React.Component {
                         placeholder="Password"
                         type={this.state.inputType}
                         onChange={this.handleChange}
+                        onKeyUp={this.handlePasswordValidation}
                     />
                     <Form.Input
                         required label="Verify Password"
