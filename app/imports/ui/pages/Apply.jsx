@@ -126,8 +126,6 @@ class Apply extends React.Component {
                               value={about} onChange={this.handleChange}/>
                   <Form.Field control={Checkbox} label='I agree to share my information with this company'
                               onClick={this.handleClick}/>
-
-
                   <Form.Field control={Button}>Submit</Form.Field>
                 </Form>
               </Segment>
