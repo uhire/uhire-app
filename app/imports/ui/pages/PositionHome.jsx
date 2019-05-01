@@ -48,12 +48,12 @@ class PositionHome extends React.Component {
 
         <div className="page-filler">
           <Container>
-            <Header as="h2" textAlign="center" inverted>Profiles of applicants for the {this.props.doc.title} position</Header>
+            <Header as="h2" textAlign="center" inverted>Profiles of applicants for
+              the {this.props.doc.title} position</Header>
             <CardGroup centered>
 
-              {this.state.students.map((stuff) =>
-                <StudentItem key={stuff._id}
-                             student={stuff}/>)}
+              {this.state.students.map((stuff) => <StudentItem key={stuff._id}
+                               student={stuff}/>)}
             </CardGroup>
           </Container>
         </div>
