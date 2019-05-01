@@ -59,7 +59,7 @@ class Apply extends React.Component {
           UHire Profile: N/A
           Email: ${this.state.student.owner}
           Submission: ${about}`,
-          }, (err, res) => {
+          }, (err) => {
             if (err) {
               alert(err);
             } else {
