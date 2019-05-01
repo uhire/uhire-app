@@ -70,6 +70,14 @@ class CompanyHome extends React.Component {
               {this.props.companies.map((company, index) => <CompanyDetails key={index} company={company}/>)}
             </Grid.Column>
 
+            {/** <Grid.Column floated='right'>
+             <div className="ui massive inverted vertical animated button" tabIndex="5">
+             <div className="visible content">Position</div>
+             <div className="hidden content">
+             <a href="#/addposition"> Add Position </a>
+             </div>
+             </div>
+             </Grid.Column> */}
           </Grid>
 
           <br/>

@@ -3,6 +3,7 @@ import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import { Positions, PositionSchema } from '/imports/api/position/position';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Redirect } from 'react-router-dom';
+
 import AutoForm from 'uniforms-semantic/AutoForm';
 import AutoField from 'uniforms-semantic/AutoField';
 import TextField from 'uniforms-semantic/TextField';
