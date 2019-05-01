@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {} from 'react';
 import {
   Grid,
   Loader,
@@ -7,20 +7,15 @@ import {
   Form,
   Button,
   Checkbox,
-  Input,
-  Radio,
-  Select,
-  TextArea
+  TextArea,
 } from 'semantic-ui-react';
-import { Positions, PositionSchema } from '/imports/api/position/position';
-import { Students, StudentSchema } from '/imports/api/stuff/student';
+import { Positions } from '/imports/api/position/position';
+import { Students } from '/imports/api/stuff/student';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Redirect } from 'react-router-dom';
-
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Email } from "meteor/email";
 import { NULL } from 'graphql/language/kinds';
 
 /** Renders the Page for editing a single document. */
@@ -70,23 +65,22 @@ class Apply extends React.Component {
             } else {
               // success!
             }
-          });
-      var applied = this.state.position.applied;
+          },
+          );
+      const applied = this.state.position.applied;
       applied.push(this.state.student._id);
-      console.log(applied);
       this.state.position.applied = applied;
       Positions.update(this.state.position._id, { $set: { applied } }, (error) => {
         if (error) {
           return Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` });
-        } else {
-          this.setState({ redirectToReferer: true });
-          return Bert.alert({ type: 'success', message: 'Update succeeded' });
         }
+        this.setState({ redirectToReferer: true });
+        return Bert.alert({ type: 'success', message: 'Update succeeded' });
       });
       this.setState({ redirectToReferer: true });
 
     } else {
-      alert('Please approve the sharing of information before you submit')
+      alert('Please approve the sharing of information before you submit');
     }
   }
 
@@ -98,8 +92,7 @@ class Apply extends React.Component {
     } else {
       this.setState({ check: false });
     }
-
-  };
+  }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
@@ -119,7 +112,7 @@ class Apply extends React.Component {
     if (this.state.redirectToReferer) {
       return <Redirect to='/studentHome'/>;
     }
-    const { about, submittedAbout, check } = this.state
+    const { about } = this.state;
 
     if (!_.contains(this.state.position.applied, this.state.student._id)) {
       return (
@@ -141,11 +134,11 @@ class Apply extends React.Component {
             </Grid.Column>
           </Grid>
       );
-    } else {
-      return (
-          <Header as="h2" inverted textAlign="center">You have already applied for this positons. Please wait to hear back from {this.state.position.companyName}.</Header>
-      );
     }
+    return (
+        <Header as="h2" inverted textAlign="center">You have already applied for this positons. Please wait to hear back
+          from {this.state.position.companyName}.</Header>
+    );
   }
 }
 
@@ -164,7 +157,6 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Position documents.
   const subscription = Meteor.subscribe('Position');
-  const subscription2 = Meteor.subscribe('SelfStudent');
   return {
     doc: Positions.findOne(documentId),
     ready: subscription.ready(),
