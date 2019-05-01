@@ -61,7 +61,7 @@ class StudentHome extends React.Component {
       array1.forEach(function(element){
 
         bool1 = bool1 || test1(element, array2);
-        if (bool1 == true) {
+        if (bool1 === true) {
           console.log(bool1);
           return bool1;
         }
@@ -73,8 +73,8 @@ class StudentHome extends React.Component {
 
     if (this.state.data == null) {
       this.state.data = this.props.positions;
-      const data2 = this.state.data.filter( position => test2(position.interests, interests2));
-      this.state.data = data2;
+      this.state.data = this.state.data.filter( position => test2(position.interests, interests2));
+      
     }
 
     const { column, direction } = this.state;
