@@ -1,8 +1,7 @@
 import React from 'react';
-import { Segment, Button, Card } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Bert } from 'meteor/themeteorchef:bert';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Company extends React.Component {

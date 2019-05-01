@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Modal, Icon, Header, Grid, Segment, Label } from 'semantic-ui-react';
+import { Container, Modal, Icon, Header, Grid, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Students, StudentSchema } from '/imports/api/stuff/student';
 import InterestItem from '/imports/ui/components/InterestItem';
 import AutoForm from 'uniforms-semantic/AutoForm';
