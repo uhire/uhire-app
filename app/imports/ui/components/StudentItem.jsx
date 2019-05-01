@@ -1,9 +1,9 @@
 import React from 'react';
 import { Image, Card, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import InterestItem from '/imports/ui/components/InterestItem';
-import { Meteor } from 'meteor/meteor';
+// import { Meteor } from 'meteor/meteor';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudentItem extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Table, Container, Image, Card, Icon, Label } from 'semantic-ui-react';
+import { Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class InterestItem extends React.Component {
