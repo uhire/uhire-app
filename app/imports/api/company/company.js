@@ -7,7 +7,11 @@ const Companies = new Mongo.Collection('Companies');
 
 /** Create a schema to constrain the structure of documents associated with this collection */
 const CompanySchema = new SimpleSchema({
-  companyName: String,
+  companyName: {
+    type: String,
+    index: true,
+    unique: true,
+  },
   location: String,
   image: {
     type: String,

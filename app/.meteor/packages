@@ -38,3 +38,4 @@ insecure@1.0.7                         # Enable client-side manipulation of Mong
 aldeed:collection2@3.0.0
 email
 check
+aldeed:schema-index

@@ -27,7 +27,7 @@
       "location": "Default",
       "description": "Default",
       "image": "http://i.imgur.com/AItCxSs.jpg",
-      "contact": "Default",
+      "contact": "john@foo.com",
       "owner": "john@foo.com"
     },
     {
