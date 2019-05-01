@@ -5,11 +5,17 @@ import { Grid, Container, Image, Icon, Header } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
 
+    const gridPadding = {paddingTop: '50px'};
 
     return (
-        <div className='uhire-landing-background'>
+        <div className=''>
 
-          <Grid centered columns={3}>
+          <Grid container centered columns={3} className="middlecontent">
+            <br/><br/>
+            <Grid.Row className={gridPadding}>
+
+              <Image src='/images/landing.png'/>
+            </Grid.Row>
             <Grid.Column textAlign='center'>
               <Icon name="users" size='huge' inverted/>
               <Header as='h1' inverted>Multiple Users</Header>
@@ -30,14 +36,15 @@ class Landing extends React.Component {
               <Header as='h1' inverted>Communication</Header>
               <Header as='h3' inverted>Companies and students can exchange information by way of email.</Header>
             </Grid.Column>
+
+            <Container textAlign='center'>
+              <br/>
+              <a className="ui massive inverted button" role="button" href="#/signup">Sign me up!</a>
+              <br/><br/>
+            </Container>
           </Grid>
           <br/>
           <br/>
-          <Container textAlign='center'>
-            <a className="ui massive inverted button" role="button" href="#/signup">Sign me up!</a>
-            <br/><br/>
-          </Container>
-
         </div>
     );
   }
