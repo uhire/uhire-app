@@ -51,9 +51,9 @@ class PositionHome extends React.Component {
             <Header as="h2" textAlign="center" inverted>Student Profiles </Header>
             <CardGroup centered>
 
-              {this.state.students.map((stuff) => <a key={stuff._id} href={`mailto: ${stuff.owner}`}>
+              {this.state.students.map((stuff) =>
                 <StudentItem key={stuff._id}
-                             student={stuff}/></a>)}
+                             student={stuff}/>)}
             </CardGroup>
           </Container>
         </div>
