@@ -4,11 +4,12 @@ import { Grid, Container, Image, Icon, Header } from 'semantic-ui-react';
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
+
+
     return (
         <div className='uhire-landing-background'>
 
-          <Grid container centered stackable columns={3}>
-
+          <Grid centered columns={3}>
             <Grid.Column textAlign='center'>
               <Icon name="users" size='huge' inverted/>
               <Header as='h1' inverted>Multiple Users</Header>
@@ -34,6 +35,7 @@ class Landing extends React.Component {
           <br/>
           <Container textAlign='center'>
             <a className="ui massive inverted button" role="button" href="#/signup">Sign me up!</a>
+            <br/><br/>
           </Container>
 
         </div>

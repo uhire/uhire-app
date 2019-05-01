@@ -5,13 +5,21 @@
 .uhire-landing-background {
   background: url('/images/landing.png')no-repeat center center fixed;
   background-size: cover;
-  height: 1000px;
+  height: auto;
   color: white;
-  vertical-align: middle;
-  padding-top: 30px;
-  padding-bottom: 2.5rem;
-  position: relative;
+  padding-top: 750px;
 }
+
+.background.container {
+  background: url("http://livestocktavern.com/img/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 700px;
+  color: white;
+  font-size: 20px;
+  font-family: "IM Fell English", sans-serif;
+}
+
+
 .landing-font {
   font-family: 'Roboto', serif;
   font-weight: bold;
