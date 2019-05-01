@@ -14,6 +14,7 @@ class StudentItem extends React.Component {
           <a href={`https://${this.props.student.profile}`} target='_blank' rel='noreferrer noopener'>
 
             <Image src={this.props.student.picture} />
+          </a>
             <Card.Content>
               <Card.Header>{this.props.student.firstName} {this.props.student.lastName}      </Card.Header>
               <Card.Meta>
@@ -36,7 +37,7 @@ class StudentItem extends React.Component {
               <Icon name='home' />
               {this.props.student.city} {this.props.student.locationZip}
             </Card.Content>
-          </a>
+
         </Card>
     );
   }
