@@ -17,7 +17,6 @@ class PositionHome extends React.Component {
     this.state = { redirectToReferer: false, options: Positions.find(), students: null };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
-
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */

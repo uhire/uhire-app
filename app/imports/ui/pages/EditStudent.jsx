@@ -27,7 +27,6 @@ class EditStudent extends React.Component {
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.submit = this.submit.bind(this);
-
   }
 
   /** On successful submit, insert the data. */
@@ -53,11 +52,8 @@ class EditStudent extends React.Component {
       // Added a redirectToReferer
       this.setState({ redirectToReferer: true });
       return Bert.alert({ type: 'success', message: 'Update succeeded' });
-
     });
-
   }
-
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {

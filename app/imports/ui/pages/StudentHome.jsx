@@ -1,4 +1,3 @@
-// import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
@@ -122,7 +121,6 @@ class StudentHome extends React.Component {
                 <Table.HeaderCell width={3}> Interests </Table.HeaderCell>
 
                 <Table.HeaderCell>Apply</Table.HeaderCell>
-
 
               </Table.Row>
             </Table.Header>
