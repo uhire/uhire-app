@@ -26,6 +26,7 @@ class CompanyAdd extends React.Component {
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
     if (error) {
+      if (error.message === 'Internal server error [500]') {error.message = 'That company name is already taken'}
       Bert.alert({ type: 'danger', message: `Add failed: ${error.message}` });
     } else {
       Bert.alert({ type: 'success', message: 'Add succeeded' });

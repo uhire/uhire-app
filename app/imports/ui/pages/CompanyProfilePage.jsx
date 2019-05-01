@@ -124,6 +124,7 @@ CompanyProfilePage.propTypes = {
 export default withTracker(({ match }) => {
   // Get access to Stuff documents.
   const documentId = match.params.companyName;
+
   const subscription = Meteor.subscribe('Companies');
   const subscription2 = Meteor.subscribe('Position');
   const subscription3 = Meteor.subscribe('Visits');
