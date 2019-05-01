@@ -1,8 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader, Label } from 'semantic-ui-react';
-import { Stuffs } from '/imports/api/stuff/stuff';
-import StuffItem from '/imports/ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Interests } from '../../api/stuff/interests';
@@ -30,7 +28,7 @@ class ListStuff extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.props.stuffs.map((stuff) => <Label as='a' tag>
+              {this.props.stuffs.map((stuff) => <Label key='a' as='a' tag>
                 {stuff.name}
               </Label>)}
             </Table.Body>

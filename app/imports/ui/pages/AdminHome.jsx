@@ -1,19 +1,15 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
+import { Container, Grid, Header, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Companies } from '/imports/api/company/company.js';
 import { Students } from '/imports/api/stuff/student';
 import AdminCompanyItem from '/imports/ui/components/AdminCompanyItem';
 import AdminStudentItem from '/imports/ui/components/AdminStudentItem';
-import { Redirect } from 'react-router-dom';
-import { Roles } from 'meteor/alanning:roles';
-
 
 /** A simple static component to render some text for the landing page. */
 class AdminHome extends React.Component {
-
 
   render() {
 
@@ -31,7 +27,7 @@ class AdminHome extends React.Component {
                     <Table.HeaderCell>
                       Company Name
                     </Table.HeaderCell>
-                    <Table.HeaderCell >
+                    <Table.HeaderCell>
                       Location
                     </Table.HeaderCell>
                     <Table.HeaderCell>
@@ -50,32 +46,32 @@ class AdminHome extends React.Component {
               </Table>
             </Grid.Column>
 
-          <Grid.Column>
-          <Table sortable celled unstackable fixed selectable>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>
-                  Student Name
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  Location
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  Email
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  Delete
-                </Table.HeaderCell>
+            <Grid.Column>
+              <Table sortable celled unstackable fixed selectable>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell>
+                      Student Name
+                    </Table.HeaderCell>
+                    <Table.HeaderCell>
+                      Location
+                    </Table.HeaderCell>
+                    <Table.HeaderCell>
+                      Email
+                    </Table.HeaderCell>
+                    <Table.HeaderCell>
+                      Delete
+                    </Table.HeaderCell>
 
-              </Table.Row>
-            </Table.Header>
+                  </Table.Row>
+                </Table.Header>
 
-            <Table.Body>
-              {this.props.students.map((student, index) => <AdminStudentItem key={index} student={student}/>)}
-            </Table.Body>
-          </Table>
+                <Table.Body>
+                  {this.props.students.map((student, index) => <AdminStudentItem key={index} student={student}/>)}
+                </Table.Body>
+              </Table>
 
-          </Grid.Column>
+            </Grid.Column>
           </Grid>
         </Container>
     );

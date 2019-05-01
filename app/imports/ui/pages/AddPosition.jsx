@@ -82,10 +82,10 @@ class AddPosition extends React.Component {
             }} schema={PositionSchema} onSubmit={this.submit}>
               <Segment>
                 <TextField placeholder='Enter Position Title' name='title'/>
-                <TextField placeholder='123 Company St., Honolulu, HI., 96822'name='location'/>
-                <NumField placeholder='# of openings'name='openings' decimal={false}/>
-                <LongTextField placeholder='Brief Position Description'name='description'/>
-                <AutoField placeholder='Enter Contact Email'name='contact' value={this.props.companies[0].contact}/>
+                <TextField placeholder='123 Company St., Honolulu, HI., 96822' name='location'/>
+                <NumField placeholder='# of openings' name='openings' decimal={false}/>
+                <LongTextField placeholder='Brief Position Description' name='description'/>
+                <AutoField placeholder='Enter Contact Email' name='contact' value={this.props.companies[0].contact}/>
                 <AutoField name='interests'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
