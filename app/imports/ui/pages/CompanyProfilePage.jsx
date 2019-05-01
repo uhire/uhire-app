@@ -3,7 +3,6 @@ import { Loader, Grid, Container, Image, Table, Header } from 'semantic-ui-react
 import { Meteor } from 'meteor/meteor';
 import Company from '/imports/ui/components/Company';
 import CompanyLogo from '/imports/ui/components/CompanyLogo';
-import Counter from '/imports/ui/components/Counter';
 import { Companies } from '/imports/api/company/company.js';
 import { Positions } from '/imports/api/position/position.js';
 import { Visits } from '/imports/api/visit/visit.js';
@@ -68,7 +67,6 @@ class CompanyProfilePage extends React.Component {
               <CompanyLocationMap location={this.props.companies[0].location}/>
               </div>
               <br/>
-              <Counter count={this.props.visits[0].visitCount}/>
             </Grid.Column>
           </Grid>
 
