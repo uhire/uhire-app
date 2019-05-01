@@ -10,7 +10,7 @@ class Landing extends React.Component {
     return (
         <div className=''>
 
-          <Grid container centered columns={3} className="middlecontent">
+          <Grid container compact stackable centered columns={3} className="middlecontent">
             <br/><br/>
             <Grid.Row className={gridPadding}>
 

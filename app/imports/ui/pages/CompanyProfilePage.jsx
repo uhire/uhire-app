@@ -54,7 +54,7 @@ class CompanyProfilePage extends React.Component {
     const { column, direction } = this.state;
     return (
         <Container>
-          <Image src='images/Background4CD.jpg' className='company-profile-page-banner' centered/>
+          <Image src='images/landing.png' className='company-profile-page-banner' centered/>
           <br/>
           <Grid columns={2} divided>
             <Grid.Column width={12}>
@@ -63,7 +63,7 @@ class CompanyProfilePage extends React.Component {
             <Grid.Column width={3}>
               {this.props.companies.map((company, index) => <CompanyLogo key={index} company={company}/>)}
               <br/>
-              <div className="map-button">
+              <div className="map-button"><br/>
               <CompanyLocationMap location={this.props.companies[0].location}/>
               </div>
               <br/>

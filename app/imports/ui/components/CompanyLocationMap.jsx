@@ -39,7 +39,9 @@ class CompanyLocationMap extends React.Component {
     const { lat, lng } = this.state;
     const modalPadding = { padding: '10px 10px 10px 10px' };
     const buttonStyle = { background: 'forestgreen', color: 'white', size: 'lg' };
+
     return (
+
         <Modal style={modalPadding} trigger={
           <button style={buttonStyle} onClick={this.handleClick}>Show On Map</button>}>
           <div style={{ height: '100vh', width: '100%' }}>
