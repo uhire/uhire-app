@@ -43,6 +43,7 @@ class CompanyProfilePage extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
+    console.log(this.props.positions);
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
@@ -126,16 +127,15 @@ export default withTracker(({ match }) => {
   const documentId = match.params.companyName;
 
   const subscription = Meteor.subscribe('Companies');
-  const subscription2 = Meteor.subscribe('Position');
+  const subscription2 = Meteor.subscribe('PositionStudent');
   const subscription3 = Meteor.subscribe('Visits');
   const subscription4 = Meteor.subscribe('CompanyAdmin');
   const subscription5 = Meteor.subscribe('CompaniesStudent');
-  const subscription6 = Meteor.subscribe('PositionStudent');
   return {
     positions: Positions.find({ companyName: documentId }).fetch(),
     companies: Companies.find({ companyName: documentId }).fetch(),
     visits: Visits.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready() && subscription3.ready() && subscription.ready()
-        && subscription4.ready() && subscription5.ready() && subscription6.ready(),
+        && subscription4.ready() && subscription5.ready(),
   };
 })(CompanyProfilePage);
