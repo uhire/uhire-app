@@ -9,11 +9,8 @@ if (Visits.find().count() === 0) {
 Meteor.methods({
   visitCounter(page) {
     check(page, String);
-    const visitCount = Visits.find().fetch()[0].visitCount;
-    console.log(visitCount);
     if (page === Visits.find().fetch()[0].pageUrl) {
       Visits.update(Visits.find().fetch()[0]._id, { $inc: { visitCount: 1 } });
-      console.log(`Visit Count: ${visitCount}`);
     }
   },
 });

@@ -5,13 +5,11 @@ import { Positions } from '../../api/position/position.js';
 
 /** Initialize the database with a default data document. */
 function addData(data, collection) {
-  console.log(`  Adding: (${data.owner})`);
   collection.insert(data);
 }
 
 if (Positions.find().count() === 0) {
   if (Meteor.settings.defaultPositions) {
-    console.log('Creating default position.');
     Meteor.settings.defaultPositions.map(data => addData(data, Positions));
   }
 }
