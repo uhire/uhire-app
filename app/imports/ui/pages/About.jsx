@@ -6,7 +6,7 @@ class About extends React.Component {
   render() {
     return (
 
-        <Container centered text>
+        <Container centered='true' text>
           <br/><br/>
           <p>
             <h2>The problem:</h2> Many UH computer science and engineering students want to learn about internship and
