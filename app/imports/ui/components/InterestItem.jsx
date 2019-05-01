@@ -7,9 +7,7 @@ import { withRouter } from 'react-router-dom';
 class InterestItem extends React.Component {
   render() {
     return (
-
           <Label as='a' tag>{this.props.interest}</Label>
-
     );
   }
 }

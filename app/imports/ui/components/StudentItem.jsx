@@ -11,32 +11,30 @@ class StudentItem extends React.Component {
 
         <Card>
           <a href={`https://${this.props.student.profile}`} target='_blank' rel='noreferrer noopener'>
-
-            <Image src={this.props.student.picture} />
+            <Image src={this.props.student.picture}/>
           </a>
-            <Card.Content>
-              <Card.Header>{this.props.student.firstName} {this.props.student.lastName}      </Card.Header>
-              <Card.Meta>
-                <a href={`mailto: ${this.props.student.owner}`}>
-                  {this.props.student.owner}
-                </a>
-              </Card.Meta>
-              <Card.Meta>
-                {this.props.student.grade}
-              </Card.Meta>
-              <Card.Description>{this.props.student.description}</Card.Description>
-            </Card.Content>
-            <Card.Content>
-              <Card.Header>Interests</Card.Header>
-              <Card.Description>
-                {this.props.student.interests.map((stuff, index) => <InterestItem key={index} interest={stuff} />)}
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <Icon name='home' />
-              {this.props.student.city} {this.props.student.locationZip}
-            </Card.Content>
-
+          <Card.Content>
+            <Card.Header>{this.props.student.firstName} {this.props.student.lastName}      </Card.Header>
+            <Card.Meta>
+              <a href={`mailto: ${this.props.student.owner}`}>
+                {this.props.student.owner}
+              </a>
+            </Card.Meta>
+            <Card.Meta>
+              {this.props.student.grade}
+            </Card.Meta>
+            <Card.Description>{this.props.student.description}</Card.Description>
+          </Card.Content>
+          <Card.Content>
+            <Card.Header>Interests</Card.Header>
+            <Card.Description>
+              {this.props.student.interests.map((stuff, index) => <InterestItem key={index} interest={stuff}/>)}
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Icon name='home'/>
+            {this.props.student.city} {this.props.student.locationZip}
+          </Card.Content>
         </Card>
     );
   }

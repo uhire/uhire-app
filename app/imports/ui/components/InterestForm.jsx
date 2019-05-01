@@ -5,20 +5,16 @@ import { withRouter, Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from "meteor/meteor";
 
-
-
 const renderLabel = label => ({
   color: 'blue',
   content: `Customized label - ${label.text}`,
   icon: 'check',
 });
 
-
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class InterestForm extends React.Component {
   render() {
     return (
-
         <Form.Dropdown
             multiple
             selection
@@ -27,7 +23,6 @@ class InterestForm extends React.Component {
             placeholder='Choose an option'
             renderLabel={renderLabel}
         />
-
     );
   }
 }

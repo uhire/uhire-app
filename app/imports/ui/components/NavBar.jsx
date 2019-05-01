@@ -28,8 +28,6 @@ class NavBar extends React.Component {
                     <Dropdown.Item icon="student" text="Student Home Page" as={NavLink} exact to="/studentHome"/>
                     <Dropdown.Item icon="student" text="Browse Student Page" as={NavLink} exact to="/browsestu"/>
                     <Dropdown.Item icon="student" text="Add Student Page" as={NavLink} exact to="/addStudent"/>
-                    {/** <Dropdown.Item icon="student" text="Edit Student Page"
-                     as={NavLink} exact to="/editstu"/> */}
                   </Dropdown.Menu>
                 </Dropdown>
               </Menu.Item>) : ''}
@@ -51,10 +49,6 @@ class NavBar extends React.Component {
                           key='studentHome'>
                 <Header color='green' as='h3'>Student Home Page</Header>
               </Menu.Item>,
-             /*   <Menu.Item as={NavLink} activeClassName="active" exact to="/sprofile"
-                           key='sprofile'>
-                  <Header color='green'>Student Profile Page</Header>
-                </Menu.Item>, */
                 <Menu.Item as={NavLink} activeClassName="active" exact to="/browsecom"
                            key='browsecom'>
                   <Header color='green'>Browse Companies Page</Header>

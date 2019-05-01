@@ -26,17 +26,13 @@ class AdminCompanyItem extends React.Component {
     Companies.remove(this.props.company._id, this.deleteCallback);
   }
 
-
   render() {
 
     return (
-
-
         <Table.Row>
           <Table.Cell>{this.props.company.companyName}</Table.Cell>
           <Table.Cell>{this.props.company.location}</Table.Cell>
           <Table.Cell>{this.props.company.owner}</Table.Cell>
-
           <Table.Cell><Button basic onClick={this.onClick}>Delete</Button></Table.Cell>
         </Table.Row>
     );

@@ -23,7 +23,6 @@ class CompanyHomeLogo extends React.Component {
   render() {
     const modalPadding = { padding: '20px 20px 20px 20px' };
 
-
     return (
         <div>
           <Modal style={modalPadding} trigger={<Image circular src={this.props.company.image} size='medium'/>}>
@@ -48,15 +47,6 @@ class CompanyHomeLogo extends React.Component {
               </div>
             </Link>
           </div>
-
-          {/** <div className="ui big inverted animated button" tabIndex="4">
-            <div className="visible content">Profile</div>
-            <div className="hidden content">
-              <Link to={`/companyprofile/${this.props.company.companyName}`}>View Profile</Link>
-            </div>
-          </div>
-
-           <Link to={`/companyprofile/${this.props.company.companyName}`}>Link to profile.</Link> */}
         </div>
     );
   }
