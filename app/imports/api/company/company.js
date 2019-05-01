@@ -14,7 +14,10 @@ const CompanySchema = new SimpleSchema({
     defaultValue: 'http://i.imgur.com/AItCxSs.jpg',
   },
   description: String,
-  contact: String,
+  contact: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Email,
+  },
   owner: String,
 }, { tracker: Tracker });
 
