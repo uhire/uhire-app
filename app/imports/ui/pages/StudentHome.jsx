@@ -62,7 +62,6 @@ class StudentHome extends React.Component {
 
         bool1 = bool1 || test1(element, array2);
         if (bool1 === true) {
-          console.log(bool1);
           return bool1;
         }
       });
