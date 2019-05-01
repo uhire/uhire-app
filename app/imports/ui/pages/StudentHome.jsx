@@ -49,13 +49,13 @@ class StudentHome extends React.Component {
       return <Redirect to={'/addStudent'}/>;
     }
 
-    let test1 = function(string, array){
+    const test1 = function(string, array){
       return _.contains(array, string);
     };
 
     const interests2 = this.props.students[0].interests;
 
-    let test2 = function (array1, array2){
+    const test2 = function (array1, array2){
       let bool1 = false;
 
       array1.forEach(function(element){
@@ -66,7 +66,6 @@ class StudentHome extends React.Component {
           return bool1;
         }
       });
-      console.log(bool1);
       return bool1;
 
     };
@@ -74,7 +73,7 @@ class StudentHome extends React.Component {
     if (this.state.data == null) {
       this.state.data = this.props.positions;
       this.state.data = this.state.data.filter( position => test2(position.interests, interests2));
-      
+
     }
 
     const { column, direction } = this.state;
