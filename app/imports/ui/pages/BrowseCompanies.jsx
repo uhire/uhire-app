@@ -10,27 +10,6 @@ import CompanyCard from '/imports/ui/components/CompanyCard';
 /** A simple static component to render some text for the landing page. */
 class BrowseCompanies extends React.Component {
 
-  /**
-   render() {
-  render() {
-    return (
-          <Container>
-            <Menu.Item position="right">
-              <Input icon='search' placeholder='Search...'/>
-            </Menu.Item>
-            <br/>
-            <Grid centered columns={3} padded='vertically'>
-              {this.props.companies.map((company, index) => <CompanyCard key={index} company={company}/>)}
-            </Grid>
-            <br/>
-          </Container>
-    );
-  }
-   } */
-
-  /** search functionality adapted from ClUHbs: https://github.com/cluhbs */
-
-
   state = {
     companies: [],
     searchBy: 'companyName',

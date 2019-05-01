@@ -23,7 +23,6 @@ import AddPosition from '../pages/AddPosition';
 import EditStudent from '../pages/EditStudent';
 import BrowseStudents from '../pages/BrowseStudents';
 import BrowseCompanies from '../pages/BrowseCompanies';
-import About from '../pages/About';
 import StudentAdd from '../pages/StudentAdd';
 import Apply from '../pages/Apply';
 import PositionHome from '../pages/PositionHome';
@@ -40,7 +39,6 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/sucReg" component={SuccessfulRegistration}/>
-              <Route path="/about" component={About}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <AdminProtectedRoute path="/admin" component={AdminHome}/>
               <CompanyProtectedRoute path="/coregis" component={CompanyRegistration}/>

@@ -1,4 +1,3 @@
-// import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
