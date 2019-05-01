@@ -5,44 +5,7 @@ import { Grid, Container, Image, Icon, Header } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
     return (
-        <div className="uhire-landing-background">
-          <br/>
-          <br/>
-          <Grid>
-            <Grid.Column width={9}>
-              <Container>
-                <Image centered src='images/Business2.jpg' size='big' rounded/>
-              </Container>
-            </Grid.Column>
-
-            <Grid.Column width={5}>
-              <Container textAlign='center'>
-                <div className="landing-font">Businesses can create profiles and build a position advertisement
-                  as a way of finding the perfect match to qualified students.
-                </div>
-                <br/>
-              </Container>
-            </Grid.Column>
-          </Grid>
-
-          <Grid>
-            <Grid.Column width={2}>
-            </Grid.Column>
-            <Grid.Column width={5}>
-              <Container textAlign='center'>
-                <div className="landing-font">Students can create profiles with interest topics and location queries
-                  to help find the right job at the right location.
-                </div>
-                <br/>
-              </Container>
-            </Grid.Column>
-
-            <Grid.Column width={9}>
-              <Container>
-                <Image centered src='images/Students.jpg' size='big' rounded/>
-              </Container>
-            </Grid.Column>
-          </Grid>
+        <div className='uhire-landing-background'>
 
           <Grid container centered stackable columns={3}>
 
@@ -58,7 +21,7 @@ class Landing extends React.Component {
               <Icon name="location arrow" size='huge' inverted/>
               <Header as='h1' inverted>Location Based Searches</Header>
               <Header as='h3' inverted>Students can customize queries based on desired employment locations.  Embedded
-              map feature allows quick viewing of unfamiliar area.</Header>
+                map feature allows quick viewing of unfamiliar area.</Header>
             </Grid.Column>
 
             <Grid.Column textAlign='center'>

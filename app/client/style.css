@@ -3,12 +3,12 @@
   width: 800px;
 }
 .uhire-landing-background {
-  background: url('/images/Background4CD.jpg') no-repeat center center fixed;
+  background: url('/images/landing.png')no-repeat center center fixed;
   background-size: cover;
-  height: 1500px;
+  height: 1000px;
   color: white;
   vertical-align: middle;
-  padding-top: 300px;
+  padding-top: 30px;
   padding-bottom: 2.5rem;
   position: relative;
 }
@@ -18,7 +18,6 @@
   font-size: xx-large;
   line-height: 100%;
   color: white;
-  vertical-align: middle;
   padding-top: 30px;
 }
 #footer {
