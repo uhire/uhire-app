@@ -19,7 +19,6 @@ import PropTypes from 'prop-types';
 /** Renders the Page for editing a single document. */
 class EditPosition extends React.Component {
 
-
   constructor(props) {
     super(props);
     // Added a redirectToReferer: false
@@ -36,10 +35,9 @@ class EditPosition extends React.Component {
     Positions.update(_id, { $set: { title, location, openings, date, description, contact, interests } }, (error) => {
       if (error) {
         return Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` });
-      } else {
-        this.setState({ redirectToReferer: true });
-        return Bert.alert({ type: 'success', message: 'Update succeeded' });
       }
+      this.setState({ redirectToReferer: true });
+      return Bert.alert({ type: 'success', message: 'Update succeeded' });
     });
   }
 
@@ -52,9 +50,8 @@ class EditPosition extends React.Component {
   renderPage() {
 
     if (this.state.redirectToReferer) {
-      return <Redirect to='/cohome' />;
+      return <Redirect to='/cohome'/>;
     }
-
 
     return (
         <Grid container centered>
@@ -71,7 +68,7 @@ class EditPosition extends React.Component {
                 <AutoField name='interests'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='owner' />
+                <HiddenField name='owner'/>
               </Segment>
             </AutoForm>
           </Grid.Column>

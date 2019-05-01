@@ -1,18 +1,9 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment, Container, Card, CardGroup } from 'semantic-ui-react';
-import { Positions, PositionSchema } from '/imports/api/position/position';
-import { Bert } from 'meteor/themeteorchef:bert';
+import { Loader, Header, Container, CardGroup } from 'semantic-ui-react';
+import { Positions } from '/imports/api/position/position';
 import { Redirect } from 'react-router-dom';
-import { Students, StudentSchema } from '/imports/api/stuff/student';
+import { Students } from '/imports/api/stuff/student';
 import StudentItem from '/imports/ui/components/StudentItem';
-import AutoForm from 'uniforms-semantic/AutoForm';
-import AutoField from 'uniforms-semantic/AutoField';
-import TextField from 'uniforms-semantic/TextField';
-import NumField from 'uniforms-semantic/NumField';
-import LongTextField from 'uniforms-semantic/LongTextField';
-import SubmitField from 'uniforms-semantic/SubmitField';
-import HiddenField from 'uniforms-semantic/HiddenField';
-import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -23,12 +14,11 @@ class PositionHome extends React.Component {
   constructor(props) {
     super(props);
     // Added a redirectToReferer: false
-    this.state = { redirectToReferer: false, options: Positions.find(), students: null, };
+    this.state = { redirectToReferer: false, options: Positions.find(), students: null };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
 
   }
-
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -44,30 +34,30 @@ class PositionHome extends React.Component {
     if (this.state.students === null) {
       this.state.students = this.props.students;
       const students2 = this.state.students;
-      console.log(students2);
       const applied2 = this.props.doc.applied;
-      console.log(applied2);
       const students3 = [];
       applied2.forEach(function (element) {
-        students3.push(students2.find(function(element2){
-          return element2._id == element;
+        students3.push(students2.find(function (element2) {
+          return element2._id === element;
         }));
       });
       this.state.students = students3;
     }
 
-  return(
+    return (
 
-      <div className="page-filler">
-        <Container>
-        <Header as="h2" textAlign="center" inverted>Student Profiles </Header>
-          <CardGroup centered>
+        <div className="page-filler">
+          <Container>
+            <Header as="h2" textAlign="center" inverted>Student Profiles </Header>
+            <CardGroup centered>
 
-            {this.state.students.map((stuff) => <a href={`mailto: ${stuff.owner}`}><StudentItem key={stuff._id} student={stuff}/></a>)}
-          </CardGroup>
-        </Container>
-      </div>
-      );
+              {this.state.students.map((stuff) => <a key={stuff._id} href={`mailto: ${stuff.owner}`}>
+                <StudentItem key={stuff._id}
+                             student={stuff}/></a>)}
+            </CardGroup>
+          </Container>
+        </div>
+    );
   }
 }
 
@@ -86,7 +76,6 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Position documents.
   const subscription = Meteor.subscribe('Position');
-  const sub2 = Meteor.subscribe('Students');
   return {
     doc: Positions.findOne(documentId),
     ready: subscription.ready(),

@@ -1,24 +1,21 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment, Dropdown } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import { Students, StudentSchema } from '/imports/api/stuff/student';
 import { Interests } from '/imports/api/stuff/interests';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import NumField from 'uniforms-semantic/NumField';
-import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
-import ListAddField from 'uniforms-semantic/ListAddField';
 import RadioField from 'uniforms-semantic/RadioField';
 import AutoField from 'uniforms-semantic/AutoField';
 import { Meteor } from 'meteor/meteor';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import InterestForm from '/imports/ui/components/InterestForm';
+import { Redirect } from 'react-router-dom';
 
 /** Renders the Page for editing a single document. */
 class EditStudent extends React.Component {
