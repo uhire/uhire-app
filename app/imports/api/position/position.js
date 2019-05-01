@@ -21,7 +21,11 @@ const PositionSchema = new SimpleSchema({
   },
   'interests.$': {
     type: String,
-    allowedValues: [ 'JavaScript', 'AI', 'Web Development', 'Project Management', 'Data Processing', 'Systems Analysis', 'Conservation', 'Circuit Design', 'Game Development', 'Machine Learning', 'Internet of Things', 'Cyber Security', 'Data Visualization', 'Virtual Reality', '3D Modeling', 'Information Technlogy', 'Systems Management', 'Augmented Reality', 'Algorithms' ],
+    allowedValues: ['JavaScript', 'AI', 'Web Development', 'Project Management',
+      'Data Processing', 'Systems Analysis', 'Conservation', 'Circuit Design',
+      'Game Development', 'Machine Learning', 'Internet of Things', 'Cyber Security',
+      'Data Visualization', 'Virtual Reality', '3D Modeling', 'Information Technlogy',
+      'Systems Management', 'Augmented Reality', 'Algorithms'],
   },
   owner: String,
   applied: {
