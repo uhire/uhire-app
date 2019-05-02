@@ -41,24 +41,25 @@ class Landing extends React.Component {
           <Grid container compact stackable centered columns={3} className="middlecontent">
               <br/><br/>
               <Grid.Column textAlign='center'>
-                <Icon name="users" size='huge' inverted/>
-                <Header as='h1' inverted>Multiple Users</Header>
-                <Header as='h3' inverted>This application allows multiple companies and/or students to
-                  save their profiles. Students can view a listing of all the companies that are advertising
-                  positions.</Header>
+                <Icon name="briefcase" size='huge' inverted/>
+                <Header as='h1' inverted>Companies</Header>
+                <Header as='h3' inverted>Businesses can create profiles and build a position advertisement
+                  as a way of finding the perfect match to qualified students.
+                </Header>
               </Grid.Column>
 
               <Grid.Column textAlign='center'>
-                <Icon name="location arrow" size='huge' inverted/>
-                <Header as='h1' inverted>Location Based Searches</Header>
-                <Header as='h3' inverted>Students can customize queries based on desired employment locations.  Embedded
-                  map feature allows quick viewing of unfamiliar area.</Header>
+                <Icon name="graduation cap" size='huge' inverted/>
+                <Header as='h1' inverted>Students</Header>
+                <Header as='h3' inverted>Students can create profiles with interest topics and location queries
+                  to help find the right job at the right location.</Header>
               </Grid.Column>
           <br/>
           <br/>
             </Grid>
 
           <Container textAlign='center'>
+            <br/>
             <br/>
             <a className="ui massive inverted button" role="button" href="#/signup">Sign me up!</a>
             <br/><br/>
