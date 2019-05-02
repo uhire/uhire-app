@@ -39,3 +39,4 @@ aldeed:collection2@3.0.0
 email
 check
 aldeed:schema-index
+meteortesting:mocha
