@@ -9,7 +9,9 @@
   color: white;
   position: relative;
 }
-
+.uhire-landing-picture {
+ padding-top: 50px;
+}
 
 .middlecontent {
   padding-top: 100px;

@@ -5,14 +5,12 @@ import { Grid, Container, Image, Icon, Header } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
 
-    const gridPadding = { paddingTop: '50px' };
-
     return (
         <div className=''>
 
-          <Grid container compact stackable centered columns={3} className="middlecontent">
+          <Grid container compact="true" stackable centered columns={3} className="middlecontent">
               <br/><br/>
-              <Grid.Row className={gridPadding}>
+              <Grid.Row className="uhire-landing-picture">
 
               <Image src='/images/landing.png'/>
             </Grid.Row>
@@ -38,7 +36,7 @@ class Landing extends React.Component {
             </Grid.Column>
           </Grid>
 
-          <Grid container compact stackable centered columns={3} className="middlecontent">
+          <Grid container compact="true" stackable centered columns={3} className="middlecontent">
               <br/><br/>
               <Grid.Column textAlign='center'>
                 <Icon name="briefcase" size='huge' inverted/>

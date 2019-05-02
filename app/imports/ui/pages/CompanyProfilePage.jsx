@@ -5,14 +5,13 @@ import Company from '/imports/ui/components/Company';
 import CompanyLogo from '/imports/ui/components/CompanyLogo';
 import { Companies } from '/imports/api/company/company.js';
 import { Positions } from '/imports/api/position/position.js';
-import { Visits } from '/imports/api/visit/visit.js';
 import PositionItemProfile from '/imports/ui/components/PositionItemProfile';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-// import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
 import { Roles } from 'meteor/alanning:roles';
 import { Redirect } from 'react-router-dom';
 import CompanyLocationMap from '/imports/ui/components/CompanyLocationMap';
+
 /** Renders the Page for adding a document. */
 class CompanyProfilePage extends React.Component {
 
@@ -43,7 +42,6 @@ class CompanyProfilePage extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    console.log(this.props.positions);
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
@@ -117,7 +115,6 @@ class CompanyProfilePage extends React.Component {
 CompanyProfilePage.propTypes = {
   positions: PropTypes.array.isRequired,
   companies: PropTypes.array.isRequired,
-  visits: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -128,14 +125,12 @@ export default withTracker(({ match }) => {
 
   const subscription = Meteor.subscribe('Companies');
   const subscription2 = Meteor.subscribe('PositionStudent');
-  const subscription3 = Meteor.subscribe('Visits');
   const subscription4 = Meteor.subscribe('CompanyAdmin');
   const subscription5 = Meteor.subscribe('CompaniesStudent');
   return {
     positions: Positions.find({ companyName: documentId }).fetch(),
     companies: Companies.find({ companyName: documentId }).fetch(),
-    visits: Visits.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready() && subscription3.ready() && subscription.ready()
+    ready: subscription.ready() && subscription2.ready() && subscription.ready()
         && subscription4.ready() && subscription5.ready(),
   };
 })(CompanyProfilePage);

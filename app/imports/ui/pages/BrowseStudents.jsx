@@ -2,7 +2,6 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Card, Menu, Loader, Header, Dropdown, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
-// import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Students } from '/imports/api/stuff/student.js';
 import StudentItem from '/imports/ui/components/StudentItem';

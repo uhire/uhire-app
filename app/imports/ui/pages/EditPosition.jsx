@@ -55,7 +55,7 @@ class EditPosition extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Position</Header>
+            <Header as="h2" inverted textAlign="center">Edit Position</Header>
             <AutoForm schema={PositionSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
                 <TextField name='title'/>

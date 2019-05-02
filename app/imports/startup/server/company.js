@@ -14,14 +14,6 @@ if (Companies.find().count() === 0) {
   }
 }
 
-/** This subscription publishes only the documents associated with the logged in user */
-// Meteor.publish('CompaniesAll', function publish() {
-//   if (this.userId) {
-//     return Companies.find();
-//   }
-//   return this.ready();
-// });
-
 Meteor.publish('Companies', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'company')) {
     const username = Meteor.users.findOne(this.userId).username;

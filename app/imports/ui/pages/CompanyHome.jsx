@@ -1,4 +1,3 @@
-// import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Grid, Header, Loader, Table } from 'semantic-ui-react';
@@ -10,7 +9,6 @@ import { Companies } from '/imports/api/company/company.js';
 import CompanyDetails from '/imports/ui/components/CompanyDetails';
 import CompanyHomeLogo from '/imports/ui/components/CompanyHomeLogo';
 import { Students } from '/imports/api/stuff/student';
-// import StudentItem from '/imports/ui/components/StudentItem';
 import { Redirect } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 

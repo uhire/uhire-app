@@ -44,13 +44,15 @@ export default class Signup extends React.Component {
 
     if (!comRegex.test(this.state.email) && !atSymbolRegex.test(this.state.email)) {
       this.setState({ error: 'Current email is not an email. Please include "@ and .com". ' });
-    } else if (!comRegex.test(this.state.email)) {
-      this.setState({ error: 'Current email is not an email. Please include ".com". ' });
-    } else if (!atSymbolRegex.test(this.state.email)) {
-      this.setState({ error: 'Current email is not an email. Please include "@". ' });
-    } else {
-      this.setState({ error: '' });
-    }
+    } else
+      if (!comRegex.test(this.state.email)) {
+        this.setState({ error: 'Current email is not an email. Please include ".com". ' });
+      } else
+        if (!atSymbolRegex.test(this.state.email)) {
+          this.setState({ error: 'Current email is not an email. Please include "@". ' });
+        } else {
+          this.setState({ error: '' });
+        }
   }
 
   /** Password Validation to include certain characters */
@@ -59,23 +61,33 @@ export default class Signup extends React.Component {
     const numberRegex = /\d+/;
     const specialCharacterRegex = /\W+/;
 
-    if (!capitalLetterRegex.test(this.state.password) && !numberRegex.test(this.state.password) && !specialCharacterRegex.test(this.state.password)) {
-      this.setState({ error: 'Password must include at least 1 number, 1 Capital Letter, and 1 Special Character.' });
-    } else if (!capitalLetterRegex.test(this.state.password) && !numberRegex.test(this.state.password)) {
-      this.setState({ error: 'Password must include at least 1 number, and 1 Capital Letter.' });
-    } else if (!capitalLetterRegex.test(this.state.password) && !specialCharacterRegex.test(this.state.password)) {
-      this.setState({ error: 'Password must include at least 1 Special Character, and 1 Capital Letter.' });
-    } else if (!numberRegex.test(this.state.password) && !specialCharacterRegex.test(this.state.password)) {
-      this.setState({ error: 'Password must include at least 1 Special Character, and 1 number.' });
-    } else if (!capitalLetterRegex.test(this.state.password)) {
-      this.setState({ error: 'Password must include at least 1 Capital Letter.' });
-    } else if (!specialCharacterRegex.test(this.state.password)) {
-      this.setState({ error: 'Password must include at least 1 Special Character.' });
-    } else if (!numberRegex.test(this.state.password)) {
-      this.setState({ error: 'Password must include at least 1 number.' });
-    } else {
-      this.setState({ error: '' });
-    }
+    if (!capitalLetterRegex.test(this.state.password) && !numberRegex.test(this.state.password)
+        && !specialCharacterRegex.test(this.state.password)) {
+      this.setState({
+        error: 'Password must include at least 1 number, ' +
+            '1 Capital Letter, and 1 Special Character.',
+      });
+    } else
+      if (!capitalLetterRegex.test(this.state.password) && !numberRegex.test(this.state.password)) {
+        this.setState({ error: 'Password must include at least 1 number, and 1 Capital Letter.' });
+      } else
+        if (!capitalLetterRegex.test(this.state.password) && !specialCharacterRegex.test(this.state.password)) {
+          this.setState({ error: 'Password must include at least 1 Special Character, and 1 Capital Letter.' });
+        } else
+          if (!numberRegex.test(this.state.password) && !specialCharacterRegex.test(this.state.password)) {
+            this.setState({ error: 'Password must include at least 1 Special Character, and 1 number.' });
+          } else
+            if (!capitalLetterRegex.test(this.state.password)) {
+              this.setState({ error: 'Password must include at least 1 Capital Letter.' });
+            } else
+              if (!specialCharacterRegex.test(this.state.password)) {
+                this.setState({ error: 'Password must include at least 1 Special Character.' });
+              } else
+                if (!numberRegex.test(this.state.password)) {
+                  this.setState({ error: 'Password must include at least 1 number.' });
+                } else {
+                  this.setState({ error: '' });
+                }
   }
 
   /** Function to verify password input */
@@ -120,13 +132,6 @@ export default class Signup extends React.Component {
         value: 'student',
         icon: 'student',
       },
-      /** Used in case of administering admin rights to a new user
-       {
-        key: 'Admin',
-        text: 'Admin',
-        value: 'admin',
-        icon: 'user',
-      }, */
     ];
     // Added a redirectToReferer to redirect to successful registration
     if (this.state.redirectToReferer) {
@@ -152,7 +157,7 @@ export default class Signup extends React.Component {
                         type="email"
                         placeholder="E-mail address"
                         onChange={this.handleChange}
-                        onKeyUp ={this.handleEmailValidation}
+                        onKeyUp={this.handleEmailValidation}
                     />
                     <Form.Input
                         required label="Password"
