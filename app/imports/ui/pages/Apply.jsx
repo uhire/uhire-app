@@ -157,9 +157,10 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Position documents.
   const subscription = Meteor.subscribe('Position');
+  const subStudents = Meteor.subscribe('SelfStudent');
   return {
     doc: Positions.findOne(documentId),
-    ready: subscription.ready(),
+    ready: subscription.ready() && subStudents.ready(),
     student: Students.find({}).fetch(),
   };
 })(Apply);
