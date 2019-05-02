@@ -1,9 +1,7 @@
 import React from 'react';
-import { Dropdown, Form } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
-import { withTracker } from 'meteor/react-meteor-data';
-import { Meteor } from "meteor/meteor";
+import { withRouter } from 'react-router-dom';
 
 const renderLabel = label => ({
   color: 'blue',
