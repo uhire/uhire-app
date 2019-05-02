@@ -5,14 +5,14 @@ import { Grid, Container, Image, Icon, Header } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
 
-    const gridPadding = {paddingTop: '50px'};
+    const gridPadding = { paddingTop: '50px' };
 
     return (
         <div className=''>
 
           <Grid container compact stackable centered columns={3} className="middlecontent">
-            <br/><br/>
-            <Grid.Row className={gridPadding}>
+              <br/><br/>
+              <Grid.Row className={gridPadding}>
 
               <Image src='/images/landing.png'/>
             </Grid.Row>
@@ -36,15 +36,33 @@ class Landing extends React.Component {
               <Header as='h1' inverted>Communication</Header>
               <Header as='h3' inverted>Companies and students can exchange information by way of email.</Header>
             </Grid.Column>
+          </Grid>
 
             <Container textAlign='center'>
               <br/>
               <a className="ui massive inverted button" role="button" href="#/signup">Sign me up!</a>
               <br/><br/>
             </Container>
-          </Grid>
+
+          <Grid container compact stackable centered columns={3} className="middlecontent">
+              <br/><br/>
+              <Grid.Column textAlign='center'>
+                <Icon name="users" size='huge' inverted/>
+                <Header as='h1' inverted>Multiple Users</Header>
+                <Header as='h3' inverted>This application allows multiple companies and/or students to
+                  save their profiles. Students can view a listing of all the companies that are advertising
+                  positions.</Header>
+              </Grid.Column>
+
+              <Grid.Column textAlign='center'>
+                <Icon name="location arrow" size='huge' inverted/>
+                <Header as='h1' inverted>Location Based Searches</Header>
+                <Header as='h3' inverted>Students can customize queries based on desired employment locations.  Embedded
+                  map feature allows quick viewing of unfamiliar area.</Header>
+              </Grid.Column>
           <br/>
           <br/>
+            </Grid>
         </div>
     );
   }
