@@ -38,12 +38,6 @@ class Landing extends React.Component {
             </Grid.Column>
           </Grid>
 
-            <Container textAlign='center'>
-              <br/>
-              <a className="ui massive inverted button" role="button" href="#/signup">Sign me up!</a>
-              <br/><br/>
-            </Container>
-
           <Grid container compact stackable centered columns={3} className="middlecontent">
               <br/><br/>
               <Grid.Column textAlign='center'>
@@ -63,6 +57,12 @@ class Landing extends React.Component {
           <br/>
           <br/>
             </Grid>
+
+          <Container textAlign='center'>
+            <br/>
+            <a className="ui massive inverted button" role="button" href="#/signup">Sign me up!</a>
+            <br/><br/>
+          </Container>
         </div>
     );
   }
